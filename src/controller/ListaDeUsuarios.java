@@ -55,9 +55,9 @@ public class ListaDeUsuarios {
         return listaUsuarios;
     }
     
-    public Usuario listarUsuario(String username){
+    public Usuario listarUsuario(String id){
         for(Usuario encontrar:listaUsuarios){
-            if(encontrar.getUsername().equals(username)){
+            if(encontrar.getId().equals(id)){
                 return encontrar;
             }
         }
@@ -65,15 +65,15 @@ public class ListaDeUsuarios {
         return null;
     }
     
-    public boolean modificarUsuarios(Usuario user,String oldUser,String newUser,String contrasena,String nombreCompleto,ArrayList<String> privilegio,String rol,String status){
+    public boolean modificarUsuarios(Usuario user,String id,String newUser,String contrasena,String nombreCompleto,ArrayList<String> privilegio,String rol,String status){
         Validador validar = new Validador();
-        Usuario usuarioExiste = listarUsuario(oldUser);
+        Usuario usuarioExiste = listarUsuario(id);
         boolean existeNombre = false;
         boolean retornar = false;
         if (usuarioExiste != null) {
             existeNombre = usuarioExistente(newUser);
             if (existeNombre == true) {
-                JOptionPane.showMessageDialog(null, "Ya existe un usuario con el nombre:" + newUser + ". Intente con otro nombre", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Ya existe un usuario con el nombre: " + newUser + ". Intente con otro nombre", "Error", JOptionPane.ERROR_MESSAGE);
                 return retornar;
             } else {
                 if (!validar.validarConRegex(newUser,"^.{1,30}$","Nombre del usuario","Limite de caracteres sobrepasado, solo se puede ingresar de 5 a 30 caracteres")
@@ -87,11 +87,12 @@ public class ListaDeUsuarios {
                     try {
                         estado = Boolean.parseBoolean(status);
                     } catch (Exception e) {
-                        estado = false;
+                        JOptionPane.showMessageDialog(null, "Estado invalido", "Error", JOptionPane.ERROR_MESSAGE);
+                        return false;
                     }
                     Usuario userModded = new Usuario(newUser, contrasena, nombreCompleto, privilegio, rol,estado);
                     for (int cont = 0; cont < listaUsuarios.size(); cont++) {
-                        if (listaUsuarios.get(cont).getUsername().equals(oldUser)) {
+                        if (listaUsuarios.get(cont).getId().equals(id)) {
                             listaUsuarios.set(cont,userModded);
                         }
                     }
@@ -105,12 +106,12 @@ public class ListaDeUsuarios {
         return retornar;
     }
     
-    public boolean eliminarUsuarios(Usuario user,String nombreBorrar){
-        Usuario usuarioExiste=listarUsuario(nombreBorrar);
+    public boolean eliminarUsuarios(Usuario user,String id){
+        Usuario usuarioExiste=listarUsuario(id);
         boolean retornar = false;
         if(usuarioExiste!=null){
             for(int cont=0;cont<listaUsuarios.size();cont++){
-                if(listaUsuarios.get(cont).getUsername().equals(nombreBorrar)){
+                if(listaUsuarios.get(cont).getId().equals(id)){
                     listaUsuarios.remove(cont);
                 }
             }
@@ -135,6 +136,24 @@ public class ListaDeUsuarios {
         }
         if(permitirUser==true && permitirPass==true){
             retornar=true;
+        }
+        else if((permitirUser==false && permitirPass==true)||(permitirUser==false && permitirPass==false)||(permitirUser==true && permitirPass==false)){
+            JOptionPane.showMessageDialog(null,"El usuario y la contraseña no coinciden", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return retornar;
+    }
+    
+    public boolean verificarPrivilegios(Usuario user,String privilegio){
+        ArrayList<String> comprobarPrivi=user.getPrivilegios();
+        boolean retornar=false;
+        for(String recorrer:comprobarPrivi){
+            if(recorrer.equals(privilegio)){
+                retornar=true;
+            }
+        }
+        if(retornar==false){
+            JOptionPane.showMessageDialog(null,"No tienes acceso a este modulo", "Error", JOptionPane.ERROR_MESSAGE);
+            return retornar;
         }
         return retornar;
     }

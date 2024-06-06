@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Usuario {
     private String username;
@@ -9,6 +10,22 @@ public class Usuario {
     private ArrayList<String> privilegios;
     private String rolUsuario;
     private boolean status;
+    private String id;
+
+    public static final String generarUUID() {
+        UUID uuid = UUID.randomUUID();
+        return uuid.toString();
+    }
+    
+    public Usuario(String username, String contrasena, String nombreUser, ArrayList<String> privilegios, String rolUsuario, boolean status) {
+        this.username = username;
+        this.contrasena = contrasena;
+        this.nombreUser = nombreUser;
+        this.privilegios = privilegios;
+        this.rolUsuario = rolUsuario;
+        this.status = status;
+        this.id=generarUUID();
+    }
 
     public String getUsername() {
         return username;
@@ -58,16 +75,8 @@ public class Usuario {
         this.status = status;
     }
 
-    public Usuario(String username, String contrasena, String nombreUser, ArrayList<String> privilegios, String rolUsuario, boolean status) {
-        this.username = username;
-        this.contrasena = contrasena;
-        this.nombreUser = nombreUser;
-        this.privilegios = privilegios;
-        this.rolUsuario = rolUsuario;
-        this.status = status;
+    public String getId() {
+        return id;
     }
-    
-    
-
-    
+       
 }

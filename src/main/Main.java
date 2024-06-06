@@ -2,6 +2,7 @@ package main;
 
 import controller.ListaLaboratorios;
 import controller.ListaDeProductos;
+import controller.ListaDeUsuarios;
 import java.util.ArrayList;
 import model.Laboratorio;
 import model.Usuario;
@@ -14,6 +15,7 @@ public class Main {
          */
         //Estos pasos previos solo se realiza para lograr ejemplificar, 
         //en la practica los valore no debe obtenerse asi
+        
         ArrayList<String> privilegios = new ArrayList<>();//Esto se maneja en modulo de usuarios
         Usuario administradorLaboratorio = new Usuario("Keny", "1234", "jorge1", privilegios, "invitado", true); //Este usuario debería venir de combo box que liste usuario existente no deberia crearse en el momento
         Usuario usuarioQueLlamaAlMetodo = new Usuario("Harry", "1234", "jorge1", privilegios, "invitado", true); //Este usuario debería venir de combo box que liste usuario existente no deberia crearse en el momento
@@ -128,6 +130,62 @@ public class Main {
         //listaDeProductos.crearProducto(usuarioQueLlamaAlMetodo, descripcion, marca, modelo, presentacion, clasificacion, categoria, ultimaCompra, precioEstimado, unidad, proveedor, codigo, nombreProducto, tipoDeProducto, inventarioExistente, observaciones, labo, existenciasMinimas);
         //listaDeProductos.crearProducto(usuarioQueLlamaAlMetodo, formulaQuimica, concentracion, presentacion, nombreComercial, Boolean.TRUE, numeroDeIdentificacion, grupoDeRiesgo, fraseR, fraseS, metodoDeControl, permisos, unidad, precioEstimado, proveedor, almacenadoEnvasado, codigo, nombreProducto, tipoDeProducto, inventarioExistente, observaciones, labo, existenciasMinimas);
         //listaDeProductos.crearProducto(usuarioQueLlamaAlMetodo, descripcion, marca, modelo, numeroSerial, numeroActivo, presentacion, voltaje, procesable, materialRequerido, añoDeCompra, aplicacion, ultimoMantenimiento, proximoMantenimiento, ultimaCalibracion, proximaCalibracion, proovedoresDeServicios, Boolean.TRUE, codigo, nombreProducto, tipoDeProducto, inventarioExistente, observaciones, labo, existenciasMinimas);
+        
+        /*Prueba de usuarios
+        
+        privilegios.add("Usuarios");
+        privilegios.add("Laboratorios");
+        ListaDeUsuarios lista2=new ListaDeUsuarios();
+        lista2.crearUsuario(administradorLaboratorio,"jimmy","1234","Jimmy Fung", privilegios,"invitado", "true");
+        lista2.crearUsuario(usuarioQueLlamaAlMetodo,"john","1234","John Marston", privilegios,"inivitado","true");
+        
+        ArrayList<Usuario>usuario1=lista2.listarUsuarios();
+        Usuario usuario=lista2.listarUsuario(usuario1.get(1).getId());
+        
+        System.out.println("\n");
+        System.out.println("Nombre: " + usuario.getUsername());
+        System.out.println("contraseña: " + usuario.getContrasena());
+        System.out.println("Nombre completo: " + usuario.getNombreUser());
+        System.out.println("Rol: " + usuario.getRolUsuario());
+        System.out.println("Estado: " +usuario.isStatus());
+        System.out.println("ID: "+usuario.getId());
+        ArrayList<Usuario>listadeusuarios=new ArrayList<>();
+        listadeusuarios=lista2.listarUsuarios();
+        
+        System.out.println("\n");
+        System.out.println("Nombre 1: " + listadeusuarios.get(0).getUsername());
+        System.out.println("Nombre 2: " + listadeusuarios.get(1).getUsername());
+        lista2.modificarUsuarios(administradorLaboratorio,listadeusuarios.get(1).getId(),"hank","j2312","hank tonks", privilegios,"admin","true");
+        listadeusuarios=lista2.listarUsuarios();
+        
+        System.out.println("\n");
+        System.out.println("Nombre: " + listadeusuarios.get(1).getUsername());
+        System.out.println("contraseña: " + listadeusuarios.get(1).getContrasena());
+        System.out.println("Nombre completo: " + listadeusuarios.get(1).getNombreUser());
+        System.out.println("Rol: " + listadeusuarios.get(1).getRolUsuario());
+        System.out.println("Estado: " +listadeusuarios.get(1).isStatus());
+        System.out.println("ID: "+listadeusuarios.get(1).getId());
+        
+        lista2.eliminarUsuarios(administradorLaboratorio,listadeusuarios.get(1).getId());
+       
+        lista2.crearUsuario(usuarioQueLlamaAlMetodo,"john","1234","John Marston", privilegios,"inivitado","true");
+        listadeusuarios=lista2.listarUsuarios();
+        System.out.println("\n");
+        System.out.println("Nombre: " + listadeusuarios.get(1).getUsername());
+        System.out.println("contraseña: " + listadeusuarios.get(1).getContrasena());
+        System.out.println("Nombre completo: " + listadeusuarios.get(1).getNombreUser());
+        System.out.println("Rol: " + listadeusuarios.get(1).getRolUsuario());
+        System.out.println("Estado: " +listadeusuarios.get(1).isStatus());
+        System.out.println("ID: "+listadeusuarios.get(1).getId());
+        
+        boolean bool=lista2.iniciarSesion("jimmy","1234");
+        System.out.println("\n");
+        System.out.println(bool);
+        
+        bool=lista2.verificarPrivilegios(lista2.listarUsuario(listadeusuarios.get(0).getId()),"Laboratorios");
+        System.out.println("\n");
+        System.out.println(bool);
+        */
     }
 
 }
