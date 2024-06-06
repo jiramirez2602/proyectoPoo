@@ -34,7 +34,6 @@ public class listaDeProductos {
                 || !validador.validarConRegex(unidad, "^[A-Za-z\\s]{0,10}$", "Unidad", "Unidad es invalido(a), puede usar hasta 10 caractes alfabeticos")
                 || !validador.validarConRegex(proveedor, "^[A-Za-z\\s]{0,50}$", "Proveedor", "Proveedor es invalido(a), puede usar hasta 50 caractes alfabeticos")
                 || !validador.validarConRegex(codigo, "^[A-Za-z\\s]{0,30}$", "Codigo", "Codigo es invalido(a), puede usar hasta 30 caractes alfabeticos")
-                /*int , String , Laboratorio laboratorio, int existenciasMinimas*/
                 || !validador.validarConRegex(nombreProducto, "^[A-Za-z\\s]{5,50}$", "Nombre Producto", "Nombre Producto es invalido(a), puede usar hasta 50 caractes alfabeticos")
                 /* TODO: solicitar con combo box*/
                 /*|| !validador.validarConRegex(tipoDeProducto, "^[A-Za-z\\s]{0,50}$", "Tipo De Producto", "Tipo De Producto es invalido(a), puede usar hasta 50 caractes alfabeticos")*/
