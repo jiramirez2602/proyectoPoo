@@ -128,8 +128,8 @@ public class Main {
          */
         //
         listaDeProductos.crearProducto(usuarioQueLlamaAlMetodo, "Soy una descripcion de insumo Herramienta manual de 8 utilizada para aflojar", "No especifica", "No especifica", "Unitaria", "No Consumibles, Herramientas del laboratorio", "N/A", "26/02/2024", "5", "unds", "Ferreterias", "No especifíca", "Destornilladores de estrias", "Insumo", "9", "Observaciones: se debe utiliza de dia", labo);
-        //listaDeProductos.crearProducto(usuarioQueLlamaAlMetodo, "H2O", concentracion, presentacion, nombreComercial, Boolean.TRUE, numeroDeIdentificacion, grupoDeRiesgo, fraseR, fraseS, metodoDeControl, permisos, unidad, precioEstimado, proveedor, almacenadoEnvasado, codigo, nombreProducto, tipoDeProducto, inventarioExistente, observaciones, labo);
-        //listaDeProductos.crearProducto(usuarioQueLlamaAlMetodo, "Soy una descripcion de equipo", marca, modelo, numeroSerial, numeroActivo, presentacion, voltaje, procesable, materialRequerido, añoDeCompra, aplicacion, ultimoMantenimiento, proximoMantenimiento, ultimaCalibracion, proximaCalibracion, proovedoresDeServicios, Boolean.TRUE, codigo, nombreProducto, tipoDeProducto, inventarioExistente, observaciones, labo);
+        //listaDeProductos.crearProducto(usuarioQueLlamaAlMetodo, "H2O", "concentracion", "presentacion", "nombreComercial", Boolean.TRUE, "numeroDeIdentificacion", "grupoDeRiesgo", "fraseR", "fraseS", "metodoDeControl", "permisos", "unidad", "precioEstimado", "proveedor", "almacenadoEnvasado", "codigo", "nombreProducto", "tipoDeProducto", "inventarioExistente", "observaciones", labo);
+        //listaDeProductos.crearProducto(usuarioQueLlamaAlMetodo, "descripcion", "marca", "modelo", "numeroSerial", "321654", "presentacion", "321654", "procesable", "materialRequerido", "añoDeCompra", aplicacion, ultimoMantenimiento, proximoMantenimiento, ultimaCalibracion, proximaCalibracion, proovedoresDeServicios, Boolean.TRUE, codigo, nombreProducto, tipoDeProducto, inventarioExistente, observaciones, labo);
         
         
         
