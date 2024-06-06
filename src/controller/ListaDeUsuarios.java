@@ -124,23 +124,24 @@ public class ListaDeUsuarios {
         return retornar;
     }
     
-    public boolean iniciarSesion(String user,String contrasena){
+    public Usuario iniciarSesion(String user,String contrasena){
         boolean permitirUser=false;
         boolean permitirPass=false;
-        boolean retornar=false;
+        Usuario usuarioIniciado=null;
         for(int cont=0;cont<listaUsuarios.size();cont++){
             if(listaUsuarios.get(cont).getUsername().equals(user)&&listaUsuarios.get(cont).getContrasena().equals(contrasena)){
                 permitirUser=true;
                 permitirPass=true;
+                usuarioIniciado=listaUsuarios.get(cont);
             }
         }
         if(permitirUser==true && permitirPass==true){
-            retornar=true;
+            return usuarioIniciado;
         }
         else if((permitirUser==false && permitirPass==true)||(permitirUser==false && permitirPass==false)||(permitirUser==true && permitirPass==false)){
             JOptionPane.showMessageDialog(null,"El usuario y la contraseña no coinciden", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        return retornar;
+        return null;
     }
     
     public boolean verificarPrivilegios(Usuario user,String privilegio){
