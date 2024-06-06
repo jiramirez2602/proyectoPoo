@@ -1,11 +1,20 @@
 package model;
 
+import java.util.UUID;
+
 public class Laboratorio {
+
     String nombreLaboratorio;
     String facultad;
     String escuela;
     String departamento;
     Usuario administrador;
+    String id;
+
+    public static final String generarUUID() {
+        UUID uuid = UUID.randomUUID();
+        return uuid.toString();
+    }
 
     public Laboratorio(String nombreLaboratorio, String facultad, String escuela, String departamento, Usuario administrador) {
         this.nombreLaboratorio = nombreLaboratorio;
@@ -13,13 +22,17 @@ public class Laboratorio {
         this.escuela = escuela;
         this.departamento = departamento;
         this.administrador = administrador;
+        this.id = generarUUID();
+    }
+
+    public String getId() {
+        return id;
     }
 
     public Usuario getAdministrador() {
         return administrador;
     }
 
-    
     public String getNombreLaboratorio() {
         return nombreLaboratorio;
     }
@@ -55,5 +68,5 @@ public class Laboratorio {
     public void setAdministrador(Usuario administrador) {
         this.administrador = administrador;
     }
-    
+
 }

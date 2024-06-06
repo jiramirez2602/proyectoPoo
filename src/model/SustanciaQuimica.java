@@ -16,9 +16,9 @@ public class SustanciaQuimica extends Producto{
     String unidad;
     float precioEstimado;
     String proveedor;
-    String AlmacenadoEnvasado;
+    String almacenadoEnvasado;
 
-    public SustanciaQuimica(String formulaQuimica, String concentracion, String presentacion, String nombreComercial, Boolean poseeMSD, String numeroDeIdentificacion, String grupoDeRiesgo, String fraseR, String fraseS, String metodoDeControl, String permisos, String unidad, float precioEstimado, String proveedor, String AlmacenadoEnvasado, String codigo, String nombreProducto, String tipoDeProducto, int inventarioExistente, String observaciones, Laboratorio laboratorio, int existenciasMinimas) {
+    public SustanciaQuimica(String formulaQuimica, String concentracion, String presentacion, String nombreComercial, Boolean poseeMSD, String numeroDeIdentificacion, String grupoDeRiesgo, String fraseR, String fraseS, String metodoDeControl, String permisos, String unidad, float precioEstimado, String proveedor, String almacenadoEnvasado, String codigo, String nombreProducto, String tipoDeProducto, int inventarioExistente, String observaciones, Laboratorio laboratorio, int existenciasMinimas) {
         super(codigo, nombreProducto, tipoDeProducto, inventarioExistente, observaciones, laboratorio, existenciasMinimas);
         this.formulaQuimica = formulaQuimica;
         this.concentracion = concentracion;
@@ -34,7 +34,7 @@ public class SustanciaQuimica extends Producto{
         this.unidad = unidad;
         this.precioEstimado = precioEstimado;
         this.proveedor = proveedor;
-        this.AlmacenadoEnvasado = AlmacenadoEnvasado;
+        this.almacenadoEnvasado = almacenadoEnvasado;
     }
 
     public String getFormulaQuimica() {
@@ -94,7 +94,7 @@ public class SustanciaQuimica extends Producto{
     }
 
     public String getAlmacenadoEnvasado() {
-        return AlmacenadoEnvasado;
+        return almacenadoEnvasado;
     }
 
     public void setFormulaQuimica(String formulaQuimica) {
@@ -153,8 +153,8 @@ public class SustanciaQuimica extends Producto{
         this.proveedor = proveedor;
     }
 
-    public void setAlmacenadoEnvasado(String AlmacenadoEnvasado) {
-        this.AlmacenadoEnvasado = AlmacenadoEnvasado;
+    public void setAlmacenadoEnvasado(String almacenadoEnvasado) {
+        this.almacenadoEnvasado = almacenadoEnvasado;
     }
 
 }

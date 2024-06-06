@@ -32,9 +32,9 @@ public class ListaLaboratorios {
         return lista;
     }
 
-    public Laboratorio listarLaboratorio(String nombreLaboratorio) {
+    public Laboratorio listarLaboratorio(String id) {
         for (Laboratorio i : lista) {
-            if (i.getNombreLaboratorio() == nombreLaboratorio) {
+            if (i.getId().equals(id)) {
                 return i;
             }
         }
@@ -43,8 +43,8 @@ public class ListaLaboratorios {
     }
 
     //TODO: Agregar logica de transacciones
-    public boolean modificarLaboratorio(Usuario user, String nombreViejo, String nombreLaboratorio, String facultad, String escuela, String departamento, Usuario administrador) {
-        Laboratorio lab = listarLaboratorio(nombreViejo);
+    public boolean modificarLaboratorio(Usuario user, String id, String nombreLaboratorio, String facultad, String escuela, String departamento, Usuario administrador) {
+        Laboratorio lab = listarLaboratorio(id);
         if (lab != null) {
             Validador validador = new Validador();
             if (!validador.validarConRegex(nombreLaboratorio, "^[A-Za-z0-9\\s]{5,30}$", "Nombre de laboratorio", "Nombre es invalido, puede usar hasta 30 caractes alfanumericos")
@@ -56,7 +56,7 @@ public class ListaLaboratorios {
                 Laboratorio laboratorioAux = new Laboratorio(nombreLaboratorio, facultad, escuela, departamento, administrador);
                 int acumulador = 0;
                 for (Laboratorio i : lista) {
-                    if (i.getNombreLaboratorio() == nombreViejo) {
+                    if (i.getId().equals(id)) {
                         lista.set(acumulador, laboratorioAux);
                     }
                     acumulador++;
@@ -70,12 +70,12 @@ public class ListaLaboratorios {
     }
 
     //TODO: Agregar logica de transacciones
-    public void eliminarLaboratorio(Usuario user, String nombreLaboratorio) {
-        Laboratorio lab = listarLaboratorio(nombreLaboratorio);
+    public void eliminarLaboratorio(Usuario user, String id) {
+        Laboratorio lab = listarLaboratorio(id);
         if (lab != null) {
             int acumulador = 0;
             for (Laboratorio i : lista) {
-                if (i.getNombreLaboratorio() == nombreLaboratorio) {
+                if (i.getId().equals(id)) {
                     lista.remove(acumulador);
                 }
                 acumulador++;
