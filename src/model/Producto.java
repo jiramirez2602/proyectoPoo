@@ -7,16 +7,14 @@ public class Producto {
     int inventarioExistente;
     String observaciones;
     Laboratorio laboratorio;
-    int existenciasMinimas;
 
-    public Producto(String codigo, String nombreProducto, String tipoDeProducto, int inventarioExistente, String observaciones, Laboratorio laboratorio, int existenciasMinimas) {
+    public Producto(String codigo, String nombreProducto, String tipoDeProducto, int inventarioExistente, String observaciones, Laboratorio laboratorio) {
         this.codigo = codigo;
         this.nombreProducto = nombreProducto;
         this.tipoDeProducto = tipoDeProducto;
         this.inventarioExistente = inventarioExistente;
         this.observaciones = observaciones;
         this.laboratorio = laboratorio;
-        this.existenciasMinimas = existenciasMinimas;
     }
 
     
@@ -44,10 +42,6 @@ public class Producto {
         return laboratorio;
     }
 
-    public int getExistenciasMinimas() {
-        return existenciasMinimas;
-    }
-
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
@@ -70,10 +64,6 @@ public class Producto {
 
     public void setLaboratorio(Laboratorio laboratorio) {
         this.laboratorio = laboratorio;
-    }
-
-    public void setExistenciasMinimas(int existenciasMinimas) {
-        this.existenciasMinimas = existenciasMinimas;
     }
     
     public void necesitaCompra(){

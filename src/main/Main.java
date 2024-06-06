@@ -127,12 +127,21 @@ public class Main {
         cada llamada es para generar un tipo de producto distinto
          */
         //
-        //listaDeProductos.crearProducto(usuarioQueLlamaAlMetodo, descripcion, marca, modelo, presentacion, clasificacion, categoria, ultimaCompra, precioEstimado, unidad, proveedor, codigo, nombreProducto, tipoDeProducto, inventarioExistente, observaciones, labo, existenciasMinimas);
-        //listaDeProductos.crearProducto(usuarioQueLlamaAlMetodo, formulaQuimica, concentracion, presentacion, nombreComercial, Boolean.TRUE, numeroDeIdentificacion, grupoDeRiesgo, fraseR, fraseS, metodoDeControl, permisos, unidad, precioEstimado, proveedor, almacenadoEnvasado, codigo, nombreProducto, tipoDeProducto, inventarioExistente, observaciones, labo, existenciasMinimas);
-        //listaDeProductos.crearProducto(usuarioQueLlamaAlMetodo, descripcion, marca, modelo, numeroSerial, numeroActivo, presentacion, voltaje, procesable, materialRequerido, añoDeCompra, aplicacion, ultimoMantenimiento, proximoMantenimiento, ultimaCalibracion, proximaCalibracion, proovedoresDeServicios, Boolean.TRUE, codigo, nombreProducto, tipoDeProducto, inventarioExistente, observaciones, labo, existenciasMinimas);
+        listaDeProductos.crearProducto(usuarioQueLlamaAlMetodo, "Soy una descripcion de insumo Herramienta manual de 8 utilizada para aflojar", "No especifica", "No especifica", "Unitaria", "No Consumibles, Herramientas del laboratorio", "N/A", "26/02/2024", "5", "unds", "Ferreterias", "No especifíca", "Destornilladores de estrias", "Insumo", "9", "Observaciones: se debe utiliza de dia", labo);
+        //listaDeProductos.crearProducto(usuarioQueLlamaAlMetodo, "H2O", concentracion, presentacion, nombreComercial, Boolean.TRUE, numeroDeIdentificacion, grupoDeRiesgo, fraseR, fraseS, metodoDeControl, permisos, unidad, precioEstimado, proveedor, almacenadoEnvasado, codigo, nombreProducto, tipoDeProducto, inventarioExistente, observaciones, labo);
+        //listaDeProductos.crearProducto(usuarioQueLlamaAlMetodo, "Soy una descripcion de equipo", marca, modelo, numeroSerial, numeroActivo, presentacion, voltaje, procesable, materialRequerido, añoDeCompra, aplicacion, ultimoMantenimiento, proximoMantenimiento, ultimaCalibracion, proximaCalibracion, proovedoresDeServicios, Boolean.TRUE, codigo, nombreProducto, tipoDeProducto, inventarioExistente, observaciones, labo);
         
-        /*Prueba de usuarios
         
+        
+        
+        
+        
+        
+        
+        
+        /*Prueba de usuarios*/
+        
+        /*
         privilegios.add("Usuarios");
         privilegios.add("Laboratorios");
         ListaDeUsuarios lista2=new ListaDeUsuarios();

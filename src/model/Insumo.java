@@ -14,8 +14,8 @@ public class Insumo extends Producto{
     String unidad;
     String proveedor;
 
-    public Insumo(String descripcion, String marca, String modelo, String presentacion, String clasificacion, String categoria, Date ultimaCompra, float precioEstimado, String unidad, String proveedor, String codigo, String nombreProducto, String tipoDeProducto, int inventarioExistente, String observaciones, Laboratorio laboratorio, int existenciasMinimas) {
-        super(codigo, nombreProducto, tipoDeProducto, inventarioExistente, observaciones, laboratorio, existenciasMinimas);
+    public Insumo(String descripcion, String marca, String modelo, String presentacion, String clasificacion, String categoria, Date ultimaCompra, float precioEstimado, String unidad, String proveedor, String codigo, String nombreProducto, String tipoDeProducto, int inventarioExistente, String observaciones, Laboratorio laboratorio) {
+        super(codigo, nombreProducto, tipoDeProducto, inventarioExistente, observaciones, laboratorio);
         this.descripcion = descripcion;
         this.marca = marca;
         this.modelo = modelo;

@@ -24,7 +24,7 @@ public class ListaDeProductos {
     }
      */
     //Crear producto Insumos
-    public boolean crearProducto(Usuario user, String descripcion, String marca, String modelo, String presentacion, String clasificacion, String categoria, String ultimaCompra, String precioEstimado, String unidad, String proveedor, String codigo, String nombreProducto, String tipoDeProducto, String inventarioExistente, String observaciones, Laboratorio laboratorio, String existenciasMinimas) {
+    public boolean crearProducto(Usuario user, String descripcion, String marca, String modelo, String presentacion, String clasificacion, String categoria, String ultimaCompra, String precioEstimado, String unidad, String proveedor, String codigo, String nombreProducto, String tipoDeProducto, String inventarioExistente, String observaciones, Laboratorio laboratorio) {
         Validador validador = new Validador();
 
         if (!validador.validarConRegex(descripcion, "^[A-Za-z0-9\\s]{0,100}$", "Descripcion", "Descripcion es invalido(a), puede usar hasta 100 caractes alfanumericos")
@@ -42,14 +42,12 @@ public class ListaDeProductos {
                 /* TODO: solicitar con combo box*/
                 /*|| !validador.validarConRegex(tipoDeProducto, "^[A-Za-z\\s]{0,50}$", "Tipo De Producto", "Tipo De Producto es invalido(a), puede usar hasta 50 caractes alfabeticos")*/
                 || !validador.validarConRegex(inventarioExistente, "^[1-9][0-9]{0,5}(\\.[0-9]{1,2})?$", "Inventario Existente", "Inventario Existente es invalido(a), puede ser hasta de 0 a 999999")
-                || !validador.validarConRegex(observaciones, "^[A-Za-z\\s]{0,100}$", "Observaciones", "Observaciones es invalido(a), puede usar hasta 100 caractes alfabeticos")
-                || !validador.validarConRegex(existenciasMinimas, "^[1-9][0-9]{0,5}(\\.[0-9]{1,2})?$", "Existencias Minimas", "Existencias Minimas son invalido(a)s, puede ser hasta de 0 a 999999")) {
+                || !validador.validarConRegex(observaciones, "^[A-Za-z\\s]{0,100}$", "Observaciones", "Observaciones es invalido(a), puede usar hasta 100 caractes alfabeticos")) {
             return false;
         } else {
             Date ultimaCompraAux;
             float precioEstimadoAux;
             int existenciasAux;
-            int existenciasMinimasAux;
 
             try {
                 //Convertir a Date ultimaCompra
@@ -74,21 +72,14 @@ public class ListaDeProductos {
                 return false;
             }
 
-            try {
-                existenciasMinimasAux = Integer.parseInt(existenciasMinimas);
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Existencias minimas invalidas", "Error", JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
-
-            Producto productoAux = new Insumo(descripcion, marca, modelo, presentacion, clasificacion, categoria, ultimaCompraAux, precioEstimadoAux, unidad, proveedor, codigo, nombreProducto, tipoDeProducto, existenciasAux, observaciones, laboratorio, existenciasMinimasAux);
+            Producto productoAux = new Insumo(descripcion, marca, modelo, presentacion, clasificacion, categoria, ultimaCompraAux, precioEstimadoAux, unidad, proveedor, codigo, nombreProducto, tipoDeProducto, existenciasAux, observaciones, laboratorio);
             lista.add(productoAux);
             return true;
         }
     }
 
     //Crear producto Equipos
-    public boolean crearProducto(Usuario user, String descripcion, String marca, String modelo, String numeroSerial, String numeroActivo, String presentacion, String voltaje, String procesable, String materialRequerido, String añoDeCompra, String aplicacion, String ultimoMantenimiento, String proximoMantenimiento, String ultimaCalibracion, String proximaCalibracion, String proovedoresDeServicios, Boolean encendidoDenoche, String codigo, String nombreProducto, String tipoDeProducto, String inventarioExistente, String observaciones, Laboratorio laboratorio, String existenciasMinimas) {
+    public boolean crearProducto(Usuario user, String descripcion, String marca, String modelo, String numeroSerial, String numeroActivo, String presentacion, String voltaje, String procesable, String materialRequerido, String añoDeCompra, String aplicacion, String ultimoMantenimiento, String proximoMantenimiento, String ultimaCalibracion, String proximaCalibracion, String proovedoresDeServicios, Boolean encendidoDenoche, String codigo, String nombreProducto, String tipoDeProducto, String inventarioExistente, String observaciones, Laboratorio laboratorio) {
         Validador validador = new Validador();
 
         if (!validador.validarConRegex(descripcion, "^[A-Za-z0-9\\s]{0,100}$", "Descripcion", "Descripcion es invalido(a), puede usar hasta 100 caractes alfanumericos")
@@ -112,8 +103,7 @@ public class ListaDeProductos {
                 || !validador.validarConRegex(codigo, "^[A-Za-z\\s]{0,30}$", "Codigo", "Codigo es invalido(a), puede usar hasta 30 caractes alfabeticos")
                 || !validador.validarConRegex(nombreProducto, "^[A-Za-z\\s]{5,50}$", "Nombre Producto", "Nombre Producto es invalido(a), puede usar hasta 50 caractes alfabeticos")
                 || !validador.validarConRegex(inventarioExistente, "^[1-9][0-9]{0,5}(\\.[0-9]{1,2})?$", "Inventario Existente", "Inventario Existente es invalido(a), puede ser hasta de 0 a 999999")
-                || !validador.validarConRegex(observaciones, "^[A-Za-z\\s]{0,100}$", "Observaciones", "Observaciones es invalido(a), puede usar hasta 100 caractes alfabeticos")
-                || !validador.validarConRegex(existenciasMinimas, "^[1-9][0-9]{0,5}(\\.[0-9]{1,2})?$", "Existencias Minimas", "Existencias Minimas son invalido(a)s, puede ser hasta de 0 a 999999")) {
+                || !validador.validarConRegex(observaciones, "^[A-Za-z\\s]{0,100}$", "Observaciones", "Observaciones es invalido(a), puede usar hasta 100 caractes alfabeticos")) {
             /*TODO: encendidoDenoche radio botton*/ /*TODO: encendidoDenoche radio botton*/
  /*TODO: tipoDeProducto combo box*/
             return false;
@@ -124,7 +114,6 @@ public class ListaDeProductos {
             Date ultimaCalibracionAux;
             Date proximaCalibracionAux;
             int inventarioExistenteAux;
-            int existenciasMinimasAux;
 
             try {
                 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -176,22 +165,15 @@ public class ListaDeProductos {
                 JOptionPane.showMessageDialog(null, "Existencias invalidas", "Error", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
-
-            try {
-                existenciasMinimasAux = Integer.parseInt(existenciasMinimas);
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Existencias minimas invalidas", "Error", JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
-
-            Producto productoAux = new Equipo(descripcion, marca, modelo, numeroSerial, numeroActivo, presentacion, voltaje, procesable, materialRequerido, añoDeCompraAux, aplicacion, ultimoMantenimientoAux, proximoMantenimientoAux, ultimaCalibracionAux, proximaCalibracionAux, proovedoresDeServicios, encendidoDenoche, codigo, nombreProducto, tipoDeProducto, inventarioExistenteAux, observaciones, laboratorio, existenciasMinimasAux);
+            
+            Producto productoAux = new Equipo(descripcion, marca, modelo, numeroSerial, numeroActivo, presentacion, voltaje, procesable, materialRequerido, añoDeCompraAux, aplicacion, ultimoMantenimientoAux, proximoMantenimientoAux, ultimaCalibracionAux, proximaCalibracionAux, proovedoresDeServicios, encendidoDenoche, codigo, nombreProducto, tipoDeProducto, inventarioExistenteAux, observaciones, laboratorio);
             lista.add(productoAux);
             return true;
         }
     }
 
     //Crear producto Sustancias Químicas
-    public boolean crearProducto(Usuario user, String formulaQuimica, String concentracion, String presentacion, String nombreComercial, Boolean poseeMSD, String numeroDeIdentificacion, String grupoDeRiesgo, String fraseR, String fraseS, String metodoDeControl, String permisos, String unidad, String precioEstimado, String proveedor, String almacenadoEnvasado, String codigo, String nombreProducto, String tipoDeProducto, String inventarioExistente, String observaciones, Laboratorio laboratorio, String existenciasMinimas) {
+    public boolean crearProducto(Usuario user, String formulaQuimica, String concentracion, String presentacion, String nombreComercial, Boolean poseeMSD, String numeroDeIdentificacion, String grupoDeRiesgo, String fraseR, String fraseS, String metodoDeControl, String permisos, String unidad, String precioEstimado, String proveedor, String almacenadoEnvasado, String codigo, String nombreProducto, String tipoDeProducto, String inventarioExistente, String observaciones, Laboratorio laboratorio) {
         Validador validador = new Validador();
         
         if (!validador.validarConRegex(formulaQuimica, "^[^]{0,100}$", "Formula Quimica", "Formula Quimica es invalido(a), puede usar hasta 100 caractes alfanumericos")
@@ -213,13 +195,11 @@ public class ListaDeProductos {
                 /* TODO: solicitar con combo box tipoDeProducto*/
                 /*TODO: Validar con radio botton poseeMSD*/
                 || !validador.validarConRegex(inventarioExistente, "^[1-9][0-9]{0,5}(\\.[0-9]{1,2})?$", "Inventario Existente", "Inventario Existente es invalido(a), puede ser hasta de 0 a 999999")
-                || !validador.validarConRegex(observaciones, "^[A-Za-z\\s]{0,100}$", "Observaciones", "Observaciones es invalido(a), puede usar hasta 100 caractes alfabeticos")
-                || !validador.validarConRegex(existenciasMinimas, "^[1-9][0-9]{0,5}(\\.[0-9]{1,2})?$", "Existencias Minimas", "Existencias Minimas son invalido(a)s, puede ser hasta de 0 a 999999")) {
+                || !validador.validarConRegex(observaciones, "^[A-Za-z\\s]{0,100}$", "Observaciones", "Observaciones es invalido(a), puede usar hasta 100 caractes alfabeticos")) {
             return false;
         } else {
             float precioEstimadoAux;
             int inventarioExistenteAux;
-            int existenciasMinimasAux;
 
             try {
                 precioEstimadoAux = Float.parseFloat(precioEstimado);
@@ -234,15 +214,8 @@ public class ListaDeProductos {
                 JOptionPane.showMessageDialog(null, "Existencias invalidas", "Error", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
-
-            try {
-                existenciasMinimasAux = Integer.parseInt(existenciasMinimas);
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Existencias minimas invalidas", "Error", JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
             
-            Producto productoAux = new SustanciaQuimica(formulaQuimica, concentracion, presentacion, nombreComercial, poseeMSD, numeroDeIdentificacion, grupoDeRiesgo, fraseR, fraseS, metodoDeControl, permisos, unidad, precioEstimadoAux, proveedor, almacenadoEnvasado, codigo, nombreProducto, tipoDeProducto, inventarioExistenteAux, observaciones, laboratorio, existenciasMinimasAux);
+            Producto productoAux = new SustanciaQuimica(formulaQuimica, concentracion, presentacion, nombreComercial, poseeMSD, numeroDeIdentificacion, grupoDeRiesgo, fraseR, fraseS, metodoDeControl, permisos, unidad, precioEstimadoAux, proveedor, almacenadoEnvasado, codigo, nombreProducto, tipoDeProducto, inventarioExistenteAux, observaciones, laboratorio);
             lista.add(productoAux);
             return true;
         }
