@@ -21,6 +21,12 @@ public class ListaDeEquipos {
         return listaEquipos;
     }
 
+    public void setListaEquipos(ArrayList<Equipo> listaEquipos) {
+        this.listaEquipos = listaEquipos;
+    }
+    
+    
+
     //TODO: Agregar logica de transacciones
     //Crear producto Equipos
     public boolean crearProductoEquipo(Usuario user, String descripcion, String marca, String modelo, String numeroSerial, String numeroActivo, String presentacion, String voltaje, String procesable, String materialRequerido, String añoDeCompra, String aplicacion, String ultimoMantenimiento, String proximoMantenimiento, String ultimaCalibracion, String proximaCalibracion, String proovedoresDeServicios, Boolean encendidoDenoche, String codigo, String nombreProducto, String inventarioExistente, String observaciones, Laboratorio laboratorio) {
@@ -221,7 +227,7 @@ public class ListaDeEquipos {
                 }
 
                 Equipo equipoAux = new Equipo(descripcion, marca, modelo, numeroSerial, numeroActivo, presentacion, voltaje, procesable, materialRequerido, añoDeCompraAux, aplicacion, ultimoMantenimientoAux, proximoMantenimientoAux, ultimaCalibracionAux, proximaCalibracionAux, proovedoresDeServicios, encendidoDenoche, codigo, nombreProducto, inventarioExistenteAux, observaciones, laboratorio);
-
+                equipoAux.setId(id);
                 int acumulador = 0;
                 for (Equipo i : listaEquipos) {
                     if (i.getId().equals(id)) {

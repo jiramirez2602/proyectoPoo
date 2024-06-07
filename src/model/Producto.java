@@ -27,6 +27,10 @@ public class Producto {
         this.id = generarUUID();
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getId() {
         return id;
     }

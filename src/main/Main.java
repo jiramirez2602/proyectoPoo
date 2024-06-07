@@ -15,9 +15,7 @@ import model.Usuario;
 public class Main {
 
     public static void main(String[] args) {
-        /**
-         * ***********************************************************
-         */
+
         //Estos pasos previos solo se realiza para lograr ejemplificar, 
         //en la practica los valore no debe obtenerse asi
 
@@ -30,22 +28,20 @@ public class Main {
         ListaLaboratorios listaLaboratorios = new ListaLaboratorios();
         //**********************************************************************
 
-        /*
-        Ejemplo 1 para crear un laboratorio , considera que el usuario 
-        debe ser seleccionado desde un combobox que liste los usario que deben 
-        ser previamente registrados en este ejemplo uso un usuario que cree
-        pero no es elflujo normal
-         */
+        
+        //Ejemplo 1 para crear un laboratorio , considera que el usuario 
+        //debe ser seleccionado desde un combobox que liste los usario que deben 
+        //ser previamente registrados en este ejemplo uso un usuario que cree
+        //pero no es elflujo normal
+         
         //Este metodo que sige devuelve true cuando todo salio bien puedes usar ese rotorno para continuar a la siguiente ventana o mostrar mensaje de exito
         //El departamento es opcional as[i debes llamar al metodo o este es un ejemplo
         listaLaboratorios.crearLaboratorio(usuarioQueLlamaAlMetodo, "Labo 1", "Ingenieria", "Telecom", "Sanitaria", administradorLaboratorio);
         listaLaboratorios.crearLaboratorio(usuarioQueLlamaAlMetodo, "Labo 2", "Ingenieria", "Telecom", "", administradorLaboratorio); //Ejemplo departamento opcional
 
-        /*
-        Ejemplo 2 para mostrar laboratorios completos
-        Considerando que el codigo de arriba creamos dos laboratorios, ahora los 
-        podremos listar
-         */
+        //Ejemplo 2 para mostrar laboratorios completos
+        //Considerando que el codigo de arriba creamos dos laboratorios, 
+        //ahora los podremos listar
         ArrayList<Laboratorio> lista = new ArrayList<>(); //Creo este array para guardar lo que me devuelva esta busqueda
         lista = listaLaboratorios.listarLaboratorios(); //Esta es la verdadera llamada al metodo si tiene coincidencias me trae toda la info del laboratorio
         //Asi puedes extraer los datos del objeto laboratorio para pintarlos:
@@ -53,13 +49,15 @@ public class Main {
         System.out.println("Nombre 1: " + lista.get(0).getNombreLaboratorio());
         System.out.println("Nombre 2: " + lista.get(1).getNombreLaboratorio());
 
-        /*
-        Ejemplo 3 para mostrar laboratorio
-        Considerando que el codigo de arriba creamos un laboratorio, ahora lo 
-        podremos listar
-         */
-        Laboratorio labo; //Creo este objeto para guardar lo que me devuelva esta busqueda
-        labo = listaLaboratorios.listarLaboratorio(lista.get(0).getId()); //Esta es la verdadera llamada al metodo si tiene coincidencias me trae toda la info del laboratorio
+        //Ejemplo 3 para mostrar laboratorio
+        //Considerando que el codigo de arriba creamos un laboratorio, ahora lo 
+        //podremos listar
+        
+        //Creo este objeto para guardar lo que me devuelva esta busqueda
+        Laboratorio labo; 
+        //Esta es la verdadera llamada al metodo si tiene coincidencias me 
+        //trae toda la info del laboratorio
+        labo = listaLaboratorios.listarLaboratorio(lista.get(0).getId()); 
         //Asi puedes extraer los datos del objeto laboratorio para pintarlos:
         System.out.println("\n");
         System.out.println("Id: " + labo.getId());
@@ -69,13 +67,12 @@ public class Main {
         System.out.println("Departamento: " + labo.getDepartamento());
         System.out.println("Admin: " + labo.getAdministrador().getNombreUser());
 
-        /*
-        Ejemplo 4:
-        Para actualizar Laboratorio Considerando que el codigo de arriba 
-        creamosLaboratorio ahora los podremos actualizar 
-        debemos enviar todos los parametros de nuevo y como
-        primer parametro el nombre del usuario que modifica y de segundo
-        el id que tiene el laboratorio porque ese es nuestro identificador*/
+        //Ejemplo 4:
+        //Para actualizar Laboratorio Considerando que el codigo de arriba 
+        //creamosLaboratorio ahora los podremos actualizar 
+        //debemos enviar todos los parametros de nuevo y como
+        //primer parametro el nombre del usuario que modifica y de segundo
+        //el id que tiene el laboratorio porque ese es nuestro identificador
         listaLaboratorios.modificarLaboratorio(usuarioQueLlamaAlMetodo, lista.get(0).getId(), "Labo 1 modificado", "Humanidades", "Informatica", "Hidraulica", administradorLaboratorio);
         listaLaboratorios.modificarLaboratorio(usuarioQueLlamaAlMetodo, lista.get(1).getId(), "Labo 2", "Ingenieria", "civil", "Sanitaria", administradorLaboratorio);
 
@@ -88,13 +85,12 @@ public class Main {
         System.out.println("Nombre 2 no actualizado: " + lista.get(1).getNombreLaboratorio());
         System.out.println("Escuela 2 actualizado: " + lista.get(1).getEscuela());
 
-        /*
-        Ejemplo 5 para eliminar laboratorio
-        Considerando que el codigo de arriba creamos dos laboratorios, ahora los 
-        podremos eliminar debemos enviar unicamente el nombre y se borrara en
-        este ejemplo vamo a borrar el primer laboratorio que se creo y 
-        consultaremos la lista nuevamente
-         */
+        //Ejemplo 5 para eliminar laboratorio
+        //Considerando que el codigo de arriba creamos dos laboratorios, ahora los 
+        //podremos eliminar debemos enviar unicamente el nombre y se borrara en
+        //este ejemplo vamo a borrar el primer laboratorio que se creo y 
+        //consultaremos la lista nuevamente
+                
         listaLaboratorios.eliminarLaboratorio(usuarioQueLlamaAlMetodo, lista.get(0).getId());
 
         //Esto de abajo es olo para mostrar el resultado de la actualizacion
@@ -102,9 +98,8 @@ public class Main {
         System.out.println("\n");
         System.out.println("Nombre del laboratorio que quedo: " + lista.get(0).getNombreLaboratorio());
 
-        /*
-        Nota final: pregunta si tienes dudas
-         */
+        //Nota final: pregunta si tienes dudas
+        
  /*
         privilegios.add("Usuarios");
         privilegios.add("Laboratorios");
@@ -160,9 +155,10 @@ public class Main {
         System.out.println(bool);
          */
  
-        System.out.println("");
- /*MANEJO DE EQUIPOS*/
- /*TODO: encendidoDenoche radio botton*/
+        //MANEJO DE EQUIPOS
+        System.out.println("\n");
+
+        //TODO: encendidoDenoche radio botton
         ListaDeEquipos listaEquipos = new ListaDeEquipos();
         //Equipo creado por un Keny
         listaEquipos.crearProductoEquipo(usuarioQueLlamaAlMetodo, "descripcion", "marca", "modelo", "numeroSerial", "numeroActivo", "presentacion", "voltaje", "procesable", "materialRequerido", "26/02/2001", "aplicacion", "26/02/2001", "26/02/2001", "26/02/2001", "26/02/2001", "proovedoresDeServicios", Boolean.TRUE, "codigo", "NombreProducto: Equipo 1", "56", "observaciones", labo);
@@ -175,17 +171,33 @@ public class Main {
         for (Equipo i : listaEquipos.listarEquipoPorUsuario(usuarioQueLlamaAlMetodo)) {
             System.out.println(i.getNombreProducto());
         }
-        
+
         System.out.println("");
         //Obtengo un id de uno de los equipo que registre
         String idEquipo = listaEquipos.listarEquipoPorUsuario(usuarioQueLlamaAlMetodo).get(2).getId();
         //En este ejemplo obtengo los datos de un Equipo por su id y pinto su nombre:
         System.out.println(listaEquipos.listarEquipo(idEquipo).getNombreProducto());
-        
+
         //Actualizo descripcion de Equipo Creado para laboratorio de Keny
         listaEquipos.modificarEquipo(usuarioQueLlamaAlMetodo, idEquipo, "Actualizar descipcion", "marca", "modelo", "numeroSerial", "numeroActivo", "presentacion", "voltaje", "procesable", "materialRequerido", "26/02/2001", "aplicacion", "26/02/2001", "26/02/2001", "26/02/2001", "26/02/2001", "proovedoresDeServicios", Boolean.TRUE, "codigo", "nombreProducto", "56", "observaciones", labo);
-        //System.out.println("Actualización: " + listaEquipos.listarEquipo(idEquipo).getDescripcion());
+        System.out.println("Actualizacion: " + listaEquipos.listarEquipo(idEquipo).getDescripcion());
 
+        //Obtengo un id de uno de los equipo que registre
+        idEquipo = listaEquipos.listarEquipoPorUsuario(usuarioQueLlamaAlMetodo).get(0).getId();
+        //Elimino un equipo 
+        listaEquipos.eliminarEquipo(usuarioQueLlamaAlMetodo, idEquipo);
+
+        //Obtengo un id de uno de los equipo que registre
+        idEquipo = listaEquipos.listarEquipoPorUsuario(usuarioQueLlamaAlMetodo).get(0).getId();
+        //Elimino un segundo equipo 
+        listaEquipos.eliminarEquipo(usuarioQueLlamaAlMetodo, idEquipo);
+        //Pintar equipo del laboratorio de Keny para mostrar que quedan 
+        //dos menos
+        //Esta linea de la los Equipos en su laboratorio que administra keny :
+        //listaEquipos.listarEquipoPorUsuario(usuarioQueLlamaAlMetodo)
+        for (Equipo i : listaEquipos.listarEquipoPorUsuario(usuarioQueLlamaAlMetodo)) {
+            System.out.println("\nEquipo restante: " + i.getNombreProducto());
+        }
     }
 
 }
