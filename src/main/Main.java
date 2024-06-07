@@ -127,18 +127,11 @@ public class Main {
         cada llamada es para generar un tipo de producto distinto
          */
         //
+        /*
         listaDeProductos.crearProducto(usuarioQueLlamaAlMetodo, "Soy una descripcion de insumo Herramienta manual de 8 utilizada para aflojar", "No especifica", "No especifica", "Unitaria", "No Consumibles, Herramientas del laboratorio", "N/A", "26/02/2024", "5", "unds", "Ferreterias", "No especifíca", "Destornilladores de estrias", "Insumo", "9", "Observaciones: se debe utiliza de dia", labo);
         //listaDeProductos.crearProducto(usuarioQueLlamaAlMetodo, "H2O", "concentracion", "presentacion", "nombreComercial", Boolean.TRUE, "numeroDeIdentificacion", "grupoDeRiesgo", "fraseR", "fraseS", "metodoDeControl", "permisos", "unidad", "precioEstimado", "proveedor", "almacenadoEnvasado", "codigo", "nombreProducto", "tipoDeProducto", "inventarioExistente", "observaciones", labo);
         //listaDeProductos.crearProducto(usuarioQueLlamaAlMetodo, "descripcion", "marca", "modelo", "numeroSerial", "321654", "presentacion", "321654", "procesable", "materialRequerido", "añoDeCompra", aplicacion, ultimoMantenimiento, proximoMantenimiento, ultimaCalibracion, proximaCalibracion, proovedoresDeServicios, Boolean.TRUE, codigo, nombreProducto, tipoDeProducto, inventarioExistente, observaciones, labo);
-        
-        
-        
-        
-        
-        
-        
-        
-        
+       
         /*Prueba de usuarios*/
         
         /*
@@ -187,11 +180,18 @@ public class Main {
         System.out.println("Estado: " +listadeusuarios.get(1).isStatus());
         System.out.println("ID: "+listadeusuarios.get(1).getId());
         
-        boolean bool=lista2.iniciarSesion("jimmy","1234");
+        usuario=lista2.iniciarSesion("jimmy","1234");
         System.out.println("\n");
-        System.out.println(bool);
+        if(usuario!=null){
+            System.out.println("Nombre: " + usuario.getUsername());
+            System.out.println("contraseña: " + usuario.getContrasena());
+            System.out.println("Nombre completo: " + usuario.getNombreUser());
+            System.out.println("Rol: " + usuario.getRolUsuario());
+            System.out.println("Estado: " + usuario.isStatus());
+            System.out.println("ID: " + usuario.getId());
         
-        bool=lista2.verificarPrivilegios(lista2.listarUsuario(listadeusuarios.get(0).getId()),"Laboratorios");
+        }
+        boolean bool=lista2.verificarPrivilegios(lista2.listarUsuario(listadeusuarios.get(0).getId()),"Laboratorios");
         System.out.println("\n");
         System.out.println(bool);
         */
