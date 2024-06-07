@@ -4,17 +4,21 @@
  */
 package view;
 
+import controller.ListaDeUsuarios;
 import java.awt.Color;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import javax.swing.JOptionPane;
+import model.Usuario;
 
 /**
  *
  * @author derno
  */
 public class UsuariosJFrame extends javax.swing.JFrame {
-
-    /**
-     * Creates new form NewJFrame
-     */
+    
+    private ListaDeUsuarios listaUsuarios = new ListaDeUsuarios();
     public UsuariosJFrame() {
         initComponents();
     }
@@ -34,9 +38,9 @@ public class UsuariosJFrame extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         BotonTransacciones = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -88,23 +92,21 @@ public class UsuariosJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo UCAB.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LOGO.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(1044, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BotonMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
                 .addComponent(BotonCerrar)
                 .addGap(12, 12, 12))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(0, 426, Short.MAX_VALUE)
-                    .addComponent(jLabel10)
-                    .addGap(0, 427, Short.MAX_VALUE)))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(384, 384, 384)
+                .addComponent(jLabel10)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,19 +114,14 @@ public class UsuariosJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotonMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(81, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(0, 26, Short.MAX_VALUE)
-                    .addComponent(jLabel10)
-                    .addGap(0, 26, Short.MAX_VALUE)))
+                .addGap(5, 5, 5)
+                .addComponent(jLabel10)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(51, 204, 255));
 
         jPanel1.setBackground(new java.awt.Color(51, 204, 255));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icono Perfil Main.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -133,27 +130,28 @@ public class UsuariosJFrame extends javax.swing.JFrame {
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icono Conected Main.png"))); // NOI18N
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icono Perfil Main.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addGap(106, 106, 106))
+                .addContainerGap(95, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2)))
+                .addGap(87, 87, 87))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(37, 37, 37)
                 .addComponent(jLabel1)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -632,7 +630,7 @@ public class UsuariosJFrame extends javax.swing.JFrame {
                         .addComponent(BotonListarUsarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
                         .addComponent(BotonUsuarioEsp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -665,7 +663,7 @@ public class UsuariosJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addGap(36, 36, 36)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -752,7 +750,23 @@ public class UsuariosJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonCerrarMouseClicked
 
     private void BotonCrearUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonCrearUsuarioMouseClicked
-        // TODO add your handling code here:
+      String username = JOptionPane.showInputDialog("Ingrese el nombre de usuario:");
+      String contrasena = JOptionPane.showInputDialog("Ingrese la contraseña:");
+      String nombreCompleto = JOptionPane.showInputDialog("Ingrese el nombre completo:");
+      String privilegiosStr = JOptionPane.showInputDialog("Ingrese los privilegios (separados por comas):");
+      ArrayList<String> privilegios = new ArrayList<>(Arrays.asList(privilegiosStr.split(",")));
+      String rol = JOptionPane.showInputDialog("Ingrese el rol:");
+      String statusStr = JOptionPane.showInputDialog("Ingrese el estado (true/false):");
+
+      Usuario nuevoUsuario = new Usuario(username, contrasena, nombreCompleto, privilegios, rol, Boolean.parseBoolean(statusStr));
+
+      boolean exito = listaUsuarios.crearUsuario(nuevoUsuario, username, contrasena, nombreCompleto, privilegios, rol, statusStr);
+      if (exito) {
+          JOptionPane.showMessageDialog(null, "Usuario creado exitosamente");
+      } else {
+          JOptionPane.showMessageDialog(null, "Error al crear el usuario");
+      }
+
     }//GEN-LAST:event_BotonCrearUsuarioMouseClicked
 
     private void BotonCrearUsuarioMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonCrearUsuarioMouseMoved
@@ -766,7 +780,25 @@ public class UsuariosJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonCrearUsuarioMouseExited
 
     private void BotonModificarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonModificarUsuarioMouseClicked
-        // TODO add your handling code here:
+        String id = JOptionPane.showInputDialog("Ingrese el ID del usuario a modificar:");
+        Usuario usuarioExistente = listaUsuarios.listarUsuario(id);
+
+        if (usuarioExistente != null) {
+            String nuevoUsername = JOptionPane.showInputDialog("Ingrese el nuevo nombre de usuario:", usuarioExistente.getUsername());
+            String nuevaContrasena = JOptionPane.showInputDialog("Ingrese la nueva contraseña:", usuarioExistente.getContrasena());
+            String nuevoNombreCompleto = JOptionPane.showInputDialog("Ingrese el nuevo nombre completo:", usuarioExistente.getNombreUser());
+            String privilegiosStr = JOptionPane.showInputDialog("Ingrese los nuevos privilegios (separados por comas):", String.join(",", usuarioExistente.getPrivilegios()));
+            ArrayList<String> nuevosPrivilegios = new ArrayList<>(Arrays.asList(privilegiosStr.split(",")));
+            String nuevoRol = JOptionPane.showInputDialog("Ingrese el nuevo rol:", usuarioExistente.getRolUsuario());
+            String statusStr = JOptionPane.showInputDialog("Ingrese el nuevo estado (true/false):", Boolean.toString(usuarioExistente.isStatus()));
+
+            boolean exito = listaUsuarios.modificarUsuarios(usuarioExistente, id, nuevoUsername, nuevaContrasena, nuevoNombreCompleto, nuevosPrivilegios, nuevoRol, statusStr);
+            if (exito) {
+                JOptionPane.showMessageDialog(null, "Usuario modificado exitosamente");
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al modificar el usuario");
+            }
+        }
     }//GEN-LAST:event_BotonModificarUsuarioMouseClicked
 
     private void BotonModificarUsuarioMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonModificarUsuarioMouseMoved
@@ -780,7 +812,17 @@ public class UsuariosJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonModificarUsuarioMouseExited
 
     private void BotonEliminarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonEliminarUsuarioMouseClicked
-        // TODO add your handling code here:
+        String id = JOptionPane.showInputDialog("Ingrese el ID del usuario a eliminar:");
+        Usuario usuarioExistente = listaUsuarios.listarUsuario(id);
+
+        if (usuarioExistente != null) {
+            boolean exito = listaUsuarios.eliminarUsuarios(usuarioExistente, id);
+            if (exito) {
+                JOptionPane.showMessageDialog(null, "Usuario eliminado exitosamente");
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al eliminar el usuario");
+            }
+        }
     }//GEN-LAST:event_BotonEliminarUsuarioMouseClicked
 
     private void BotonEliminarUsuarioMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonEliminarUsuarioMouseMoved
@@ -794,7 +836,17 @@ public class UsuariosJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonEliminarUsuarioMouseExited
 
     private void BotonListarUsariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonListarUsariosMouseClicked
-        // TODO add your handling code here:
+        ArrayList<Usuario> usuarios = listaUsuarios.listarUsuarios();
+        StringBuilder lista = new StringBuilder();
+        for (Usuario usuario : usuarios) {
+            lista.append("ID: ").append(usuario.getId()).append("\n");
+            lista.append("Username: ").append(usuario.getUsername()).append("\n");
+            lista.append("Nombre Completo: ").append(usuario.getNombreUser()).append("\n");
+            lista.append("Privilegios: ").append(String.join(", ", usuario.getPrivilegios())).append("\n");
+            lista.append("Rol: ").append(usuario.getRolUsuario()).append("\n");
+            lista.append("Estado: ").append(usuario.isStatus()).append("\n\n");
+        }
+        JOptionPane.showMessageDialog(null, lista.toString(), "Lista de Usuarios", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_BotonListarUsariosMouseClicked
 
     private void BotonListarUsariosMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonListarUsariosMouseMoved
@@ -808,7 +860,22 @@ public class UsuariosJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonListarUsariosMouseExited
 
     private void BotonUsuarioEspMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonUsuarioEspMouseClicked
-        // TODO add your handling code here:
+        String id = JOptionPane.showInputDialog("Ingrese el ID del usuario a mostrar:");
+        Usuario usuario = listaUsuarios.listarUsuario(id);
+
+        if (usuario != null) {
+            StringBuilder info = new StringBuilder();
+            info.append("ID: ").append(usuario.getId()).append("\n");
+            info.append("Username: ").append(usuario.getUsername()).append("\n");
+            info.append("Nombre Completo: ").append(usuario.getNombreUser()).append("\n");
+            info.append("Privilegios: ").append(String.join(", ", usuario.getPrivilegios())).append("\n");
+            info.append("Rol: ").append(usuario.getRolUsuario()).append("\n");
+            info.append("Estado: ").append(usuario.isStatus()).append("\n");
+
+            JOptionPane.showMessageDialog(null, info.toString(), "Información del Usuario", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuario no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_BotonUsuarioEspMouseClicked
 
     private void BotonUsuarioEspMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonUsuarioEspMouseMoved
@@ -825,30 +892,7 @@ public class UsuariosJFrame extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UsuariosJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UsuariosJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UsuariosJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UsuariosJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        /* Create and display the form */
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new UsuariosJFrame().setVisible(true);
