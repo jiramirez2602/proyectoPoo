@@ -28,6 +28,7 @@ public class Login extends javax.swing.JFrame {
         panelDiseño = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         panelParaMover = new javax.swing.JPanel();
         panelExit = new javax.swing.JPanel();
         labelExit = new javax.swing.JLabel();
@@ -51,9 +52,11 @@ public class Login extends javax.swing.JFrame {
 
         panelDiseño.setBackground(new java.awt.Color(51, 204, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Logo_UCAB_1 (1).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo_UCAB_1 (1).png"))); // NOI18N
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/logo_ingenieria-removebg-preview.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo UCAB.png"))); // NOI18N
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LOGO.png"))); // NOI18N
 
         javax.swing.GroupLayout panelDiseñoLayout = new javax.swing.GroupLayout(panelDiseño);
         panelDiseño.setLayout(panelDiseñoLayout);
@@ -65,15 +68,25 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addContainerGap(28, Short.MAX_VALUE))
+            .addGroup(panelDiseñoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelDiseñoLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel6)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         panelDiseñoLayout.setVerticalGroup(
             panelDiseñoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDiseñoLayout.createSequentialGroup()
-                .addGap(84, 84, 84)
+                .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(162, 162, 162)
                 .addComponent(jLabel5)
-                .addContainerGap(287, Short.MAX_VALUE))
+                .addContainerGap(231, Short.MAX_VALUE))
+            .addGroup(panelDiseñoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelDiseñoLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel6)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         panelPrincipal.add(panelDiseño, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 530));
@@ -323,6 +336,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel labelEntrar;
