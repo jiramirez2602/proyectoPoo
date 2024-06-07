@@ -300,7 +300,7 @@ public class ListaDeProductos {
     }
 */
     //TODO: Agregar logica de transacciones
-    //Insumos
+    //Insumosz
     public boolean modificarInsumo(Usuario user, String id, String descripcion, String marca, String modelo, String presentacion, String clasificacion, String categoria, String ultimaCompra, String precioEstimado, String unidad, String proveedor, String codigo, String nombreProducto, String inventarioExistente, String observaciones, Laboratorio laboratorio) {
         Insumo product = listarInsumo(id);
         if (product != null) {

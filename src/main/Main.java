@@ -1,5 +1,6 @@
 package main;
 
+import controller.ListaDeEquipos;
 import controller.ListaLaboratorios;
 import controller.ListaDeProductos;
 import controller.ListaDeUsuarios;
@@ -12,7 +13,7 @@ import model.SustanciaQuimica;
 import model.Usuario;
 
 public class Main {
-    
+
     public static void main(String[] args) {
         /**
          * ***********************************************************
@@ -83,7 +84,7 @@ public class Main {
         System.out.println("\n");
         System.out.println("Nombre 1 actualizado: " + lista.get(0).getNombreLaboratorio());
         System.out.println("Facultad 1 actualizado: " + lista.get(0).getEscuela());
-        
+
         System.out.println("Nombre 2 no actualizado: " + lista.get(1).getNombreLaboratorio());
         System.out.println("Escuela 2 actualizado: " + lista.get(1).getEscuela());
 
@@ -104,102 +105,7 @@ public class Main {
         /*
         Nota final: pregunta si tienes dudas
          */
-        /**
-         * ***********************************************************
-         */
-        /*Uso de productos*/
-        //**********************************************************************
-        //Esto se debe crear siempre en el mainframe a diferencia de los anteriores
-        ListaDeProductos listaDeProductos = new ListaDeProductos();
-        //**********************************************************************
-
-        /*
-        Ejemplo 1 para crear un Producto, considera que el usuario 
-        debe ser obtenido cuando se inicia la sesión no como se hace en este
-        ejemplo donde se creo en este mismo documento
-
-        Este metodo que sige devuelve true cuando todo salio bien puedes usar 
-        ese rotorno para continuar a la siguiente ventana o mostrar mensaje de exito
-        Algunos campos son opcionales debes llamar al metodo o este es un ejemplo
-        Como existen tres tipos de producto el metodo está sobre cargado es decir
-        cada llamada es para generar un tipo de producto distinto
-         */
-        //
-        //Llamada de ejemplo (insumo)
-        listaDeProductos.crearProductoInsumo(usuarioQueLlamaAlMetodo, "Soy una descripcion de insumo Herramienta manual de 8 utilizada para aflojar", "No especifica", "No especifica", "Unitaria", "No Consumibles, Herramientas del laboratorio", "N/A", "26/02/2024", "5", "unds", "Ferreterias", "No especifíca", "Destornilladores de estrias", "9", "Observaciones: se debe utiliza de dia", labo);
-
-        //Ejemplo insumo
-        listaDeProductos.crearProductoInsumo(usuarioQueLlamaAlMetodo, "descripcion", "marca", "modelo", "presentacion", "clasificacion", "categoria", "26/02/2001", "10.0", "unidad", "proveedor", "codigo", "nombreProducto", "12", "observaciones", labo);
-        //Ejemplo sustancia quimica
-        listaDeProductos.crearProductoSustancia(usuarioQueLlamaAlMetodo, "formulaQuimica", "concentracion", "presentacion", "nombreComercial", Boolean.TRUE, "numeroDeIdentificacion", "grupoDeRiesgo", "fraseR", "fraseS", "metodoDeControl", "permisos", "unidad", "12", "proveedor", "almacenadoEnvasado", "codigo", "nombreProducto", "12", "observaciones", labo);
-        //Ejemplo equipo
-        listaDeProductos.crearProductoEquipo(usuarioQueLlamaAlMetodo, "descripcion", "marca", "modelo", "numeroSerial", "numeroActivo", "presentacion", "voltaje", "procesable", "materialRequerido", "26/02/2001", "aplicacion", "26/02/2001", "26/02/2001", "26/02/2001", "26/02/2001", "proovedoresDeServicios", Boolean.TRUE, "codigo", "nombreProducto", "56", "observaciones", labo);
-
-        /*
-        Ejemplo 2 para mostrar Productos de cada tipo segun que usuario eres
-        Considerando que el codigo de arriba creamos varios productos, ahora los 
-        podremos listar
-         */
-        ArrayList<Insumo> listaInsumos = new ArrayList<>();
-        ArrayList<SustanciaQuimica> listaSustanciaQuimica = new ArrayList<>();
-        ArrayList<Equipo> listaEquipo = new ArrayList<>();
-
-        //Esta es la verdadera llamada al metodo si tiene coincidencias me trae 
-        //toda la info de los productos, esta llamada trae los productos filtrando
-        //por tipo de producto.
-        listaInsumos = listaDeProductos.listarInsumosPorUsuario(usuarioQueLlamaAlMetodo);
-        listaEquipo = listaDeProductos.listarEquipoPorUsuario(usuarioQueLlamaAlMetodo);
-        listaSustanciaQuimica = listaDeProductos.listarSustanciaQuimicasPorUsuario(usuarioQueLlamaAlMetodo);
-        //Asi puedes extraer los datos del objeto insumo, sustanciaQuimica producto para pintarlos como creamos dos insumos simulamos una lista:
-        System.out.println("\n");
-        System.out.println("Nombre de insumo: " + listaInsumos.get(0).getNombreProducto());
-        System.out.println("Nombre de equipo: " + listaEquipo.get(0).getNombreProducto());
-        System.out.println("Nombre de sustancia: " + listaSustanciaQuimica.get(0).getNombreProducto());
-
-        /*
-        Ejemplo 3 para mostrar Pruducto
-        Considerando que el codigo de arriba creamos varios productos, ahora lo 
-        podremos listar
-         */
-        //Para este ejemplo simularemos que estamos en la lista de insumos y queremos ver en detalle los datos de un producto
-        Equipo equipo = listaDeProductos.listarEquipo(listaEquipo.get(0).getId()); //Esta es la verdadera llamada al metodo si tiene coincidencias me trae toda la info del laboratorio
-        Insumo insumo = listaDeProductos.listarInsumo(listaInsumos.get(0).getId()); //Esta es la verdadera llamada al metodo si tiene coincidencias me trae toda la info del laboratorio
-        SustanciaQuimica sustanciaQuimica = listaDeProductos.listarSustancia(listaSustanciaQuimica.get(0).getId()); //Esta es la verdadera llamada al metodo si tiene coincidencias me trae toda la info del laboratorio
-        //Asi puedes extraer los datos del objeto producto para pintarlos(los parametros que pinto son un ejemplo, solo hay que pintar los que es propio del producto mas el nombre del laboratorio y el nombre del usuario):
-        System.out.println("\n");
-        System.out.println("Tipo: " + equipo.getTipoDeProducto());
-        System.out.println("Nombre de producto: " + equipo.getNombreProducto());
-        System.out.println("Tipo: " + insumo.getTipoDeProducto());
-        System.out.println("Nombre de producto: " + insumo.getNombreProducto());
-        System.out.println("Tipo: " + sustanciaQuimica.getTipoDeProducto());
-        System.out.println("Nombre de producto: " + sustanciaQuimica.getNombreProducto());
-
-        /*
-        Ejemplo 4 
-        Para actualizar Producto Considerando que el codigo de arriba 
-        creamos dos insumos, sustancias y equipos, ahora los podremos actualizar 
-        debemos enviar todos los parametros de nuevo y como
-        primer parametro el nombre del usuario que modifica y de segundo
-        el id que tiene el Producto porque ese es nuestro identificador
-         */
-        listaDeProductos.modificarEquipo(usuarioQueLlamaAlMetodo, listaEquipo.get(0).getId(), "Actualizar descipcion", "marca", "modelo", "numeroSerial", "numeroActivo", "presentacion", "voltaje", "procesable", "materialRequerido", "26/02/2001", "aplicacion", "26/02/2001", "26/02/2001", "26/02/2001", "26/02/2001", "proovedoresDeServicios", Boolean.TRUE, "codigo", "nombreProducto", "56", "observaciones", labo);
-        listaDeProductos.modificarSustancia(usuarioQueLlamaAlMetodo, listaSustanciaQuimica.get(0).getId(), "Actualizar formula Quimica", "concentracion", "presentacion", "nombreComercial", Boolean.TRUE, "numeroDeIdentificacion", "grupoDeRiesgo", "fraseR", "fraseS", "metodoDeControl", "permisos", "unidad", "12", "proveedor", "almacenadoEnvasado", "codigo", "nombreProducto", "12", "observaciones", labo);
-        listaDeProductos.modificarInsumo(usuarioQueLlamaAlMetodo, listaInsumos.get(0).getId(), "Actualizar descipcion", "marca", "modelo", "presentacion", "clasificacion", "categoria", "26/02/2001", "10.0", "unidad", "proveedor", "codigo", "nombreProducto", "12", "observaciones", labo);
-        /*No voy a ejemplificar como se pinta en este caso aumo que ya se entiende mi logica en este punto preguntar si no es asi*/
-
  /*
-        Ejemplo 5 para eliminar laboratorio
-        Considerando que el codigo de arriba creamos varios productos, ahora los 
-        podremos eliminar debemos enviar unicamente el id y se borrara en
-        este ejemplo vamo a borrar el primer producto de cada lista que se creó
-         */
-        System.out.println(listaEquipo.get(0).getId());
-        listaDeProductos.eliminarEquipo(usuarioQueLlamaAlMetodo, listaEquipo.get(0).getId());
-        listaDeProductos.eliminarSustancia(usuarioQueLlamaAlMetodo, listaSustanciaQuimica.get(0).getId());
-        listaDeProductos.eliminarInsumo(usuarioQueLlamaAlMetodo, listaInsumos.get(0).getId());
-        /*No voy a ejemplificar como se pinta en este caso aumo que ya se entiende mi logica en este punto preguntar si no es asi*/
-
-        /*
         privilegios.add("Usuarios");
         privilegios.add("Laboratorios");
         ListaDeUsuarios lista2=new ListaDeUsuarios();
@@ -253,6 +159,29 @@ public class Main {
         System.out.println("\n");
         System.out.println(bool);
          */
+ 
+        System.out.println("");
+ /*MANEJO DE EQUIPOS*/
+ /*TODO: encendidoDenoche radio botton*/
+        ListaDeEquipos listaEquipos = new ListaDeEquipos();
+        //Equipo creado por un Keny
+        listaEquipos.crearProductoEquipo(usuarioQueLlamaAlMetodo, "descripcion", "marca", "modelo", "numeroSerial", "numeroActivo", "presentacion", "voltaje", "procesable", "materialRequerido", "26/02/2001", "aplicacion", "26/02/2001", "26/02/2001", "26/02/2001", "26/02/2001", "proovedoresDeServicios", Boolean.TRUE, "codigo", "NombreProducto: Equipo 1", "56", "observaciones", labo);
+        listaEquipos.crearProductoEquipo(usuarioQueLlamaAlMetodo, "descripcion", "marca", "modelo", "numeroSerial", "numeroActivo", "presentacion", "voltaje", "procesable", "materialRequerido", "26/02/2001", "aplicacion", "26/02/2001", "26/02/2001", "26/02/2001", "26/02/2001", "proovedoresDeServicios", Boolean.TRUE, "codigo", "NombreProducto: Equipo 2", "56", "observaciones", labo);
+        listaEquipos.crearProductoEquipo(usuarioQueLlamaAlMetodo, "descripcion", "marca", "modelo", "numeroSerial", "numeroActivo", "presentacion", "voltaje", "procesable", "materialRequerido", "26/02/2001", "aplicacion", "26/02/2001", "26/02/2001", "26/02/2001", "26/02/2001", "proovedoresDeServicios", Boolean.TRUE, "codigo", "NombreProducto: Equipo 3", "56", "observaciones", labo);
+
+        //Pintar equipo del laboratorio de Keny
+        //Esta linea de la los Equipos en su laboratorio que administra keny :
+        //listaEquipos.listarEquipoPorUsuario(usuarioQueLlamaAlMetodo)
+        for (Equipo i : listaEquipos.listarEquipoPorUsuario(usuarioQueLlamaAlMetodo)) {
+            System.out.println("Nombre del equipo: " + i.getNombreProducto());
+        }
+        
+        //Obtengo un id de uno de los equipo que registre
+        String idEquipo = listaEquipos.listarEquipoPorUsuario(usuarioQueLlamaAlMetodo).get(2).getId();
+        //En este ejemplo obtengo los datos de un Equipo por su id y pinto su nombre:
+        System.out.println(listaEquipos.listarEquipo(idEquipo).getNombreProducto());
+        
+        
     }
-    
+
 }
