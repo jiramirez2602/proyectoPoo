@@ -1,12 +1,21 @@
 package model;
 
+import java.util.UUID;
+
 public class Producto {
+
     String codigo;
     String nombreProducto;
     String tipoDeProducto;
     int inventarioExistente;
     String observaciones;
     Laboratorio laboratorio;
+    String id;
+
+    public static final String generarUUID() {
+        UUID uuid = UUID.randomUUID();
+        return uuid.toString();
+    }
 
     public Producto(String codigo, String nombreProducto, String tipoDeProducto, int inventarioExistente, String observaciones, Laboratorio laboratorio) {
         this.codigo = codigo;
@@ -15,9 +24,13 @@ public class Producto {
         this.inventarioExistente = inventarioExistente;
         this.observaciones = observaciones;
         this.laboratorio = laboratorio;
+        this.id = generarUUID();
     }
 
-    
+    public String getId() {
+        return id;
+    }
+
     public String getCodigo() {
         return codigo;
     }
@@ -65,8 +78,8 @@ public class Producto {
     public void setLaboratorio(Laboratorio laboratorio) {
         this.laboratorio = laboratorio;
     }
-    
-    public void necesitaCompra(){
+
+    public void necesitaCompra() {
         //TODO: Añadir logica de necesita compra;
     }
 }
