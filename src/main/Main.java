@@ -173,15 +173,19 @@ public class Main {
         //Esta linea de la los Equipos en su laboratorio que administra keny :
         //listaEquipos.listarEquipoPorUsuario(usuarioQueLlamaAlMetodo)
         for (Equipo i : listaEquipos.listarEquipoPorUsuario(usuarioQueLlamaAlMetodo)) {
-            System.out.println("Nombre del equipo: " + i.getNombreProducto());
+            System.out.println(i.getNombreProducto());
         }
         
+        System.out.println("");
         //Obtengo un id de uno de los equipo que registre
         String idEquipo = listaEquipos.listarEquipoPorUsuario(usuarioQueLlamaAlMetodo).get(2).getId();
         //En este ejemplo obtengo los datos de un Equipo por su id y pinto su nombre:
         System.out.println(listaEquipos.listarEquipo(idEquipo).getNombreProducto());
         
-        
+        //Actualizo descripcion de Equipo Creado para laboratorio de Keny
+        listaEquipos.modificarEquipo(usuarioQueLlamaAlMetodo, idEquipo, "Actualizar descipcion", "marca", "modelo", "numeroSerial", "numeroActivo", "presentacion", "voltaje", "procesable", "materialRequerido", "26/02/2001", "aplicacion", "26/02/2001", "26/02/2001", "26/02/2001", "26/02/2001", "proovedoresDeServicios", Boolean.TRUE, "codigo", "nombreProducto", "56", "observaciones", labo);
+        //System.out.println("Actualización: " + listaEquipos.listarEquipo(idEquipo).getDescripcion());
+
     }
 
 }
