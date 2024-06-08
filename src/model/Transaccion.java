@@ -7,26 +7,28 @@ import java.time.format.DateTimeFormatter; // Import the DateTimeFormatter class
 
 public class Transaccion {
 
-    Producto producto;
+    Equipo equipo;
+    Insumo insumo;
+    SustanciaQuimica sustanciaQuimica;
     String fecha;
     Usuario user;
     String id;
     String tipoDeTransaccion;
-    String tipoDeProducto;
 
     public static final String generarUUID() {
         UUID uuid = UUID.randomUUID();
         return uuid.toString();
     }
 
-    public Transaccion(Producto producto, Usuario user, String tipoDeTransaccion, String tipoDeProducto) {
+    public Transaccion(Equipo equipo, Insumo insumo, SustanciaQuimica sustanciaQuimica, Usuario user, String tipoDeTransaccion) {
         LocalDateTime myDateObj = LocalDateTime.now();
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         this.fecha = myDateObj.format(myFormatObj);
-        this.producto = producto;
+        this.equipo = equipo;
+        this.insumo = insumo;
+        this.sustanciaQuimica = sustanciaQuimica;
         this.user = user;
         this.id = generarUUID();
-        this.tipoDeProducto = tipoDeProducto;
         this.tipoDeTransaccion = tipoDeTransaccion;
     }
 
@@ -34,13 +36,19 @@ public class Transaccion {
         return tipoDeTransaccion;
     }
 
-    public String getTipoDeProducto() {
-        return tipoDeProducto;
+    public Equipo getEquipo() {
+        return equipo;
     }
 
-    public Producto getProducto() {
-        return producto;
+    public Insumo getInsumo() {
+        return insumo;
     }
+
+    public SustanciaQuimica getSustanciaQuimica() {
+        return sustanciaQuimica;
+    }
+
+    
 
     public String getFecha() {
         return fecha;
@@ -58,12 +66,17 @@ public class Transaccion {
         this.tipoDeTransaccion = tipoDeTransaccion;
     }
 
-    public void setTipoDeProducto(String tipoDeProducto) {
-        this.tipoDeProducto = tipoDeProducto;
+   
+    public void setEquipo(Equipo equipo) {
+        this.equipo = equipo;
     }
 
-    public void setProducto(Producto producto) {
-        this.producto = producto;
+    public void setInsumo(Insumo insumo) {
+        this.insumo = insumo;
+    }
+
+    public void setSustanciaQuimica(SustanciaQuimica sustanciaQuimica) {
+        this.sustanciaQuimica = sustanciaQuimica;
     }
 
     public void setFecha(String fecha) {
