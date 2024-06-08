@@ -9,6 +9,7 @@ import java.awt.BorderLayout;
 import java.util.List;
 import java.util.function.Function;
 import javax.swing.JOptionPane;
+import model.Equipo;
 import model.Laboratorio;
 import model.Usuario;
 
@@ -49,6 +50,46 @@ public class Listar extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "No hay usuarios disponibles", "Información", JOptionPane.INFORMATION_MESSAGE);
         }
     }
+     
+    public void mostrarListaEquipos(List<Equipo> equipos){
+        if(!equipos.isEmpty()){
+            String[] columnNames = {"Nombre del producto","Codigo","Tipo de producto","Inventario","Observaciones","Descripcion","Marca","Modelo","Numero de serial","Numero Activo","Presentacion","Voltaje","Procesable","Material Requerido","Año de compra","Aplicacion","Ultimo mantenimiento","Proximo mantenimiento ","Ultima calibracion","Proxima calibracion","Provedores de Servicios","Encendido de noche"};
+            List<Function<Equipo, Object>>columnFunctions=List.of(
+                    Equipo::getNombreProducto,
+                    Equipo::getCodigo,
+                    Equipo::getTipoDeProducto,
+                    Equipo::getInventarioExistente,
+                    Equipo::getObservaciones,
+                    Equipo::getDescripcion,
+                    Equipo::getMarca,
+                    Equipo::getModelo,
+                    Equipo::getNumeroSerial,
+                    Equipo::getNumeroActivo,
+                    Equipo::getPresentacion,
+                    Equipo::getVoltaje,
+                    Equipo::getProcesable,
+                    Equipo::getMaterialRequerido,
+                    Equipo::getAñoDeCompra,
+                    Equipo::getAplicacion,
+                    Equipo::getUltimoMantenimiento,
+                    Equipo::getProximoMantenimiento,
+                    Equipo::getUltimaCalibracion,
+                    Equipo::getProximaCalibracion,
+                    Equipo::getProovedoresDeServicios,
+                    Equipo::getEncendidoDenoche
+                    
+            );
+            Form<Equipo> form = new Form<>(equipos, columnNames, columnFunctions);
+            removeAll();
+            add(form);
+            revalidate();
+            repaint();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "No hay equipos disponibles", "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
+         
+     }
     
     
     /**
