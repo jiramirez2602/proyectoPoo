@@ -6,6 +6,7 @@ package view.Pantallas;
 
 import controller.ListaDeUsuarios;
 import java.awt.BorderLayout;
+import static java.awt.SystemColor.info;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -219,14 +220,19 @@ public class PantallaUsuarios extends javax.swing.JPanel {
 
     private void BotonListarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarUsuarioActionPerformed
         List<Usuario> usuarios = ListaUsuarios.listarUsuarios();
-        Listar pl = new Listar();
-        pl.setSize(1100, 610);
-        pl.setLocation(0, 0);
-        pl.mostrarListaUsuarios(usuarios); 
-        BackGroundPantallaUsuarios.removeAll(); // Llamar a removeAll() en la instancia de PantallaUsuarios
-        BackGroundPantallaUsuarios.add(pl, BorderLayout.CENTER);
-        BackGroundPantallaUsuarios.revalidate();
-        BackGroundPantallaUsuarios.repaint();
+                if (!usuarios.isEmpty()) {
+                    Listar pl = new Listar();
+                    pl.setSize(1100, 610);
+                    pl.setLocation(0, 0);
+                    pl.mostrarListaUsuarios(usuarios); 
+                    BackGroundPantallaUsuarios.removeAll();
+                    BackGroundPantallaUsuarios.add(pl, BorderLayout.CENTER);
+                    BackGroundPantallaUsuarios.revalidate();
+                    BackGroundPantallaUsuarios.repaint();
+                } else {
+                    JOptionPane.showMessageDialog(null, info.toString(), "No hay usuarios disponibles", JOptionPane.INFORMATION_MESSAGE);
+                }
+        
     }//GEN-LAST:event_BotonListarUsuarioActionPerformed
 
     private void BotonListarUsuarioEspecificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarUsuarioEspecificoActionPerformed

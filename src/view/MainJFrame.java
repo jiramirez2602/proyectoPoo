@@ -6,7 +6,6 @@ package view;
 
 
 import java.awt.BorderLayout;
-import javax.swing.JPanel;
 import view.Pantallas.PantallaLaboratorios;
 import view.Pantallas.PantallaUsuarios;
 
@@ -18,7 +17,8 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
-        public MainJFrame() {
+    
+    public MainJFrame() {
         initComponents();
         initContenido();
     }
