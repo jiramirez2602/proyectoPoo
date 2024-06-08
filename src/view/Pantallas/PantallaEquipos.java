@@ -239,9 +239,9 @@ public class PantallaEquipos extends javax.swing.JPanel {
             }
             boolean exito = equipos.modificarEquipo(user, id, descripcion, marca, modelo, numeroSerial, numeroActivo, presentacion, voltaje, procesable, materialRequerido, añoDeCompra, aplicacion, ultimoMantenimiento, proximoMantenimiento, ultimaCalibracion, proximaCalibracion, provedores, on, codigo, nombreProducto, inventarioExistente, observaciones, laboratorio);
             if (exito) {
-                JOptionPane.showMessageDialog(null, "Usuario creado exitosamente");
+                JOptionPane.showMessageDialog(null, "Equipo modificado exitosamente");
             } else {
-                JOptionPane.showMessageDialog(null, "Error al crear el usuario");
+                JOptionPane.showMessageDialog(null, "Error al modificar el equipo");
             }
         }
     }//GEN-LAST:event_BotonModificarEquipoActionPerformed
