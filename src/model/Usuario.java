@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.UUID;
+import javax.swing.JOptionPane;
 
 public class Usuario {
     private String username;
@@ -81,6 +82,21 @@ public class Usuario {
 
     public Object getNombreCompleto() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+    public boolean verificarPrivilegios(Usuario user,String privilegio){
+        ArrayList<String> comprobarPrivi=user.getPrivilegios();
+        boolean retornar=false;
+        for(String recorrer:comprobarPrivi){
+            if(recorrer.equals(privilegio)){
+                retornar=true;
+            }
+        }
+        if(retornar==false){
+            JOptionPane.showMessageDialog(null,"No tienes acceso a este modulo", "Error", JOptionPane.ERROR_MESSAGE);
+            return retornar;
+        }
+        return retornar;
     }
        
 }

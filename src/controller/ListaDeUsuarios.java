@@ -144,18 +144,4 @@ public class ListaDeUsuarios {
         return null;
     }
     
-    public boolean verificarPrivilegios(Usuario user,String privilegio){
-        ArrayList<String> comprobarPrivi=user.getPrivilegios();
-        boolean retornar=false;
-        for(String recorrer:comprobarPrivi){
-            if(recorrer.equals(privilegio)){
-                retornar=true;
-            }
-        }
-        if(retornar==false){
-            JOptionPane.showMessageDialog(null,"No tienes acceso a este modulo", "Error", JOptionPane.ERROR_MESSAGE);
-            return retornar;
-        }
-        return retornar;
-    }
 }
