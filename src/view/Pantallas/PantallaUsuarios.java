@@ -33,7 +33,7 @@ public class PantallaUsuarios extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        BackGroundPantallaUsuarios = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         BotonCrearUsuario = new javax.swing.JButton();
         BotonModificarUsuario = new javax.swing.JButton();
@@ -42,7 +42,9 @@ public class PantallaUsuarios extends javax.swing.JPanel {
         BotonListarUsuarioEspecifico = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        BackGroundPantallaUsuarios.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(62, 183, 248));
 
@@ -123,25 +125,25 @@ public class PantallaUsuarios extends javax.swing.JPanel {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icono Imagen Usuarios(2).png"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout BackGroundPantallaUsuariosLayout = new javax.swing.GroupLayout(BackGroundPantallaUsuarios);
+        BackGroundPantallaUsuarios.setLayout(BackGroundPantallaUsuariosLayout);
+        BackGroundPantallaUsuariosLayout.setHorizontalGroup(
+            BackGroundPantallaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BackGroundPantallaUsuariosLayout.createSequentialGroup()
                 .addGap(84, 84, 84)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(144, 144, 144)
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
                 .addGap(186, 186, 186))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        BackGroundPantallaUsuariosLayout.setVerticalGroup(
+            BackGroundPantallaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BackGroundPantallaUsuariosLayout.createSequentialGroup()
+                .addGroup(BackGroundPantallaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BackGroundPantallaUsuariosLayout.createSequentialGroup()
                         .addGap(111, 111, 111)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(BackGroundPantallaUsuariosLayout.createSequentialGroup()
                         .addGap(172, 172, 172)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(69, 69, 69)))
@@ -152,11 +154,11 @@ public class PantallaUsuarios extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BackGroundPantallaUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BackGroundPantallaUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -216,7 +218,15 @@ public class PantallaUsuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonEliminarUsuarioActionPerformed
 
     private void BotonListarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarUsuarioActionPerformed
-
+        List<Usuario> usuarios = ListaUsuarios.listarUsuarios();
+        Listar pl = new Listar();
+        pl.setSize(1100, 610);
+        pl.setLocation(0, 0);
+        pl.mostrarListaUsuarios(usuarios); 
+        BackGroundPantallaUsuarios.removeAll(); // Llamar a removeAll() en la instancia de PantallaUsuarios
+        BackGroundPantallaUsuarios.add(pl, BorderLayout.CENTER);
+        BackGroundPantallaUsuarios.revalidate();
+        BackGroundPantallaUsuarios.repaint();
     }//GEN-LAST:event_BotonListarUsuarioActionPerformed
 
     private void BotonListarUsuarioEspecificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarUsuarioEspecificoActionPerformed
@@ -240,13 +250,13 @@ public class PantallaUsuarios extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BackGroundPantallaUsuarios;
     private javax.swing.JButton BotonCrearUsuario;
     private javax.swing.JButton BotonEliminarUsuario;
     private javax.swing.JButton BotonListarUsuario;
     private javax.swing.JButton BotonListarUsuarioEspecifico;
     private javax.swing.JButton BotonModificarUsuario;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

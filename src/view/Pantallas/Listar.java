@@ -23,7 +23,8 @@ public class Listar extends javax.swing.JPanel {
     public Listar() {
         initComponents();
     }
-    public void mostrarListaUsuarios(List<Usuario> usuarios) {
+   
+     public void mostrarListaUsuarios(List<Usuario> usuarios) {
         if (!usuarios.isEmpty()) {
             String[] columnNames = {"Username", "Nombre Completo", "Rol", "Estado"};
             List<Function<Usuario, Object>> columnFunctions = List.of(
@@ -33,38 +34,19 @@ public class Listar extends javax.swing.JPanel {
                     Usuario::isStatus
             );
 
+            // Crear instancia de Form y pasar la lista de usuarios, nombres de columnas y funciones
             Form<Usuario> form = new Form<>(usuarios, columnNames, columnFunctions);
-            jPanel1.removeAll();
-            jPanel1.add(form);
-            jPanel1.revalidate();
-            jPanel1.repaint();
+            
+            // Limpiar el panel antes de agregar el Form
+            removeAll();
+            add(form);
+            revalidate();
+            repaint();
         } else {
             JOptionPane.showMessageDialog(null, "No hay usuarios disponibles", "Información", JOptionPane.INFORMATION_MESSAGE);
         }
     }
-
-    // Método para mostrar una lista de laboratorios
-    public void mostrarListaLaboratorios(List<Laboratorio> laboratorios) {
-        if (!laboratorios.isEmpty()) {
-            String[] columnNames = {"ID", "Nombre", "Facultad", "Escuela", "Departamento", "Administrador"};
-            List<Function<Laboratorio, Object>> columnFunctions = List.of(
-                    Laboratorio::getId,
-                    Laboratorio::getNombreLaboratorio,
-                    Laboratorio::getFacultad,
-                    Laboratorio::getEscuela,
-                    Laboratorio::getDepartamento,
-                    lab -> lab.getAdministrador().getUsername() // Assuming getAdministrador() returns a Usuario
-            );
-
-            Form<Laboratorio> form = new Form<>(laboratorios, columnNames, columnFunctions);
-            jPanel1.removeAll();
-            jPanel1.add(form);
-            jPanel1.revalidate();
-            jPanel1.repaint();
-        } else {
-            JOptionPane.showMessageDialog(null, "No hay laboratorios disponibles", "Información", JOptionPane.INFORMATION_MESSAGE);
-        }
-    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
