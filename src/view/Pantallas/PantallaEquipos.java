@@ -177,9 +177,9 @@ public class PantallaEquipos extends javax.swing.JPanel {
       String presentacion = JOptionPane.showInputDialog("Ingrese la presentacion del equipo");
       String numeroSerial = JOptionPane.showInputDialog("Ingrese el numero serial del equipo");  
       String numeroActivo = JOptionPane.showInputDialog("Ingrese el numero activo del equipo");
-      String voltaje = JOptionPane.showInputDialog("Ingrese el voltaje del equipo");
-      String procesable = JOptionPane.showInputDialog("Ingrese el procesable del equipo");
-      String aplicacion = JOptionPane.showInputDialog("Ingrese la aplicacion del equipo");
+      String voltaje = JOptionPane.showInputDialog("Ingrese el voltaje del equipo:");
+      String procesable = JOptionPane.showInputDialog("Ingrese el procesable del equipo:");
+      String aplicacion = JOptionPane.showInputDialog("Ingrese la aplicacion del equipo:");
       String añoDeCompra = JOptionPane.showInputDialog("Ingrese el año de compra del equipo(use el formato dd/mm/yyyy):");
       String ultimoMantenimiento = JOptionPane.showInputDialog("Ingrese el ultimo mantenimiento del equipo(use el formato dd/mm/yyyy):");
       String proximoMantenimiento = JOptionPane.showInputDialog("Ingrese el proximo mantenimiento del equipo(use el formato dd/mm/yyyy):");
@@ -213,14 +213,14 @@ public class PantallaEquipos extends javax.swing.JPanel {
         Laboratorio laboratorio = lab.listarLaboratorio(labs.get(0).getId());
         if (equipoExistente != null && laboratorio!=null ) {
             String descripcion = JOptionPane.showInputDialog("Ingrese la descripcion del equipo:");
-            String marca = JOptionPane.showInputDialog("Ingrese la marca del equipo");
+            String marca = JOptionPane.showInputDialog("Ingrese la marca del equipo:");
             String modelo = JOptionPane.showInputDialog("Ingrese el modelo del equipo:");
-            String presentacion = JOptionPane.showInputDialog("Ingrese la presentacion del equipo");
-            String numeroSerial = JOptionPane.showInputDialog("Ingrese el numero serial del equipo");
-            String numeroActivo = JOptionPane.showInputDialog("Ingrese el numero activo del equipo");
-            String voltaje = JOptionPane.showInputDialog("Ingrese el voltaje del equipo");
-            String procesable = JOptionPane.showInputDialog("Ingrese el procesable del equipo");
-            String aplicacion = JOptionPane.showInputDialog("Ingrese la aplicacion del equipo");
+            String presentacion = JOptionPane.showInputDialog("Ingrese la presentacion del equipo:");
+            String numeroSerial = JOptionPane.showInputDialog("Ingrese el numero serial del equipo:");
+            String numeroActivo = JOptionPane.showInputDialog("Ingrese el numero activo del equipo:");
+            String voltaje = JOptionPane.showInputDialog("Ingrese el voltaje del equipo:");
+            String procesable = JOptionPane.showInputDialog("Ingrese el procesable del equipo:");
+            String aplicacion = JOptionPane.showInputDialog("Ingrese la aplicacion del equipo:");
             String añoDeCompra = JOptionPane.showInputDialog("Ingrese el año de compra del equipo(use el formato dd/mm/yyyy):");
             String ultimoMantenimiento = JOptionPane.showInputDialog("Ingrese el ultimo mantenimiento del equipo(use el formato dd/mm/yyyy):");
             String proximoMantenimiento = JOptionPane.showInputDialog("Ingrese el proximo mantenimiento del equipo(use el formato dd/mm/yyyy):");

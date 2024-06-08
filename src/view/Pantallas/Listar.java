@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.function.Function;
 import javax.swing.JOptionPane;
 import model.Equipo;
+import model.Insumo;
 import model.Laboratorio;
 import model.Usuario;
 
@@ -87,6 +88,38 @@ public class Listar extends javax.swing.JPanel {
         }
         else{
             JOptionPane.showMessageDialog(null, "No hay equipos disponibles", "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
+         
+     }
+    
+    public void mostrarListaInsumos(List<Insumo> insumos){
+        if(!insumos.isEmpty()){
+            String[] columnNames = {"Nombre del producto","Codigo","Tipo de producto","Inventario","Observaciones","Descripcion","Marca","Modelo","Presentacion","Clasificacion","Categoria","Ultima Compra","Precio estimado","unidad","Proveedor"};
+            List<Function<Insumo, Object>>columnFunctions=List.of(
+                    Insumo::getNombreProducto,
+                    Insumo::getCodigo,
+                    Insumo::getTipoDeProducto,
+                    Insumo::getInventarioExistente,
+                    Insumo::getObservaciones,
+                    Insumo::getDescripcion,
+                    Insumo::getMarca,
+                    Insumo::getModelo,
+                    Insumo::getPresentacion,
+                    Insumo::getClasificacion,
+                    Insumo::getCategoria,
+                    Insumo::getUltimaCompra,
+                    Insumo::getPrecioEstimado,
+                    Insumo::getUnidad,
+                    Insumo::getProveedor
+            );
+            Form<Insumo> form = new Form<>(insumos, columnNames, columnFunctions);
+            removeAll();
+            add(form);
+            revalidate();
+            repaint();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "No hay insumos disponibles", "Información", JOptionPane.INFORMATION_MESSAGE);
         }
          
      }
