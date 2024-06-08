@@ -19,14 +19,11 @@ import model.Usuario;
 public class PantallaUsuarios extends javax.swing.JPanel {
 
     private ListaDeUsuarios ListaUsuarios; 
-    private JPanel contenidoMain;
-    
-    public PantallaUsuarios(JPanel contenidoMain) { // Modificar el constructor
+
+    public PantallaUsuarios() { // Modificar el constructor
         initComponents();
-        this.contenidoMain = contenidoMain; // Asignar el valor del parámetro al campo
         ListaUsuarios = new ListaDeUsuarios();
     }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -220,13 +217,6 @@ public class PantallaUsuarios extends javax.swing.JPanel {
 
     private void BotonListarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarUsuarioActionPerformed
 
-            Listar pl = new Listar();
-            pl.setSize(1100,610);
-            pl.setLocation(0,0);
-            contenidoMain.removeAll();
-            contenidoMain.add(pl, BorderLayout.CENTER);
-            contenidoMain.revalidate();
-            contenidoMain.repaint();
     }//GEN-LAST:event_BotonListarUsuarioActionPerformed
 
     private void BotonListarUsuarioEspecificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarUsuarioEspecificoActionPerformed

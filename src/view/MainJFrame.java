@@ -18,25 +18,18 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
-
-    private JPanel contenidoMain;
-    
-    public MainJFrame() {
+        public MainJFrame() {
         initComponents();
         initContenido();
-        this.contenidoMain = new JPanel();
     }
-  
-    
     private void initContenido() {
-        PantallaUsuarios pl = new PantallaUsuarios(contenidoMain);
+        Contenido pl = new Contenido();
         pl.setSize(1100, 610);
         pl.setLocation(0, 0);
-
-        contenidoMain.removeAll();
-        contenidoMain.add(pl, BorderLayout.CENTER);
-        contenidoMain.revalidate();
-        contenidoMain.repaint();
+        ContenidoMain.removeAll();
+        ContenidoMain.add(pl, BorderLayout.CENTER);
+        ContenidoMain.revalidate();
+        ContenidoMain.repaint();
 }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -255,7 +248,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonInicioActionPerformed
     
     private void BotonUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonUsuariosActionPerformed
-        PantallaUsuarios pl = new PantallaUsuarios(ContenidoMain);
+        PantallaUsuarios pl = new PantallaUsuarios();
         pl.setSize(1100,610);
         pl.setLocation(0,0);
         ContenidoMain.removeAll();
