@@ -8,6 +8,7 @@ package view;
 import controller.ListaDeUsuarios;
 import java.awt.BorderLayout;
 import view.Pantallas.PantallaLaboratorios;
+import view.Pantallas.PantallaProductos;
 import view.Pantallas.PantallaUsuarios;
 
 /**
@@ -270,7 +271,13 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonLaboratoriosActionPerformed
 
     private void BotonProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonProductosActionPerformed
-        // TODO add your handling code here:
+        PantallaProductos pl = new PantallaProductos();
+        pl.setSize(1100,610);
+        pl.setLocation(0,0);
+        ContenidoMain.removeAll();
+        ContenidoMain.add(pl, BorderLayout.CENTER);
+        ContenidoMain.revalidate();
+        ContenidoMain.repaint();
     }//GEN-LAST:event_BotonProductosActionPerformed
 
     private void BotonTransaccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonTransaccionesActionPerformed
