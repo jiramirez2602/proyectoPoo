@@ -5,6 +5,7 @@
 package view.Pantallas;
 
 import controller.Form;
+import java.awt.BorderLayout;
 import java.util.List;
 import java.util.function.Function;
 import javax.swing.JOptionPane;
@@ -22,6 +23,7 @@ public class Listar extends javax.swing.JPanel {
      */
     public Listar() {
         initComponents();
+        setLayout(new BorderLayout()); 
     }
    
      public void mostrarListaUsuarios(List<Usuario> usuarios) {

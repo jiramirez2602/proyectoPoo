@@ -6,12 +6,16 @@ package view.Pantallas;
 
 import controller.ListaDeUsuarios;
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import static java.awt.SystemColor.info;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.swing.ButtonGroup;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import model.Usuario;
 /**
  *
@@ -164,22 +168,75 @@ public class PantallaUsuarios extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCrearUsuarioActionPerformed
-      String username = JOptionPane.showInputDialog("Ingrese el nombre de usuario:");
-      String contrasena = JOptionPane.showInputDialog("Ingrese la contraseña:");
-      String nombreCompleto = JOptionPane.showInputDialog("Ingrese el nombre completo:");
-      String privilegiosStr = JOptionPane.showInputDialog("Ingrese los privilegios (separados por comas):");
-      ArrayList<String> privilegios = new ArrayList<>(Arrays.asList(privilegiosStr.split(",")));
-      String rol = JOptionPane.showInputDialog("Ingrese el rol:");
-      String statusStr = JOptionPane.showInputDialog("Ingrese el estado (true/false):");
+         String username = JOptionPane.showInputDialog("Ingrese el nombre de usuario:");
+        String contrasena = JOptionPane.showInputDialog("Ingrese la contraseña:");
+        String nombreCompleto = JOptionPane.showInputDialog("Ingrese el nombre completo:");
 
-      Usuario nuevoUsuario = new Usuario(username, contrasena, nombreCompleto, privilegios, rol, Boolean.parseBoolean(statusStr));
+        // Crear una ventana de diálogo para seleccionar privilegios usando checkboxes
+        JPanel privilegePanel = new JPanel();
+        JCheckBox usuariosPrivilege = new JCheckBox("Usuarios");
+        JCheckBox laboratoriosPrivilege = new JCheckBox("Laboratorios");
+        JCheckBox productosPrivilege = new JCheckBox("Productos");
+        JCheckBox transaccionesPrivilege = new JCheckBox("Transacciones");
 
-      boolean exito = ListaUsuarios.crearUsuario(nuevoUsuario, username, contrasena, nombreCompleto, privilegios, rol, statusStr);
-      if (exito) {
-          JOptionPane.showMessageDialog(null, "Usuario creado exitosamente");
-      } else {
-          JOptionPane.showMessageDialog(null, "Error al crear el usuario");
-      }
+        privilegePanel.setLayout(new GridLayout(0, 1));
+        privilegePanel.add(usuariosPrivilege);
+        privilegePanel.add(laboratoriosPrivilege);
+        privilegePanel.add(productosPrivilege);
+        privilegePanel.add(transaccionesPrivilege);
+
+        JOptionPane.showConfirmDialog(null, privilegePanel, "Seleccione los privilegios:", JOptionPane.OK_CANCEL_OPTION);
+
+        ArrayList<String> privilegios = new ArrayList<>();
+        if (usuariosPrivilege.isSelected()) {
+            privilegios.add(usuariosPrivilege.getText());
+        }
+        if (laboratoriosPrivilege.isSelected()) {
+            privilegios.add(laboratoriosPrivilege.getText());
+        }
+        if (productosPrivilege.isSelected()) {
+            privilegios.add(productosPrivilege.getText());
+        }
+        if (transaccionesPrivilege.isSelected()) {
+            privilegios.add(transaccionesPrivilege.getText());
+        }
+
+        // Crear una ventana de diálogo para seleccionar el rol usando un grupo de botones de opción
+        JPanel rolPanel = new JPanel();
+        JRadioButton adminRadioButton = new JRadioButton("Administrador");
+        JRadioButton invitadoRadioButton = new JRadioButton("Invitado");
+        ButtonGroup rolGroup = new ButtonGroup();
+        rolGroup.add(adminRadioButton);
+        rolGroup.add(invitadoRadioButton);
+
+        rolPanel.add(adminRadioButton);
+        rolPanel.add(invitadoRadioButton);
+
+        JOptionPane.showConfirmDialog(null, rolPanel, "Seleccione el rol:", JOptionPane.OK_CANCEL_OPTION);
+
+        String rol;
+        if (adminRadioButton.isSelected()) {
+            rol = adminRadioButton.getText();
+        } else if (invitadoRadioButton.isSelected()) {
+            rol = invitadoRadioButton.getText();
+        } else {
+            // Por defecto, asignar el rol de invitado si no se selecciona ninguno
+            rol = "Invitado";
+        }
+
+        // Crear una ventana de diálogo para seleccionar el estado usando un checkbox
+        String[] options = {"Activo", "Inactivo"};
+        int option = JOptionPane.showOptionDialog(null, "Seleccione el estado:", "Estado", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+        boolean estado = option == 0; // Activo si option es 0, Inactivo si option es 1
+
+        Usuario nuevoUsuario = new Usuario(username, contrasena, nombreCompleto, privilegios, rol, estado);
+
+        boolean exito = ListaUsuarios.crearUsuario(nuevoUsuario, username, contrasena, nombreCompleto, privilegios, rol, String.valueOf(estado));
+        if (exito) {
+            JOptionPane.showMessageDialog(null, "Usuario creado exitosamente");
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al crear el usuario");
+        }
     }//GEN-LAST:event_BotonCrearUsuarioActionPerformed
 
     private void BotonModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarUsuarioActionPerformed
@@ -232,7 +289,6 @@ public class PantallaUsuarios extends javax.swing.JPanel {
                 } else {
                     JOptionPane.showMessageDialog(null, info.toString(), "No hay usuarios disponibles", JOptionPane.INFORMATION_MESSAGE);
                 }
-        
     }//GEN-LAST:event_BotonListarUsuarioActionPerformed
 
     private void BotonListarUsuarioEspecificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarUsuarioEspecificoActionPerformed

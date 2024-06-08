@@ -1,10 +1,10 @@
 package controller;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.Field;
 import java.util.List;
 import java.util.function.Function;
 import javax.swing.*;
@@ -16,6 +16,7 @@ public class Form<T> extends JPanel {
     private JButton closeButton;
     private DefaultTableModel tableModel;
     private JPanel buttonPanel;
+    private Component previousComponent;
 
     public Form(List<T> items, String[] columnNames, List<Function<T, Object>> columnFunctions) {
         initComponents();
@@ -32,6 +33,9 @@ public class Form<T> extends JPanel {
     }
 
     public void mostrarTabla(List<T> items, String[] columnNames, List<Function<T, Object>> columnFunctions) {
+        // Guardar la referencia al componente actual
+        previousComponent = this.getComponent(0);
+        
         // Crear el modelo de la tabla con los datos de los items
         tableModel = new DefaultTableModel(columnNames, 0);
         for (T item : items) {
@@ -54,9 +58,9 @@ public class Form<T> extends JPanel {
     }
 
     public void ocultarTabla() {
-        this.removeAll();
-        this.add(buttonPanel, BorderLayout.SOUTH);
-        this.revalidate();
-        this.repaint();
+        // Ocultar la tabla y mostrar el componente anterior
+        scrollPane.setVisible(false);
+        closeButton.setVisible(false);
+        previousComponent.setVisible(true);
     }
 }
