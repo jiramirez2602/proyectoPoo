@@ -28,10 +28,11 @@ public class Listar extends javax.swing.JPanel {
    
      public void mostrarListaUsuarios(List<Usuario> usuarios) {
         if (!usuarios.isEmpty()) {
-            String[] columnNames = {"Username", "Nombre Completo", "Rol", "Estado"};
+            String[] columnNames = {"Username", "Nombre Completo","Privilegios", "Rol", "Estado"};
             List<Function<Usuario, Object>> columnFunctions = List.of(
                     Usuario::getUsername,
                     Usuario::getNombreUser,
+                    Usuario::getPrivilegios,
                     Usuario::getRolUsuario,
                     Usuario::isStatus
             );

@@ -168,7 +168,7 @@ public class PantallaUsuarios extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCrearUsuarioActionPerformed
-         String username = JOptionPane.showInputDialog("Ingrese el nombre de usuario:");
+        String username = JOptionPane.showInputDialog("Ingrese el nombre de usuario:");
         String contrasena = JOptionPane.showInputDialog("Ingrese la contraseña:");
         String nombreCompleto = JOptionPane.showInputDialog("Ingrese el nombre completo:");
 

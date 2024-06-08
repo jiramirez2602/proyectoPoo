@@ -3,8 +3,6 @@ package controller;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.function.Function;
 import javax.swing.*;
@@ -34,10 +32,18 @@ public class Form<T> extends JPanel {
 
     public void mostrarTabla(List<T> items, String[] columnNames, List<Function<T, Object>> columnFunctions) {
         // Guardar la referencia al componente actual
-        previousComponent = this.getComponent(0);
-        
-        // Crear el modelo de la tabla con los datos de los items
-        tableModel = new DefaultTableModel(columnNames, 0);
+        if (this.getComponentCount() > 0) {
+            previousComponent = this.getComponent(0);
+        }
+
+        // Crear el modelo de la tabla con los datos de los items, asegurando que no sea editable
+        tableModel = new DefaultTableModel(columnNames, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Todas las celdas no son editables
+            }
+        };
+
         for (T item : items) {
             Object[] row = new Object[columnFunctions.size()];
             for (int i = 0; i < columnFunctions.size(); i++) {
@@ -59,8 +65,13 @@ public class Form<T> extends JPanel {
 
     public void ocultarTabla() {
         // Ocultar la tabla y mostrar el componente anterior
-        scrollPane.setVisible(false);
+        this.remove(scrollPane);
         closeButton.setVisible(false);
-        previousComponent.setVisible(true);
+        if (previousComponent != null) {
+            previousComponent.setVisible(true);
+            this.add(previousComponent, BorderLayout.CENTER);
+        }
+        this.revalidate();
+        this.repaint();
     }
 }
