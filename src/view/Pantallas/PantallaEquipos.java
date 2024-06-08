@@ -86,7 +86,7 @@ public class PantallaEquipos extends javax.swing.JPanel {
         });
 
         BotonListarEquipo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        BotonListarEquipo.setText("Listar Equipo");
+        BotonListarEquipo.setText("Listar Equipos");
         BotonListarEquipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonListarEquipoActionPerformed(evt);

@@ -161,7 +161,7 @@ public class PantallaSustanciasQuimicas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonCrearSustanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCrearSustanciaActionPerformed
- 
+        
     }//GEN-LAST:event_BotonCrearSustanciaActionPerformed
 
     private void BotonModificarSustanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarSustanciaActionPerformed

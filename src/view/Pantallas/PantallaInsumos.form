@@ -83,11 +83,11 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="BotonListarEquipoEspecifico" pref="280" max="32767" attributes="0"/>
-                          <Component id="BotonListarEquipo" alignment="1" max="32767" attributes="0"/>
-                          <Component id="BotonEliminarEquipo" alignment="1" max="32767" attributes="0"/>
-                          <Component id="BotonCrearEquipo" alignment="0" max="32767" attributes="0"/>
-                          <Component id="BotonModificarEquipo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="BotonListarInsumosEspecificos" pref="280" max="32767" attributes="0"/>
+                          <Component id="BotonListarInsumos" alignment="1" max="32767" attributes="0"/>
+                          <Component id="BotonEliminarInsumo" alignment="1" max="32767" attributes="0"/>
+                          <Component id="BotonCrearinsumo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="BotonModificarInsumo" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                   </Group>
@@ -97,27 +97,28 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="BotonCrearEquipo" max="32767" attributes="0"/>
+                      <Component id="BotonCrearinsumo" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="BotonModificarEquipo" max="32767" attributes="0"/>
+                      <Component id="BotonModificarInsumo" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="BotonEliminarEquipo" max="32767" attributes="0"/>
+                      <Component id="BotonEliminarInsumo" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="BotonListarEquipo" max="32767" attributes="0"/>
+                      <Component id="BotonListarInsumos" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="BotonListarEquipoEspecifico" max="32767" attributes="0"/>
+                      <Component id="BotonListarInsumosEspecificos" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="BotonCrearEquipo">
+            <Component class="javax.swing.JButton" name="BotonCrearinsumo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial Rounded MT Bold" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Crear Equipo"/>
+                <Property name="text" type="java.lang.String" value="Crear Insumo"/>
+                <Property name="actionCommand" type="java.lang.String" value="Crear Insumo"/>
                 <Property name="alignmentY" type="float" value="0.0"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -129,51 +130,52 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonCrearEquipoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonCrearinsumoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="BotonModificarEquipo">
+            <Component class="javax.swing.JButton" name="BotonModificarInsumo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial Rounded MT Bold" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Modificar Equipo"/>
+                <Property name="text" type="java.lang.String" value="Modificar Insumo"/>
+                <Property name="actionCommand" type="java.lang.String" value="Modificar Insumo"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonModificarEquipoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonModificarInsumoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="BotonEliminarEquipo">
+            <Component class="javax.swing.JButton" name="BotonEliminarInsumo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial Rounded MT Bold" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Eliminar Equipo"/>
+                <Property name="text" type="java.lang.String" value="Eliminar Insumo"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonEliminarEquipoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonEliminarInsumoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="BotonListarEquipo">
+            <Component class="javax.swing.JButton" name="BotonListarInsumos">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial Rounded MT Bold" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Listar Equipos"/>
+                <Property name="text" type="java.lang.String" value="Listar Insumos"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonListarEquipoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonListarInsumosActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="BotonListarEquipoEspecifico">
+            <Component class="javax.swing.JButton" name="BotonListarInsumosEspecificos">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial Rounded MT Bold" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Listar Equipo Especifico"/>
+                <Property name="text" type="java.lang.String" value="Listar Insumos Especificos"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonListarEquipoEspecificoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonListarInsumosEspecificosActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
