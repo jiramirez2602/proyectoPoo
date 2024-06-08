@@ -16,7 +16,7 @@ import model.Usuario;
 public class Main {
 
     public static void main(String[] args) {
-
+        
         //Estos pasos previos solo se realiza para lograr ejemplificar, 
         //en la practica los valore no debe obtenerse asi
         ArrayList<String> privilegios = new ArrayList<>();//Esto se maneja en modulo de usuarios
@@ -95,6 +95,7 @@ public class Main {
         System.out.println("Nombre del laboratorio que quedo: " + lista.get(0).getNombreLaboratorio());
 
         //Nota final: pregunta si tienes dudas
+        
         /*
         privilegios.add("Usuarios");
         privilegios.add("Laboratorios");
@@ -149,6 +150,7 @@ public class Main {
         System.out.println("\n");
         System.out.println(bool);
          */
+        
         //MANEJO DE EQUIPOS
         System.out.println("\n");
 
@@ -165,7 +167,6 @@ public class Main {
         for (Equipo i : listaEquipos.listarEquipoPorUsuario(usuarioQueLlamaAlMetodo)) {
             System.out.println(i.getNombreProducto());
         }
-
         System.out.println("");
         //Obtengo un id de uno de los equipo que registre
         String idEquipo = listaEquipos.listarEquipoPorUsuario(usuarioQueLlamaAlMetodo).get(2).getId();
@@ -282,6 +283,7 @@ public class Main {
         for (SustanciaQuimica i : listaSustancias.listarSustanciaQuimicaPorUsuario(usuarioQueLlamaAlMetodo)) {
             System.out.println("\nSustancia Quimica restante: " + i.getNombreProducto());
         }
+
     }
 
 }
