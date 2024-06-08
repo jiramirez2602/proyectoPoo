@@ -200,9 +200,9 @@ public class PantallaEquipos extends javax.swing.JPanel {
       }
       boolean exito = equipos.crearProductoEquipo(user,descripcion,marca,modelo,numeroSerial,numeroActivo,presentacion,voltaje, procesable,materialRequerido,añoDeCompra,aplicacion,ultimoMantenimiento,proximoMantenimiento,ultimaCalibracion,proximaCalibracion, provedores,on,codigo,nombreProducto,inventarioExistente,observaciones,laboratorio);
       if (exito) {
-          JOptionPane.showMessageDialog(null, "Usuario creado exitosamente");
+          JOptionPane.showMessageDialog(null, "Equipo creado exitosamente");
       } else {
-          JOptionPane.showMessageDialog(null, "Error al crear el usuario");
+          JOptionPane.showMessageDialog(null, "Error al crear el equipo");
       }
     }//GEN-LAST:event_BotonCrearEquipoActionPerformed
 
@@ -252,9 +252,9 @@ public class PantallaEquipos extends javax.swing.JPanel {
         if (equipoExistente != null) {
             boolean exito = equipos.eliminarEquipo(user, id);
             if (exito) {
-                JOptionPane.showMessageDialog(null, "Usuario eliminado exitosamente");
+                JOptionPane.showMessageDialog(null, "Equipo eliminado exitosamente");
             } else {
-                JOptionPane.showMessageDialog(null, "Error al eliminar el usuario");
+                JOptionPane.showMessageDialog(null, "Error al eliminar el equipo");
             }
         }
     }//GEN-LAST:event_BotonEliminarEquipoActionPerformed
@@ -271,7 +271,7 @@ public class PantallaEquipos extends javax.swing.JPanel {
             BackGroundPantallaUsuarios.revalidate();
             BackGroundPantallaUsuarios.repaint();
         }else{
-            JOptionPane.showMessageDialog(null, info.toString(), "No hay usuarios disponibles", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, info.toString(), "No hay equipos disponibles", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_BotonListarEquipoActionPerformed
 
