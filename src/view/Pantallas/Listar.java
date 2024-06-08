@@ -53,7 +53,7 @@ public class Listar extends javax.swing.JPanel {
      
     public void mostrarListaEquipos(List<Equipo> equipos){
         if(!equipos.isEmpty()){
-            String[] columnNames = {"Nombre del producto","Codigo","Tipo de producto","Inventario","Observaciones","Descripcion","Marca","Modelo","Numero de serial","Numero Activo","Presentacion","Voltaje","Procesable","Material Requerido","Año de compra","Aplicacion","Ultimo mantenimiento","Proximo mantenimiento ","Ultima calibracion","Proxima calibracion","Provedores de Servicios","Encendido de noche"};
+            String[] columnNames = {"Nombre del producto","Codigo","Tipo de producto","Inventario","Observaciones","Descripcion","Marca","Modelo","Numero de serial","Numero Activo","Presentacion","Voltaje","Procesable","Material Requerido","Año de compra","Aplicacion","Ultimo mantenimiento","Proximo mantenimiento ","Ultima calibracion","Proxima calibracion","Proveedores de Servicios","Encendido de noche"};
             List<Function<Equipo, Object>>columnFunctions=List.of(
                     Equipo::getNombreProducto,
                     Equipo::getCodigo,
