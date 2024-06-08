@@ -10,6 +10,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import model.Usuario;
 
 /**
@@ -837,16 +840,31 @@ public class UsuariosJFrame extends javax.swing.JFrame {
 
     private void BotonListarUsariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonListarUsariosMouseClicked
         ArrayList<Usuario> usuarios = listaUsuarios.listarUsuarios();
-        StringBuilder lista = new StringBuilder();
+        DefaultTableModel tableModel = new DefaultTableModel();
+        tableModel.addColumn("ID");
+        tableModel.addColumn("Username");
+        tableModel.addColumn("Nombre Completo");
+        tableModel.addColumn("Privilegios");
+        tableModel.addColumn("Rol");
+        tableModel.addColumn("Estado");
+
         for (Usuario usuario : usuarios) {
-            lista.append("ID: ").append(usuario.getId()).append("\n");
-            lista.append("Username: ").append(usuario.getUsername()).append("\n");
-            lista.append("Nombre Completo: ").append(usuario.getNombreUser()).append("\n");
-            lista.append("Privilegios: ").append(String.join(", ", usuario.getPrivilegios())).append("\n");
-            lista.append("Rol: ").append(usuario.getRolUsuario()).append("\n");
-            lista.append("Estado: ").append(usuario.isStatus()).append("\n\n");
+            tableModel.addRow(new Object[]{
+                usuario.getId(),
+                usuario.getUsername(),
+                usuario.getNombreUser(),
+                String.join(", ", usuario.getPrivilegios()),
+                usuario.getRolUsuario(),
+                usuario.isStatus() ? "Activo" : "Inactivo"
+            });
         }
-        JOptionPane.showMessageDialog(null, lista.toString(), "Lista de Usuarios", JOptionPane.INFORMATION_MESSAGE);
+
+        JTable table = new JTable(tableModel);
+        JScrollPane scrollPane = new JScrollPane(table);
+        this.add(scrollPane); // 'this' se refiere al contenedor actual, que podría ser un JFrame o un JPanel
+
+        this.revalidate();
+        this.repaint();
     }//GEN-LAST:event_BotonListarUsariosMouseClicked
 
     private void BotonListarUsariosMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonListarUsariosMouseMoved
