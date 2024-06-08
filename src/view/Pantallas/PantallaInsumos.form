@@ -21,17 +21,29 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
           <Component id="BackGroundPantallaInsumos" alignment="0" max="32767" attributes="0"/>
+=======
+          <Component id="BackGroundPantallaUsuarios" alignment="0" max="32767" attributes="0"/>
+>>>>>>> ab6d0c9fea3afb04c0452000e914858139cf4af1
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
           <Component id="BackGroundPantallaInsumos" alignment="0" max="32767" attributes="0"/>
+=======
+          <Component id="BackGroundPantallaUsuarios" alignment="0" max="32767" attributes="0"/>
+>>>>>>> ab6d0c9fea3afb04c0452000e914858139cf4af1
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
+<<<<<<< HEAD
     <Container class="javax.swing.JPanel" name="BackGroundPantallaInsumos">
+=======
+    <Container class="javax.swing.JPanel" name="BackGroundPantallaUsuarios">
+>>>>>>> ab6d0c9fea3afb04c0452000e914858139cf4af1
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -84,8 +96,13 @@
                       <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="BotonListarInsumoEspecifico" pref="280" max="32767" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="BotonListarInsumos" alignment="1" max="32767" attributes="0"/>
                           <Component id="BotonEliminarinsumo" alignment="1" max="32767" attributes="0"/>
+=======
+                          <Component id="BotonListarInsumo" alignment="1" max="32767" attributes="0"/>
+                          <Component id="BotonEliminarInsumo" alignment="1" max="32767" attributes="0"/>
+>>>>>>> ab6d0c9fea3afb04c0452000e914858139cf4af1
                           <Component id="BotonCrearInsumo" alignment="0" max="32767" attributes="0"/>
                           <Component id="BotonModificarInsumo" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -101,9 +118,15 @@
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="BotonModificarInsumo" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="BotonEliminarinsumo" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="BotonListarInsumos" max="32767" attributes="0"/>
+=======
+                      <Component id="BotonEliminarInsumo" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="BotonListarInsumo" max="32767" attributes="0"/>
+>>>>>>> ab6d0c9fea3afb04c0452000e914858139cf4af1
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="BotonListarInsumoEspecifico" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
@@ -117,7 +140,11 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial Rounded MT Bold" size="18" style="0"/>
                 </Property>
+<<<<<<< HEAD
                 <Property name="text" type="java.lang.String" value="Crear Insumo"/>
+=======
+                <Property name="text" type="java.lang.String" value="Crear Usuario"/>
+>>>>>>> ab6d0c9fea3afb04c0452000e914858139cf4af1
                 <Property name="alignmentY" type="float" value="0.0"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -143,7 +170,11 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonModificarInsumoActionPerformed"/>
               </Events>
             </Component>
+<<<<<<< HEAD
             <Component class="javax.swing.JButton" name="BotonEliminarinsumo">
+=======
+            <Component class="javax.swing.JButton" name="BotonEliminarInsumo">
+>>>>>>> ab6d0c9fea3afb04c0452000e914858139cf4af1
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial Rounded MT Bold" size="18" style="0"/>
@@ -151,18 +182,32 @@
                 <Property name="text" type="java.lang.String" value="Eliminar Insumo"/>
               </Properties>
               <Events>
+<<<<<<< HEAD
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonEliminarinsumoActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="BotonListarInsumos">
+=======
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonEliminarInsumoActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="BotonListarInsumo">
+>>>>>>> ab6d0c9fea3afb04c0452000e914858139cf4af1
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial Rounded MT Bold" size="18" style="0"/>
                 </Property>
+<<<<<<< HEAD
                 <Property name="text" type="java.lang.String" value="Listar Insumos"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonListarInsumosActionPerformed"/>
+=======
+                <Property name="text" type="java.lang.String" value="Listar Insumo"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonListarInsumoActionPerformed"/>
+>>>>>>> ab6d0c9fea3afb04c0452000e914858139cf4af1
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="BotonListarInsumoEspecifico">
