@@ -5,6 +5,7 @@
 package view;
 
 
+import controller.ListaDeUsuarios;
 import java.awt.BorderLayout;
 import view.Pantallas.PantallaLaboratorios;
 import view.Pantallas.PantallaUsuarios;
@@ -17,10 +18,11 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
-    
+    private ListaDeUsuarios ListaUsuarios; 
     public MainJFrame() {
         initComponents();
         initContenido();
+        ListaUsuarios = new ListaDeUsuarios();
     }
     private void initContenido() {
         Contenido pl = new Contenido();

@@ -11,6 +11,7 @@ public class ListaDeUsuarios {
         listaUsuarios=new ArrayList();
     }
     
+    
     public boolean usuarioExistente(String username){
         boolean existe=false;
         for(int cont=0;cont<listaUsuarios.size();cont++){

@@ -24,8 +24,9 @@ import model.Usuario;
 public class PantallaUsuarios extends javax.swing.JPanel {
 
     private ListaDeUsuarios ListaUsuarios; 
+    private Listar listarPanel;
 
-    public PantallaUsuarios() { // Modificar el constructor
+    public PantallaUsuarios() {
         initComponents();
         ListaUsuarios = new ListaDeUsuarios();
     }
@@ -277,18 +278,14 @@ public class PantallaUsuarios extends javax.swing.JPanel {
 
     private void BotonListarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarUsuarioActionPerformed
         List<Usuario> usuarios = ListaUsuarios.listarUsuarios();
-                if (!usuarios.isEmpty()) {
-                    Listar pl = new Listar();
-                    pl.setSize(1100, 610);
-                    pl.setLocation(0, 0);
-                    pl.mostrarListaUsuarios(usuarios); 
-                    BackGroundPantallaUsuarios.removeAll();
-                    BackGroundPantallaUsuarios.add(pl, BorderLayout.CENTER);
-                    BackGroundPantallaUsuarios.revalidate();
-                    BackGroundPantallaUsuarios.repaint();
-                } else {
-                    JOptionPane.showMessageDialog(null, info.toString(), "No hay usuarios disponibles", JOptionPane.INFORMATION_MESSAGE);
-                }
+        Listar pl = new Listar();
+        pl.setSize(1100, 610);
+        pl.setLocation(0, 0);
+        pl.mostrarListaUsuarios(usuarios);
+        BackGroundPantallaUsuarios.removeAll();
+        BackGroundPantallaUsuarios.add(pl, BorderLayout.CENTER);
+        BackGroundPantallaUsuarios.revalidate();
+        BackGroundPantallaUsuarios.repaint();
     }//GEN-LAST:event_BotonListarUsuarioActionPerformed
 
     private void BotonListarUsuarioEspecificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarUsuarioEspecificoActionPerformed
