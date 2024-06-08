@@ -289,4 +289,3 @@ public class PantallaInsumos extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
->>>>>>> ab6d0c9fea3afb04c0452000e914858139cf4af1
