@@ -3,7 +3,7 @@ package main;
 import controller.ListaDeEquipos;
 import controller.ListaDeInsumos;
 import controller.ListaLaboratorios;
-import controller.ListaDeProductos;
+import controller.ListaDeSustanciasQuimicas;
 import controller.ListaDeUsuarios;
 import java.util.ArrayList;
 import model.Equipo;
@@ -229,13 +229,58 @@ public class Main {
         idInsumo = listaInsumos.listarInsumoPorUsuario(usuarioQueLlamaAlMetodo).get(0).getId();
         //Elimino un segundo Insumo 
         listaInsumos.eliminarInsumo(usuarioQueLlamaAlMetodo, idInsumo);
-        
+
         //Pintar Insumo del laboratorio de Keny para mostrar que quedan 
         //dos menos
         //Esta linea de la los Insumos en su laboratorio que administra keny :
         //listaInsumos.listarInsumoPorUsuario(usuarioQueLlamaAlMetodo)
         for (Insumo i : listaInsumos.listarInsumoPorUsuario(usuarioQueLlamaAlMetodo)) {
             System.out.println("\nInsumo restante: " + i.getNombreProducto());
+        }
+
+        //MANEJO DE SUSTANCIAS QUIMICAS
+        System.out.println("\n");
+
+        ListaDeSustanciasQuimicas listaSustancias = new ListaDeSustanciasQuimicas();
+        //Sustancias Quimicas creado por un Keny
+        listaSustancias.crearProductoSustanciaQuimica(usuarioQueLlamaAlMetodo, "formulaQuimica", "concentracion", "presentacion", "nombreComercial", Boolean.TRUE, "numeroDeIdentificacion", "grupoDeRiesgo", "fraseR", "fraseS", "metodoDeControl", "permisos", "unidad", "12", "proveedor", "almacenadoEnvasado", "codigo", "nombreProducto: Sustancia 1", "12", "observaciones", labo);
+        listaSustancias.crearProductoSustanciaQuimica(usuarioQueLlamaAlMetodo, "formulaQuimica", "concentracion", "presentacion", "nombreComercial", Boolean.TRUE, "numeroDeIdentificacion", "grupoDeRiesgo", "fraseR", "fraseS", "metodoDeControl", "permisos", "unidad", "12", "proveedor", "almacenadoEnvasado", "codigo", "nombreProducto: Sustancia 2", "12", "observaciones", labo);
+        listaSustancias.crearProductoSustanciaQuimica(usuarioQueLlamaAlMetodo, "formulaQuimica", "concentracion", "presentacion", "nombreComercial", Boolean.TRUE, "numeroDeIdentificacion", "grupoDeRiesgo", "fraseR", "fraseS", "metodoDeControl", "permisos", "unidad", "12", "proveedor", "almacenadoEnvasado", "codigo", "nombreProducto: Sustancia 3", "12", "observaciones", labo);
+        
+        //Pintar Sustancias Quimicas del laboratorio de Keny
+        //Esta linea de la los Sustancias Quimicas en su laboratorio que administra keny :
+        //listaSustancias.listarSustanciaQuimicaPorUsuario(usuarioQueLlamaAlMetodo)
+        for (SustanciaQuimica i : listaSustancias.listarSustanciaQuimicaPorUsuario(usuarioQueLlamaAlMetodo)) {
+            System.out.println(i.getNombreProducto());
+        }
+
+        System.out.println("");
+        //Obtengo un id de uno de las Sustancia Quimica que registre
+        String idSustancia = listaSustancias.listarSustanciaQuimicaPorUsuario(usuarioQueLlamaAlMetodo).get(2).getId();
+        //En este ejemplo obtengo los datos de una Sustancia Quimica
+        //por su id y pinto su nombre:
+        System.out.println(listaSustancias.listarSustanciaQuimica(idSustancia).getNombreProducto());
+
+        //Actualizo descripcion de Sustancia Quimica Creado para laboratorio de Keny
+        listaSustancias.modificarSustancia(usuarioQueLlamaAlMetodo, idSustancia, "Actualizar formula Quimica", "concentracion", "presentacion", "nombreComercial", Boolean.TRUE, "numeroDeIdentificacion", "grupoDeRiesgo", "fraseR", "fraseS", "metodoDeControl", "permisos", "unidad", "12", "proveedor", "almacenadoEnvasado", "codigo", "nombreProducto: Sustancia 3", "12", "observaciones", labo);
+        System.out.println("Actualizacion: " + listaSustancias.listarSustanciaQuimica(idSustancia).getFormulaQuimica());
+
+        //Obtengo un id de uno de los Sustancia Quimica que registre
+        idSustancia = listaSustancias.listarSustanciaQuimicaPorUsuario(usuarioQueLlamaAlMetodo).get(0).getId();
+        //Elimino un Sustancia Quimica 
+        listaSustancias.eliminarSustanciaQuimica(usuarioQueLlamaAlMetodo, idSustancia);
+
+        //Obtengo un id de uno de los Sustancia Quimica que registre
+        idSustancia = listaSustancias.listarSustanciaQuimicaPorUsuario(usuarioQueLlamaAlMetodo).get(0).getId();
+        //Elimino un Sustancia Quimica 
+        listaSustancias.eliminarSustanciaQuimica(usuarioQueLlamaAlMetodo, idSustancia);
+
+        //Pintar Sustancia Quimica del laboratorio de Keny para mostrar que quedan 
+        //dos menos
+        //Esta linea de la los Sustancia Quimica en su laboratorio que administra keny :
+        //listaSustancias.listarSustanciaQuimicaPorUsuario(usuarioQueLlamaAlMetodo)
+        for (SustanciaQuimica i : listaSustancias.listarSustanciaQuimicaPorUsuario(usuarioQueLlamaAlMetodo)) {
+            System.out.println("\nSustancia Quimica restante: " + i.getNombreProducto());
         }
     }
 
