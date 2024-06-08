@@ -1,6 +1,7 @@
 package main;
 
 import controller.ListaDeEquipos;
+import controller.ListaDeInsumos;
 import controller.ListaLaboratorios;
 import controller.ListaDeProductos;
 import controller.ListaDeUsuarios;
@@ -18,7 +19,6 @@ public class Main {
 
         //Estos pasos previos solo se realiza para lograr ejemplificar, 
         //en la practica los valore no debe obtenerse asi
-
         ArrayList<String> privilegios = new ArrayList<>();//Esto se maneja en modulo de usuarios
         Usuario administradorLaboratorio = new Usuario("Keny", "1234", "jorge1", privilegios, "invitado", true); //Este usuario debería venir de combo box que liste usuario existente no deberia crearse en el momento
         Usuario usuarioQueLlamaAlMetodo = new Usuario("Harry", "1234", "jorge1", privilegios, "invitado", true); //Este usuario debería venir de combo box que liste usuario existente no deberia crearse en el momento
@@ -28,12 +28,10 @@ public class Main {
         ListaLaboratorios listaLaboratorios = new ListaLaboratorios();
         //**********************************************************************
 
-        
         //Ejemplo 1 para crear un laboratorio , considera que el usuario 
         //debe ser seleccionado desde un combobox que liste los usario que deben 
         //ser previamente registrados en este ejemplo uso un usuario que cree
         //pero no es elflujo normal
-         
         //Este metodo que sige devuelve true cuando todo salio bien puedes usar ese rotorno para continuar a la siguiente ventana o mostrar mensaje de exito
         //El departamento es opcional as[i debes llamar al metodo o este es un ejemplo
         listaLaboratorios.crearLaboratorio(usuarioQueLlamaAlMetodo, "Labo 1", "Ingenieria", "Telecom", "Sanitaria", administradorLaboratorio);
@@ -52,12 +50,11 @@ public class Main {
         //Ejemplo 3 para mostrar laboratorio
         //Considerando que el codigo de arriba creamos un laboratorio, ahora lo 
         //podremos listar
-        
         //Creo este objeto para guardar lo que me devuelva esta busqueda
-        Laboratorio labo; 
+        Laboratorio labo;
         //Esta es la verdadera llamada al metodo si tiene coincidencias me 
         //trae toda la info del laboratorio
-        labo = listaLaboratorios.listarLaboratorio(lista.get(0).getId()); 
+        labo = listaLaboratorios.listarLaboratorio(lista.get(0).getId());
         //Asi puedes extraer los datos del objeto laboratorio para pintarlos:
         System.out.println("\n");
         System.out.println("Id: " + labo.getId());
@@ -90,7 +87,6 @@ public class Main {
         //podremos eliminar debemos enviar unicamente el nombre y se borrara en
         //este ejemplo vamo a borrar el primer laboratorio que se creo y 
         //consultaremos la lista nuevamente
-                
         listaLaboratorios.eliminarLaboratorio(usuarioQueLlamaAlMetodo, lista.get(0).getId());
 
         //Esto de abajo es olo para mostrar el resultado de la actualizacion
@@ -99,8 +95,7 @@ public class Main {
         System.out.println("Nombre del laboratorio que quedo: " + lista.get(0).getNombreLaboratorio());
 
         //Nota final: pregunta si tienes dudas
-        
- /*
+        /*
         privilegios.add("Usuarios");
         privilegios.add("Laboratorios");
         ListaDeUsuarios lista2=new ListaDeUsuarios();
@@ -154,7 +149,6 @@ public class Main {
         System.out.println("\n");
         System.out.println(bool);
          */
- 
         //MANEJO DE EQUIPOS
         System.out.println("\n");
 
@@ -179,7 +173,7 @@ public class Main {
         System.out.println(listaEquipos.listarEquipo(idEquipo).getNombreProducto());
 
         //Actualizo descripcion de Equipo Creado para laboratorio de Keny
-        listaEquipos.modificarEquipo(usuarioQueLlamaAlMetodo, idEquipo, "Actualizar descipcion", "marca", "modelo", "numeroSerial", "numeroActivo", "presentacion", "voltaje", "procesable", "materialRequerido", "26/02/2001", "aplicacion", "26/02/2001", "26/02/2001", "26/02/2001", "26/02/2001", "proovedoresDeServicios", Boolean.TRUE, "codigo", "nombreProducto", "56", "observaciones", labo);
+        listaEquipos.modificarEquipo(usuarioQueLlamaAlMetodo, idEquipo, "Actualizar descipcion", "marca", "modelo", "numeroSerial", "numeroActivo", "presentacion", "voltaje", "procesable", "materialRequerido", "26/02/2001", "aplicacion", "26/02/2001", "26/02/2001", "26/02/2001", "26/02/2001", "proovedoresDeServicios", Boolean.TRUE, "codigo", "nombreProducto: Equipo 3", "56", "observaciones", labo);
         System.out.println("Actualizacion: " + listaEquipos.listarEquipo(idEquipo).getDescripcion());
 
         //Obtengo un id de uno de los equipo que registre
@@ -197,6 +191,51 @@ public class Main {
         //listaEquipos.listarEquipoPorUsuario(usuarioQueLlamaAlMetodo)
         for (Equipo i : listaEquipos.listarEquipoPorUsuario(usuarioQueLlamaAlMetodo)) {
             System.out.println("\nEquipo restante: " + i.getNombreProducto());
+        }
+
+        //MANEJO DE INSUMOS
+        System.out.println("\n");
+
+        ListaDeInsumos listaInsumos = new ListaDeInsumos();
+        //Insumo creado por un Keny
+        listaInsumos.crearProductoInsumo(usuarioQueLlamaAlMetodo, "descripcion", "marca", "modelo", "presentacion", "clasificacion", "categoria", "26/02/2001", "10.0", "unidad", "proveedor", "codigo", "nombreProducto: Insumo 1", "12", "observaciones", labo);
+        listaInsumos.crearProductoInsumo(usuarioQueLlamaAlMetodo, "descripcion", "marca", "modelo", "presentacion", "clasificacion", "categoria", "26/02/2001", "10.0", "unidad", "proveedor", "codigo", "nombreProducto: Insumo 2", "12", "observaciones", labo);
+        listaInsumos.crearProductoInsumo(usuarioQueLlamaAlMetodo, "descripcion", "marca", "modelo", "presentacion", "clasificacion", "categoria", "26/02/2001", "10.0", "unidad", "proveedor", "codigo", "nombreProducto: Insumo 3", "12", "observaciones", labo);
+
+        //Pintar Insumo del laboratorio de Keny
+        //Esta linea de la los Insumo en su laboratorio que administra keny :
+        //listaInsumos.listarInsumoPorUsuario(usuarioQueLlamaAlMetodo)
+        for (Insumo i : listaInsumos.listarInsumoPorUsuario(usuarioQueLlamaAlMetodo)) {
+            System.out.println(i.getNombreProducto());
+        }
+
+        System.out.println("");
+        //Obtengo un id de uno de los Insumo que registre
+        String idInsumo = listaInsumos.listarInsumoPorUsuario(usuarioQueLlamaAlMetodo).get(2).getId();
+        //En este ejemplo obtengo los datos de un Insumo
+        //por su id y pinto su nombre:
+        System.out.println(listaInsumos.listarInsumo(idInsumo).getNombreProducto());
+
+        //Actualizo descripcion de Insumo Creado para laboratorio de Keny
+        listaInsumos.modificarInsumo(usuarioQueLlamaAlMetodo, idInsumo, "descripcion actualizada", "marca", "modelo", "presentacion", "clasificacion", "categoria", "26/02/2001", "10.0", "unidad", "proveedor", "codigo", "nombreProducto: Insumo 3", "12", "observaciones", labo);
+        System.out.println("Actualizacion: " + listaInsumos.listarInsumo(idInsumo).getDescripcion());
+
+        //Obtengo un id de uno de los Insumos que registre
+        idInsumo = listaInsumos.listarInsumoPorUsuario(usuarioQueLlamaAlMetodo).get(0).getId();
+        //Elimino un Insumo 
+        listaInsumos.eliminarInsumo(usuarioQueLlamaAlMetodo, idInsumo);
+
+        //Obtengo un id de uno de los Insumo que registre
+        idInsumo = listaInsumos.listarInsumoPorUsuario(usuarioQueLlamaAlMetodo).get(0).getId();
+        //Elimino un segundo Insumo 
+        listaInsumos.eliminarInsumo(usuarioQueLlamaAlMetodo, idInsumo);
+        
+        //Pintar Insumo del laboratorio de Keny para mostrar que quedan 
+        //dos menos
+        //Esta linea de la los Insumos en su laboratorio que administra keny :
+        //listaInsumos.listarInsumoPorUsuario(usuarioQueLlamaAlMetodo)
+        for (Insumo i : listaInsumos.listarInsumoPorUsuario(usuarioQueLlamaAlMetodo)) {
+            System.out.println("\nInsumo restante: " + i.getNombreProducto());
         }
     }
 
