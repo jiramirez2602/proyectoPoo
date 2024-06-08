@@ -185,7 +185,7 @@ public class PantallaEquipos extends javax.swing.JPanel {
       String proximoMantenimiento = JOptionPane.showInputDialog("Ingrese el proximo mantenimiento del equipo(use el formato dd/mm/yyyy):");
       String ultimaCalibracion = JOptionPane.showInputDialog("Ingrese la ultima calibracion del equipo(use el formato dd/mm/yyyy):");
       String proximaCalibracion = JOptionPane.showInputDialog("Ingrese la proxima calibracion del equipo(use el formato dd/mm/yyyy):");
-      String provedores = JOptionPane.showInputDialog("Ingrese los provedores de servicios del equipo");
+      String provedores = JOptionPane.showInputDialog("Ingrese los proveedores de servicios del equipo");
       String encendido = JOptionPane.showInputDialog("Ingrese si esta encendido en la noche del equipo (si/no) :");
       String materialRequerido = JOptionPane.showInputDialog("Ingrese el material requerido del equipo:");
       String codigo = JOptionPane.showInputDialog("Ingrese el codigo del equipo:");
@@ -226,7 +226,7 @@ public class PantallaEquipos extends javax.swing.JPanel {
             String proximoMantenimiento = JOptionPane.showInputDialog("Ingrese el proximo mantenimiento del equipo(use el formato dd/mm/yyyy):");
             String ultimaCalibracion = JOptionPane.showInputDialog("Ingrese la ultima calibracion del equipo(use el formato dd/mm/yyyy):");
             String proximaCalibracion = JOptionPane.showInputDialog("Ingrese la proxima calibracion del equipo(use el formato dd/mm/yyyy):");
-            String provedores = JOptionPane.showInputDialog("Ingrese los provedores de servicios del equipo");
+            String provedores = JOptionPane.showInputDialog("Ingrese los proveedores de servicios del equipo");
             String encendido = JOptionPane.showInputDialog("Ingrese si esta encendido en la noche del equipo (si/no) :");
             String materialRequerido = JOptionPane.showInputDialog("Ingrese el material requerido del equipo:");
             String codigo = JOptionPane.showInputDialog("Ingrese el codigo del equipo:");
@@ -300,7 +300,7 @@ public class PantallaEquipos extends javax.swing.JPanel {
             info.append("Proximo Mantenimiento:").append(equipment.getNombreProducto()).append("\n");
             info.append("Ultima Calibracion:").append(equipment.getNombreProducto()).append("\n");
             info.append("Proxima Calibracion:").append(equipment.getNombreProducto()).append("\n");
-            info.append("Provedores de Servicios:").append(equipment.getNombreProducto()).append("\n");
+            info.append("Proveedores de Servicios:").append(equipment.getNombreProducto()).append("\n");
             info.append("Encendido de noche:").append(equipment.getNombreProducto()).append("\n");
             
             JOptionPane.showMessageDialog(null, info.toString(), "Información del Equipo", JOptionPane.INFORMATION_MESSAGE);
