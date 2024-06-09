@@ -4,7 +4,12 @@
  */
 package view.Pantallas;
 
+import controller.ListaDeEquipos;
+import controller.ListaDeInsumos;
+import controller.ListaDeSustanciasQuimicas;
+import controller.ListaLaboratorios;
 import java.awt.BorderLayout;
+import model.Usuario;
 
 /**
  *
@@ -12,8 +17,18 @@ import java.awt.BorderLayout;
  */
 public class PantallaProductos extends javax.swing.JPanel {
 
+    private ListaDeInsumos listaInsumos;
+    private ListaDeEquipos listaEquipos;
+    private ListaDeSustanciasQuimicas listaQuimicas;
+    private ListaLaboratorios listalabs;
+    private Usuario user;
 
-    public PantallaProductos() { // Modificar el constructor
+    public PantallaProductos(Usuario usuario,ListaLaboratorios labs,ListaDeEquipos equipos,ListaDeInsumos insumos,ListaDeSustanciasQuimicas quimicas) { // Modificar el constructor
+        this.listalabs=labs;
+        this.listaInsumos=insumos;
+        this.listaEquipos=equipos;
+        this.listaQuimicas=quimicas;
+        this.user=usuario;
         initComponents();
         
     }
@@ -132,7 +147,7 @@ public class PantallaProductos extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEquiposActionPerformed
-        PantallaEquipos pl = new PantallaEquipos();
+        PantallaEquipos pl = new PantallaEquipos(user,listalabs,listaEquipos);
         pl.setSize(1100,610);
         pl.setLocation(0,0);
         BackGroundPantallaEquipos.removeAll();
@@ -142,7 +157,7 @@ public class PantallaProductos extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonEquiposActionPerformed
 
     private void BotonInsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonInsumosActionPerformed
-        PantallaInsumos pl = new PantallaInsumos();
+        PantallaInsumos pl = new PantallaInsumos(user,listalabs,listaInsumos);
         pl.setSize(1100,610);
         pl.setLocation(0,0);
         BackGroundPantallaEquipos.removeAll();
@@ -152,7 +167,7 @@ public class PantallaProductos extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonInsumosActionPerformed
 
     private void BotonSustanciasQuimicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSustanciasQuimicasActionPerformed
-        PantallaSustanciasQuimicas pl = new PantallaSustanciasQuimicas();
+        PantallaSustanciasQuimicas pl = new PantallaSustanciasQuimicas(user,listalabs,listaQuimicas);
         pl.setSize(1100,610);
         pl.setLocation(0,0);
         BackGroundPantallaEquipos.removeAll();

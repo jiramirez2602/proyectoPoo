@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import model.Equipo;
 import model.Insumo;
 import model.Laboratorio;
+import model.SustanciaQuimica;
 import model.Usuario;
 
 /**
@@ -51,6 +52,32 @@ public class Listar extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "No hay usuarios disponibles", "Información", JOptionPane.INFORMATION_MESSAGE);
         }
     }
+  
+    public void mostrarListaLaboratorios(List<Laboratorio> laboratorios) {
+        if (!laboratorios.isEmpty()) {
+            String[] columnNames = {"ID", "Nombre", "Facultad", "Escuela", "Departamento", "Administrador"};
+            List<Function<Laboratorio, Object>> columnFunctions = List.of(
+                    Laboratorio::getId,
+                    Laboratorio::getNombreLaboratorio,
+                    Laboratorio::getFacultad,
+                    Laboratorio::getEscuela,
+                    Laboratorio::getDepartamento,
+                    lab -> lab.getAdministrador().getUsername()
+            );
+
+            // Crear instancia de Form y pasar la lista de laboratorios, nombres de columnas y funciones
+            Form<Laboratorio> form = new Form<>(laboratorios, columnNames, columnFunctions);
+
+            // Limpiar el panel antes de agregar el Form
+            removeAll();
+            add(form);
+            revalidate();
+            repaint();
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay laboratorios disponibles", "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
      
     public void mostrarListaEquipos(List<Equipo> equipos){
         if(!equipos.isEmpty()){
@@ -124,6 +151,48 @@ public class Listar extends javax.swing.JPanel {
          
      }
     
+     public void mostrarListaSustanciasQuimicas(List<SustanciaQuimica> sustancias) {
+        if (!sustancias.isEmpty()) {
+            String[] columnNames = {
+                "Nombre del producto", "Codigo", "Tipo de producto", "Inventario", "Observaciones",
+                "Fórmula Química", "Concentración", "Presentación", "Nombre Comercial",
+                "Posee MSD", "Número de Identificación", "Grupo de Riesgo",
+                "Frase R", "Frase S", "Método de Control", "Permisos",
+                "Unidad", "Precio Estimado", "Proveedor", "Almacenado Envasado"
+            };
+
+            List<Function<SustanciaQuimica, Object>> columnFunctions = List.of(
+                    SustanciaQuimica::getNombreProducto,
+                    SustanciaQuimica::getCodigo,
+                    SustanciaQuimica::getTipoDeProducto,
+                    SustanciaQuimica::getInventarioExistente,
+                    SustanciaQuimica::getObservaciones,
+                    SustanciaQuimica::getFormulaQuimica,
+                    SustanciaQuimica::getConcentracion,
+                    SustanciaQuimica::getPresentacion,
+                    SustanciaQuimica::getNombreComercial,
+                    SustanciaQuimica::getPoseeMSD,
+                    SustanciaQuimica::getNumeroDeIdentificacion,
+                    SustanciaQuimica::getGrupoDeRiesgo,
+                    SustanciaQuimica::getFraseR,
+                    SustanciaQuimica::getFraseS,
+                    SustanciaQuimica::getMetodoDeControl,
+                    SustanciaQuimica::getPermisos,
+                    SustanciaQuimica::getUnidad,
+                    SustanciaQuimica::getPrecioEstimado,
+                    SustanciaQuimica::getProveedor,
+                    SustanciaQuimica::getAlmacenadoEnvasado
+            );
+
+            Form<SustanciaQuimica> form = new Form<>(sustancias, columnNames, columnFunctions);
+            removeAll();
+            add(form);
+            revalidate();
+            repaint();
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay sustancias químicas disponibles", "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.

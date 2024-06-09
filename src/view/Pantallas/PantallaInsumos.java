@@ -5,28 +5,33 @@
 package view.Pantallas;
 
 import controller.ListaDeInsumos;
+import controller.ListaDeUsuarios;
 import controller.ListaLaboratorios;
 import java.awt.BorderLayout;
 import static java.awt.SystemColor.info;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import model.Insumo;
-import model.Usuario;
 import model.Laboratorio;
+import model.Usuario;
 /**
  *
  * @author derno
  */
 public class PantallaInsumos extends javax.swing.JPanel {
 
-    private ListaDeInsumos ListaInsumos;
-    private ListaLaboratorios lab;
+    private ListaDeInsumos insumos;
     private Usuario user;
+    private ListaLaboratorios lab;
 
-    public PantallaInsumos() { // Modificar el constructor
+    public PantallaInsumos(Usuario usuario,ListaLaboratorios labs,ListaDeInsumos insum) { // Modificar el constructor
+        this.lab=labs;
+        this.insumos=insum;
+        this.user=usuario;
         initComponents();
-        ListaInsumos = new ListaDeInsumos();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,11 +44,11 @@ public class PantallaInsumos extends javax.swing.JPanel {
 
         BackGroundPantallaUsuarios = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        BotonCrearinsumo = new javax.swing.JButton();
+        BotonCrearInsumo = new javax.swing.JButton();
         BotonModificarInsumo = new javax.swing.JButton();
         BotonEliminarInsumo = new javax.swing.JButton();
-        BotonListarInsumos = new javax.swing.JButton();
-        BotonListarInsumosEspecificos = new javax.swing.JButton();
+        BotonListarInsumo = new javax.swing.JButton();
+        BotonListarInsumoEspecifico = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -52,23 +57,21 @@ public class PantallaInsumos extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(62, 183, 248));
 
-        BotonCrearinsumo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        BotonCrearinsumo.setText("Crear Insumo");
-        BotonCrearinsumo.setActionCommand("Crear Insumo");
-        BotonCrearinsumo.setAlignmentY(0.0F);
-        BotonCrearinsumo.setBorder(null);
-        BotonCrearinsumo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BotonCrearinsumo.setHideActionText(true);
-        BotonCrearinsumo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BotonCrearinsumo.addActionListener(new java.awt.event.ActionListener() {
+        BotonCrearInsumo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        BotonCrearInsumo.setText("Crear Usuario");
+        BotonCrearInsumo.setAlignmentY(0.0F);
+        BotonCrearInsumo.setBorder(null);
+        BotonCrearInsumo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BotonCrearInsumo.setHideActionText(true);
+        BotonCrearInsumo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BotonCrearInsumo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonCrearinsumoActionPerformed(evt);
+                BotonCrearInsumoActionPerformed(evt);
             }
         });
 
         BotonModificarInsumo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonModificarInsumo.setText("Modificar Insumo");
-        BotonModificarInsumo.setActionCommand("Modificar Insumo");
         BotonModificarInsumo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonModificarInsumoActionPerformed(evt);
@@ -83,19 +86,19 @@ public class PantallaInsumos extends javax.swing.JPanel {
             }
         });
 
-        BotonListarInsumos.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        BotonListarInsumos.setText("Listar Insumos");
-        BotonListarInsumos.addActionListener(new java.awt.event.ActionListener() {
+        BotonListarInsumo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        BotonListarInsumo.setText("Listar Insumo");
+        BotonListarInsumo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonListarInsumosActionPerformed(evt);
+                BotonListarInsumoActionPerformed(evt);
             }
         });
 
-        BotonListarInsumosEspecificos.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        BotonListarInsumosEspecificos.setText("Listar Insumos Especificos");
-        BotonListarInsumosEspecificos.addActionListener(new java.awt.event.ActionListener() {
+        BotonListarInsumoEspecifico.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        BotonListarInsumoEspecifico.setText("Listar Insumo Especifico");
+        BotonListarInsumoEspecifico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonListarInsumosEspecificosActionPerformed(evt);
+                BotonListarInsumoEspecificoActionPerformed(evt);
             }
         });
 
@@ -106,10 +109,10 @@ public class PantallaInsumos extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BotonListarInsumosEspecificos, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                    .addComponent(BotonListarInsumos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotonListarInsumoEspecifico, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                    .addComponent(BotonListarInsumo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BotonEliminarInsumo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotonCrearinsumo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotonCrearInsumo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BotonModificarInsumo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(80, 80, 80))
         );
@@ -117,15 +120,15 @@ public class PantallaInsumos extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(BotonCrearinsumo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BotonCrearInsumo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20)
                 .addComponent(BotonModificarInsumo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20)
                 .addComponent(BotonEliminarInsumo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20)
-                .addComponent(BotonListarInsumos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BotonListarInsumo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20)
-                .addComponent(BotonListarInsumosEspecificos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BotonListarInsumoEspecifico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
 
@@ -168,8 +171,7 @@ public class PantallaInsumos extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotonCrearinsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCrearinsumoActionPerformed
-
+    private void BotonCrearInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCrearInsumoActionPerformed
       String descripcion = JOptionPane.showInputDialog("Ingrese la descripcion del insumo:");
       String marca = JOptionPane.showInputDialog("Ingrese la marca del insumo:");
       String modelo = JOptionPane.showInputDialog("Ingrese el modelo del insumo:");
@@ -184,23 +186,27 @@ public class PantallaInsumos extends javax.swing.JPanel {
       String nombreProducto = JOptionPane.showInputDialog("Ingrese el nombre producto del insumo:");
       String inventarioExistente = JOptionPane.showInputDialog("Ingrese el inventario existente de los insumos(puede ser hasta 0 a 999999):");
       String observaciones = JOptionPane.showInputDialog("Ingrese las observaciones del insumo:");
+      String nombreLab=JOptionPane.showInputDialog("Ingrese nombre de laboratorio para asignar Insumo");
       ArrayList<Laboratorio> labs=lab.listarLaboratorios();
       Laboratorio laboratorio=lab.listarLaboratorio(labs.get(0).getId());
-
-      boolean exito = ListaInsumos.crearProductoInsumo(user, descripcion, marca, modelo, presentacion, clasificacion, categoria, ultimaCompra, precioEstimado, unidad, proveedor, codigo, nombreProducto, inventarioExistente, observaciones, laboratorio);
-      if (exito) {
-          JOptionPane.showMessageDialog(null, "Usuario creado exitosamente");
-      } else {
-          JOptionPane.showMessageDialog(null, "Error al crear el usuario");
+      if (laboratorio != null) {
+        boolean exito = insumos.crearProductoInsumo(user, descripcion, marca, modelo, presentacion, clasificacion, categoria, ultimaCompra, precioEstimado, unidad, proveedor, codigo, nombreProducto, inventarioExistente, observaciones, laboratorio);
+        if (exito) {
+            JOptionPane.showMessageDialog(null, "Insumo creado exitosamente");
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al crear el insumo");
+        }
       }
-    }//GEN-LAST:event_BotonCrearinsumoActionPerformed
+      else{
+          JOptionPane.showMessageDialog(null, "Error al crear el insumo, Laboratorio no encontrado");
+      }
+      
+    }//GEN-LAST:event_BotonCrearInsumoActionPerformed
 
     private void BotonModificarInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarInsumoActionPerformed
         String id = JOptionPane.showInputDialog("Ingrese el ID del insumo a modificar:");
-        Insumo insumoExistente = ListaInsumos.listarInsumo(id);
-        ArrayList<Laboratorio> labs = lab.listarLaboratorios();
-        Laboratorio laboratorio = lab.listarLaboratorio(labs.get(0).getId());
-        if (insumoExistente != null && laboratorio != null) {
+        Insumo insumoExistente = insumos.listarInsumo(id);
+        if (insumoExistente != null) {
             String descripcion = JOptionPane.showInputDialog("Ingrese la descripcion del insumo:");
             String marca = JOptionPane.showInputDialog("Ingrese la marca del insumo:");
             String modelo = JOptionPane.showInputDialog("Ingrese el modelo del insumo:");
@@ -215,20 +221,31 @@ public class PantallaInsumos extends javax.swing.JPanel {
             String nombreProducto = JOptionPane.showInputDialog("Ingrese el nombre producto del insumo:");
             String inventarioExistente = JOptionPane.showInputDialog("Ingrese el inventario existente de los insumos(puede ser hasta 0 a 999999):");
             String observaciones = JOptionPane.showInputDialog("Ingrese las observaciones del insumo:");
-            boolean exito = ListaInsumos.modificarInsumo(user, id, descripcion, marca, modelo, presentacion, clasificacion, categoria, ultimaCompra, precioEstimado, unidad, proveedor, codigo, nombreProducto, inventarioExistente, observaciones, laboratorio);
-            if (exito) {
-                JOptionPane.showMessageDialog(null, "Insumo modificado exitosamente");
-            } else {
-                JOptionPane.showMessageDialog(null, "Error al modificar insumo");
+            String nombreLab = JOptionPane.showInputDialog("Ingrese nombre de laboratorio para asignar Insumo");
+            ArrayList<Laboratorio> labs = lab.listarLaboratorios();
+            Laboratorio laboratorio = lab.listarLaboratorio(labs.get(0).getId());
+            if (laboratorio != null) {
+                boolean exito = insumos.crearProductoInsumo(user, descripcion, marca, modelo, presentacion, clasificacion, categoria, ultimaCompra, precioEstimado, unidad, proveedor, codigo, nombreProducto, inventarioExistente, observaciones, laboratorio);
+                if (exito) {
+                    JOptionPane.showMessageDialog(null, "Insumo creado exitosamente");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al crear el insumo");
+                }
             }
+            else{
+                JOptionPane.showMessageDialog(null, "Error al crear el insumo, Laboratorio no encontrado");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Insumo no encontrado");
         }
     }//GEN-LAST:event_BotonModificarInsumoActionPerformed
 
     private void BotonEliminarInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarInsumoActionPerformed
         String id = JOptionPane.showInputDialog("Ingrese el ID del insumo a eliminar:");
-        Insumo insumoExistente= ListaInsumos.listarInsumo(id);
+        Insumo insumoExistente= insumos.listarInsumo(id);
         if(insumoExistente != null){
-            boolean exito = ListaInsumos.eliminarInsumo(user, id);
+            boolean exito = insumos.eliminarInsumo(user, id);
             if (exito) {
                 JOptionPane.showMessageDialog(null, "Insumo eliminado exitosamente");
             } else {
@@ -237,25 +254,22 @@ public class PantallaInsumos extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_BotonEliminarInsumoActionPerformed
 
-    private void BotonListarInsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarInsumosActionPerformed
-        List<Insumo> insumo = ListaInsumos.listarInsumoPorUsuario(user);
-        if (!insumo.isEmpty()) {
-            Listar p1 = new Listar();
-            p1.setSize(1100, 610);
-            p1.setLocation(0, 0);
-            p1.mostrarListaInsumos(insumo);
-            BackGroundPantallaUsuarios.removeAll(); // Llamar a removeAll() en la instancia de PantallaUsuarios
-            BackGroundPantallaUsuarios.add(p1, BorderLayout.CENTER);
-            BackGroundPantallaUsuarios.revalidate();
-            BackGroundPantallaUsuarios.repaint();
-        }else{
-            JOptionPane.showMessageDialog(null, info.toString(), "No hay insumos disponibles", JOptionPane.INFORMATION_MESSAGE);
-        }
-    }//GEN-LAST:event_BotonListarInsumosActionPerformed
+    private void BotonListarInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarInsumoActionPerformed
+        List<Insumo> insumo = insumos.listarInsumoPorUsuario(user);
+        Listar p1 = new Listar();
+        p1.setSize(1100, 610);
+        p1.setLocation(0, 0);
+        p1.mostrarListaInsumos(insumo);
+        BackGroundPantallaUsuarios.removeAll(); // Llamar a removeAll() en la instancia de PantallaUsuarios
+        BackGroundPantallaUsuarios.add(p1, BorderLayout.CENTER);
+        BackGroundPantallaUsuarios.revalidate();
+        BackGroundPantallaUsuarios.repaint();
+       
+    }//GEN-LAST:event_BotonListarInsumoActionPerformed
 
-    private void BotonListarInsumosEspecificosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarInsumosEspecificosActionPerformed
-       String id = JOptionPane.showInputDialog("Ingrese el ID del equipo a mostrar:");
-        Insumo insumo = ListaInsumos.listarInsumo(id);
+    private void BotonListarInsumoEspecificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarInsumoEspecificoActionPerformed
+        String id = JOptionPane.showInputDialog("Ingrese el ID del equipo a mostrar:");
+        Insumo insumo = insumos.listarInsumo(id);
         if(insumo!=null){
             StringBuilder info=new StringBuilder();
             info.append("Nombre del Producto:").append(insumo.getNombreProducto()).append("\n");
@@ -279,14 +293,15 @@ public class PantallaInsumos extends javax.swing.JPanel {
         else{
             JOptionPane.showMessageDialog(null, "Insumo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_BotonListarInsumosEspecificosActionPerformed
-    
+    }//GEN-LAST:event_BotonListarInsumoEspecificoActionPerformed
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackGroundPantallaUsuarios;
-    private javax.swing.JButton BotonCrearinsumo;
+    private javax.swing.JButton BotonCrearInsumo;
     private javax.swing.JButton BotonEliminarInsumo;
-    private javax.swing.JButton BotonListarInsumos;
-    private javax.swing.JButton BotonListarInsumosEspecificos;
+    private javax.swing.JButton BotonListarInsumo;
+    private javax.swing.JButton BotonListarInsumoEspecifico;
     private javax.swing.JButton BotonModificarInsumo;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;

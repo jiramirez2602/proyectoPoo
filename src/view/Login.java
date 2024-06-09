@@ -4,7 +4,14 @@
  */
 package view;
 
+import controller.ListaDeEquipos;
+import controller.ListaDeInsumos;
+import controller.ListaDeSustanciasQuimicas;
+import controller.ListaDeUsuarios;
+import controller.ListaLaboratorios;
 import java.awt.Color;
+import javax.swing.JOptionPane;
+import model.Usuario;
 
 /**
  *
@@ -14,7 +21,7 @@ public class Login extends javax.swing.JFrame {
 
     int xMouse;
     int yMouse;
-    
+    //user: Harry1 password: 1234
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -51,9 +58,9 @@ public class Login extends javax.swing.JFrame {
 
         panelDiseño.setBackground(new java.awt.Color(51, 204, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Logo_UCAB_1 (1).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo_UCAB_1 (1).png"))); // NOI18N
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/logo_ingenieria-removebg-preview.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo_ingenieria-removebg-preview.png"))); // NOI18N
 
         javax.swing.GroupLayout panelDiseñoLayout = new javax.swing.GroupLayout(panelDiseño);
         panelDiseño.setLayout(panelDiseñoLayout);
@@ -189,6 +196,9 @@ public class Login extends javax.swing.JFrame {
         labelEntrar.setText("ENTRAR");
         labelEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labelEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelEntrarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 labelEntrarMouseEntered(evt);
             }
@@ -280,6 +290,28 @@ public class Login extends javax.swing.JFrame {
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioActionPerformed
+
+    private void labelEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelEntrarMouseClicked
+        if ((txtUsuario.getText().equals("Ingrese nombre del usuario"))||(txtUsuario.getText().equals(""))){
+            JOptionPane.showMessageDialog(null,"Esta vacio", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            String username = txtUsuario.getText();
+            String password = String.valueOf(txtContraseña.getPassword());
+            ListaDeUsuarios lista = new ListaDeUsuarios();
+            lista.iniciarListaDeUsuarios();
+            ListaLaboratorios listalab = new ListaLaboratorios();
+            ListaDeEquipos listaEquip = new ListaDeEquipos();
+            ListaDeInsumos listaInsu = new ListaDeInsumos();
+            ListaDeSustanciasQuimicas listaSusQui = new ListaDeSustanciasQuimicas();
+            Usuario usuario = lista.iniciarSesion(username, password);
+            if (usuario != null) {
+                MainJFrame iniciarMain=new MainJFrame(usuario,lista,listalab,listaEquip,listaInsu,listaSusQui);
+                iniciarMain.setVisible(true);
+                dispose();
+            }
+        }
+    }//GEN-LAST:event_labelEntrarMouseClicked
 
     /**
      * @param args the command line arguments

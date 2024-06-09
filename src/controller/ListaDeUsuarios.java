@@ -9,6 +9,13 @@ public class ListaDeUsuarios {
     
     public void iniciarListaDeUsuarios(){
         listaUsuarios=new ArrayList();
+        ArrayList<String> privilegios=new ArrayList<>();
+        privilegios.add("Laboratorios");
+        privilegios.add("Usuarios");
+        privilegios.add("Productos");
+        privilegios.add("Transacciones");
+        Usuario administradorLaboratorio = new Usuario("Harry1", "1234", "Harry Castellanos", privilegios, "administrador", true);
+        listaUsuarios.add(administradorLaboratorio);
     }
     
     

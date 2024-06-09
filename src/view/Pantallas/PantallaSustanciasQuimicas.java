@@ -4,22 +4,34 @@
  */
 package view.Pantallas;
 
+import controller.Form;
 import controller.ListaDeEquipos;
+import controller.ListaDeSustanciasQuimicas;
 import controller.ListaLaboratorios;
+import java.awt.BorderLayout;
+import java.util.List;
+import java.util.function.Function;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import model.Laboratorio;
+import model.SustanciaQuimica;
 import model.Usuario;
 /**
  *
  * @author derno
  */
 public class PantallaSustanciasQuimicas extends javax.swing.JPanel {
-
+    
+    private ListaDeSustanciasQuimicas listaSustanciasQuimicas;
     private ListaDeEquipos equipos; 
-    private ListaLaboratorios lab;
+    private ListaLaboratorios listaLaboratorios;
     private Usuario user;
 
-    public PantallaSustanciasQuimicas() { // Modificar el constructor
+    public PantallaSustanciasQuimicas(Usuario usuario,ListaLaboratorios labs,ListaDeSustanciasQuimicas quimicas) { // Modificar el constructor
+        this.user=usuario;
+        this.listaLaboratorios=labs;
+        this.listaSustanciasQuimicas=quimicas;
         initComponents();
-        equipos=new ListaDeEquipos();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,7 +59,6 @@ public class PantallaSustanciasQuimicas extends javax.swing.JPanel {
 
         BotonCrearSustancia.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonCrearSustancia.setText("Crear Sustancia");
-        BotonCrearSustancia.setActionCommand("Crear Sustancia");
         BotonCrearSustancia.setAlignmentY(0.0F);
         BotonCrearSustancia.setBorder(null);
         BotonCrearSustancia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -161,23 +172,149 @@ public class PantallaSustanciasQuimicas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonCrearSustanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCrearSustanciaActionPerformed
-        
+        String formulaQuimica = JOptionPane.showInputDialog("Ingrese la fórmula química:");
+        String concentracion = JOptionPane.showInputDialog("Ingrese la concentración:");
+        String presentacion = JOptionPane.showInputDialog("Ingrese la presentación:");
+        String nombreComercial = JOptionPane.showInputDialog("Ingrese el nombre comercial:");
+        Boolean poseeMSD = JOptionPane.showConfirmDialog(null, "¿La sustancia posee MSD?", "Posee MSD", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
+        String numeroDeIdentificacion = JOptionPane.showInputDialog("Ingrese el número de identificación:");
+        String grupoDeRiesgo = JOptionPane.showInputDialog("Ingrese el grupo de riesgo:");
+        String fraseR = JOptionPane.showInputDialog("Ingrese la frase R:");
+        String fraseS = JOptionPane.showInputDialog("Ingrese la frase S:");
+        String metodoDeControl = JOptionPane.showInputDialog("Ingrese el método de control:");
+        String permisos = JOptionPane.showInputDialog("Ingrese los permisos:");
+        String unidad = JOptionPane.showInputDialog("Ingrese la unidad:");
+        String precioEstimado = JOptionPane.showInputDialog("Ingrese el precio estimado:");
+        String proveedor = JOptionPane.showInputDialog("Ingrese el proveedor:");
+        String almacenadoEnvasado = JOptionPane.showInputDialog("Ingrese el almacenado/envasado:");
+        String codigo = JOptionPane.showInputDialog("Ingrese el código:");
+        String nombreProducto = JOptionPane.showInputDialog("Ingrese el nombre del producto:");
+        String inventarioExistente = JOptionPane.showInputDialog("Ingrese el inventario existente:");
+        String observaciones = JOptionPane.showInputDialog("Ingrese las observaciones:");
+
+        // Obtener el laboratorio asociado a la sustancia química
+        String idLaboratorio = JOptionPane.showInputDialog("Ingrese el ID del laboratorio:");
+        Laboratorio laboratorioExistente = listaLaboratorios.listarLaboratorio(idLaboratorio);
+
+        // Crear un nuevo objeto SustanciaQuimica con los datos ingresados
+        ListaDeSustanciasQuimicas listaSustanciasQuimicas = new ListaDeSustanciasQuimicas();
+        if(laboratorioExistente!=null){
+            boolean exito = listaSustanciasQuimicas.crearProductoSustanciaQuimica(user, formulaQuimica, concentracion, presentacion, nombreComercial, poseeMSD, numeroDeIdentificacion, grupoDeRiesgo, fraseR, fraseS, metodoDeControl, permisos, unidad, precioEstimado, proveedor, almacenadoEnvasado, codigo, nombreProducto, inventarioExistente, observaciones, laboratorioExistente);
+            if (exito) {
+                JOptionPane.showMessageDialog(null, "Sustancia química creada exitosamente");
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al crear la sustancia química");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Error al crear la sustancia quimica, Laboratorio no encontrado");
+        }
+     
     }//GEN-LAST:event_BotonCrearSustanciaActionPerformed
 
     private void BotonModificarSustanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarSustanciaActionPerformed
-       
+        String id = JOptionPane.showInputDialog("Ingrese el ID de la sustancia a modificar:");
+        SustanciaQuimica sustanciaExistente = listaSustanciasQuimicas.listarSustanciaQuimica(id);
+    if (sustanciaExistente != null) {
+        String nuevaFormulaQuimica = JOptionPane.showInputDialog("Ingrese la nueva fórmula química:", sustanciaExistente.getFormulaQuimica());
+        String nuevaConcentracion = JOptionPane.showInputDialog("Ingrese la nueva concentración:", sustanciaExistente.getConcentracion());
+        String nuevaPresentacion = JOptionPane.showInputDialog("Ingrese la nueva presentación:", sustanciaExistente.getPresentacion());
+        String nuevoNombreComercial = JOptionPane.showInputDialog("Ingrese el nuevo nombre comercial:", sustanciaExistente.getNombreComercial());
+        Boolean nuevoPoseeMSD = JOptionPane.showConfirmDialog(null, "¿Posee MSD?", "MSD", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
+        String nuevoNumeroDeIdentificacion = JOptionPane.showInputDialog("Ingrese el nuevo número de identificación:", sustanciaExistente.getNumeroDeIdentificacion());
+        String nuevoGrupoDeRiesgo = JOptionPane.showInputDialog("Ingrese el nuevo grupo de riesgo:", sustanciaExistente.getGrupoDeRiesgo());
+        String nuevaFraseR = JOptionPane.showInputDialog("Ingrese la nueva frase R:", sustanciaExistente.getFraseR());
+        String nuevaFraseS = JOptionPane.showInputDialog("Ingrese la nueva frase S:", sustanciaExistente.getFraseS());
+        String nuevoMetodoDeControl = JOptionPane.showInputDialog("Ingrese el nuevo método de control:", sustanciaExistente.getMetodoDeControl());
+        String nuevosPermisos = JOptionPane.showInputDialog("Ingrese los nuevos permisos:", sustanciaExistente.getPermisos());
+        String nuevaUnidad = JOptionPane.showInputDialog("Ingrese la nueva unidad:", sustanciaExistente.getUnidad());
+        float nuevoPrecioEstimado = Float.parseFloat(JOptionPane.showInputDialog("Ingrese el nuevo precio estimado:", sustanciaExistente.getPrecioEstimado()));
+        String nuevoProveedor = JOptionPane.showInputDialog("Ingrese el nuevo proveedor:", sustanciaExistente.getProveedor());
+        String nuevoAlmacenadoEnvasado = JOptionPane.showInputDialog("Ingrese el nuevo almacenado/envasado:", sustanciaExistente.getAlmacenadoEnvasado());
+        String nuevoCodigo = JOptionPane.showInputDialog("Ingrese el nuevo código:", sustanciaExistente.getCodigo());
+        String nuevoNombreProducto = JOptionPane.showInputDialog("Ingrese el nuevo nombre del producto:", sustanciaExistente.getNombreProducto());
+        int nuevoInventarioExistente = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el nuevo inventario existente:", sustanciaExistente.getInventarioExistente()));
+        String nuevasObservaciones = JOptionPane.showInputDialog("Ingrese las nuevas observaciones:", sustanciaExistente.getObservaciones());
+        Laboratorio nuevoLaboratorio = listaLaboratorios.listarLaboratorio(JOptionPane.showInputDialog("Ingrese el ID del nuevo laboratorio:", sustanciaExistente.getLaboratorio().getId()));
+
+        if (nuevoLaboratorio != null) {
+            boolean exito = listaSustanciasQuimicas.modificarSustancia(user, id, nuevaFormulaQuimica, nuevaConcentracion, nuevaPresentacion, nuevoNombreComercial, nuevoPoseeMSD, nuevoNumeroDeIdentificacion, nuevoGrupoDeRiesgo, nuevaFraseR, nuevaFraseS, nuevoMetodoDeControl, nuevosPermisos, nuevaUnidad, String.valueOf(nuevoPrecioEstimado), nuevoProveedor, nuevoAlmacenadoEnvasado, nuevoCodigo, nuevoNombreProducto, String.valueOf(nuevoInventarioExistente), nuevasObservaciones, nuevoLaboratorio);
+
+            if (exito) {
+                JOptionPane.showMessageDialog(null, "Sustancia modificada exitosamente");
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al modificar la sustancia");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Laboratorio no encontrado");
+        }
+    } else {
+        JOptionPane.showMessageDialog(null, "Sustancia no encontrada");
+    }
     }//GEN-LAST:event_BotonModificarSustanciaActionPerformed
 
     private void BotonEliminarSustanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarSustanciaActionPerformed
-      
+        String id = JOptionPane.showInputDialog("Ingrese el ID de la sustancia química a eliminar:");
+        SustanciaQuimica sustanciaExistente = listaSustanciasQuimicas.listarSustanciaQuimica(id);
+        if (sustanciaExistente != null) {
+            listaSustanciasQuimicas.eliminarSustanciaQuimica(sustanciaExistente.getLaboratorio().getAdministrador(), id);
+            JOptionPane.showMessageDialog(null, "Sustancia química eliminada exitosamente");
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al eliminar la sustancia química");
+        }
     }//GEN-LAST:event_BotonEliminarSustanciaActionPerformed
 
     private void BotonListarSustanciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarSustanciasActionPerformed
-       
+        List<SustanciaQuimica> sustancias = listaSustanciasQuimicas.getListaSustanciasQuimicas();
+        Listar pl = new Listar();
+        pl.setSize(1100, 610);
+        pl.setLocation(0, 0);
+        pl.mostrarListaSustanciasQuimicas(sustancias);
+        BackGroundPantallaInsumos.removeAll();
+        BackGroundPantallaInsumos.add(pl, BorderLayout.CENTER);
+        BackGroundPantallaInsumos.revalidate();
+        BackGroundPantallaInsumos.repaint();
     }//GEN-LAST:event_BotonListarSustanciasActionPerformed
 
     private void BotonListarSustanciaEspecificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarSustanciaEspecificaActionPerformed
-     
+        String id = JOptionPane.showInputDialog("Ingrese el ID de la sustancia química a listar:");
+        SustanciaQuimica sustanciaExistente = listaSustanciasQuimicas.listarSustanciaQuimica(id);
+        if (sustanciaExistente != null) {
+            String[] columnNames = {"Campo", "Valor"};
+            List<String[]> data = List.of(
+                new String[]{"Nombre", sustanciaExistente.getNombreProducto()},
+                new String[]{"Tipo", sustanciaExistente.getTipoDeProducto()},
+                new String[]{"Cantidad", String.valueOf(sustanciaExistente.getInventarioExistente())},
+                new String[]{"Unidad", sustanciaExistente.getUnidad()},
+                new String[]{"Laboratorio", sustanciaExistente.getLaboratorio().getNombreLaboratorio()},
+                new String[]{"Fórmula Química", sustanciaExistente.getFormulaQuimica()},
+                new String[]{"Concentración", sustanciaExistente.getConcentracion()},
+                new String[]{"Presentación", sustanciaExistente.getPresentacion()},
+                new String[]{"Nombre Comercial", sustanciaExistente.getNombreComercial()},
+                new String[]{"Posee MSD", sustanciaExistente.getPoseeMSD().toString()},
+                new String[]{"Número de Identificación", sustanciaExistente.getNumeroDeIdentificacion()},
+                new String[]{"Grupo de Riesgo", sustanciaExistente.getGrupoDeRiesgo()},
+                new String[]{"Frase R", sustanciaExistente.getFraseR()},
+                new String[]{"Frase S", sustanciaExistente.getFraseS()},
+                new String[]{"Método de Control", sustanciaExistente.getMetodoDeControl()},
+                new String[]{"Permisos", sustanciaExistente.getPermisos()},
+                new String[]{"Precio Estimado", String.valueOf(sustanciaExistente.getPrecioEstimado())},
+                new String[]{"Proveedor", sustanciaExistente.getProveedor()},
+                new String[]{"Almacenado/Envasado", sustanciaExistente.getAlmacenadoEnvasado()}
+            );
+            List<Function<String[], Object>> columnFunctions = List.of(
+                row -> row[0],
+                row -> row[1]
+            );
+            Form<String[]> form = new Form<>(data, columnNames, columnFunctions);
+            JFrame frame = new JFrame("Información de la Sustancia Química");
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.getContentPane().add(form);
+            frame.pack();
+            frame.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Sustancia química no encontrada", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_BotonListarSustanciaEspecificaActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

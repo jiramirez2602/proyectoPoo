@@ -28,9 +28,11 @@ public class PantallaEquipos extends javax.swing.JPanel {
     private ListaLaboratorios lab;
     private Usuario user;
 
-    public PantallaEquipos() { // Modificar el constructor
+    public PantallaEquipos(Usuario usuario,ListaLaboratorios labs,ListaDeEquipos listaEquip) { // Modificar el constructor
+        this.equipos=listaEquip;
+        this.lab=labs;   
+        this.user=usuario;
         initComponents();
-        equipos=new ListaDeEquipos();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -86,7 +88,7 @@ public class PantallaEquipos extends javax.swing.JPanel {
         });
 
         BotonListarEquipo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        BotonListarEquipo.setText("Listar Equipos");
+        BotonListarEquipo.setText("Listar Equipo");
         BotonListarEquipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonListarEquipoActionPerformed(evt);
@@ -186,32 +188,33 @@ public class PantallaEquipos extends javax.swing.JPanel {
       String ultimaCalibracion = JOptionPane.showInputDialog("Ingrese la ultima calibracion del equipo(use el formato dd/mm/yyyy):");
       String proximaCalibracion = JOptionPane.showInputDialog("Ingrese la proxima calibracion del equipo(use el formato dd/mm/yyyy):");
       String provedores = JOptionPane.showInputDialog("Ingrese los proveedores de servicios del equipo");
-      String encendido = JOptionPane.showInputDialog("Ingrese si esta encendido en la noche del equipo (si/no) :");
+      Boolean encendido = JOptionPane.showConfirmDialog(null, "¿Esta encendido de noche?", "Encendido de noche", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
       String materialRequerido = JOptionPane.showInputDialog("Ingrese el material requerido del equipo:");
       String codigo = JOptionPane.showInputDialog("Ingrese el codigo del equipo:");
       String nombreProducto = JOptionPane.showInputDialog("Ingrese el nombre del producto:");
       String inventarioExistente = JOptionPane.showInputDialog("Ingrese el inventario existente(0 hasta 999999):");
       String observaciones = JOptionPane.showInputDialog("Ingrese observaciones del producto:");
+      String labAsignar=JOptionPane.showInputDialog("Ingrese id del laboratorio:");
       ArrayList<Laboratorio> labs=lab.listarLaboratorios();
       Laboratorio laboratorio=lab.listarLaboratorio(labs.get(0).getId());
-      boolean on=false;
-      if(encendido.toLowerCase().equals("si")){
-          on=true;
+      if (laboratorio != null) {
+        boolean exito = equipos.crearProductoEquipo(user, descripcion, marca, modelo, numeroSerial, numeroActivo, presentacion, voltaje, procesable, materialRequerido, añoDeCompra, aplicacion, ultimoMantenimiento, proximoMantenimiento, ultimaCalibracion, proximaCalibracion, provedores, encendido, codigo, nombreProducto, inventarioExistente, observaciones, laboratorio);
+        if (exito) {
+                JOptionPane.showMessageDialog(null, "Equipo creado exitosamente");
+        } else {
+                JOptionPane.showMessageDialog(null, "Error al crear el equipo");
+        }
       }
-      boolean exito = equipos.crearProductoEquipo(user,descripcion,marca,modelo,numeroSerial,numeroActivo,presentacion,voltaje, procesable,materialRequerido,añoDeCompra,aplicacion,ultimoMantenimiento,proximoMantenimiento,ultimaCalibracion,proximaCalibracion, provedores,on,codigo,nombreProducto,inventarioExistente,observaciones,laboratorio);
-      if (exito) {
-          JOptionPane.showMessageDialog(null, "Equipo creado exitosamente");
-      } else {
-          JOptionPane.showMessageDialog(null, "Error al crear el equipo");
+      else{
+        JOptionPane.showMessageDialog(null, "Error al crear el equipo, Laboratorio no encontrado");
       }
     }//GEN-LAST:event_BotonCrearEquipoActionPerformed
 
     private void BotonModificarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarEquipoActionPerformed
         String id = JOptionPane.showInputDialog("Ingrese el ID del equipo a modificar:");
         Equipo equipoExistente = equipos.listarEquipo(id);
-        ArrayList<Laboratorio> labs = lab.listarLaboratorios();
-        Laboratorio laboratorio = lab.listarLaboratorio(labs.get(0).getId());
-        if (equipoExistente != null && laboratorio!=null ) {
+        
+        if (equipoExistente != null) {
             String descripcion = JOptionPane.showInputDialog("Ingrese la descripcion del equipo:");
             String marca = JOptionPane.showInputDialog("Ingrese la marca del equipo:");
             String modelo = JOptionPane.showInputDialog("Ingrese el modelo del equipo:");
@@ -227,22 +230,27 @@ public class PantallaEquipos extends javax.swing.JPanel {
             String ultimaCalibracion = JOptionPane.showInputDialog("Ingrese la ultima calibracion del equipo(use el formato dd/mm/yyyy):");
             String proximaCalibracion = JOptionPane.showInputDialog("Ingrese la proxima calibracion del equipo(use el formato dd/mm/yyyy):");
             String provedores = JOptionPane.showInputDialog("Ingrese los proveedores de servicios del equipo");
-            String encendido = JOptionPane.showInputDialog("Ingrese si esta encendido en la noche del equipo (si/no) :");
+            Boolean encendido = JOptionPane.showConfirmDialog(null, "¿Esta encendido de noche?", "Encendido de noche", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
             String materialRequerido = JOptionPane.showInputDialog("Ingrese el material requerido del equipo:");
             String codigo = JOptionPane.showInputDialog("Ingrese el codigo del equipo:");
             String nombreProducto = JOptionPane.showInputDialog("Ingrese el nombre del producto:");
             String inventarioExistente = JOptionPane.showInputDialog("Ingrese el inventario existente(0 hasta 999999):");
             String observaciones = JOptionPane.showInputDialog("Ingrese observaciones del producto:");
-            boolean on = false;
-            if (encendido.toLowerCase().equals("si")) {
-                on = true;
-            }
-            boolean exito = equipos.modificarEquipo(user, id, descripcion, marca, modelo, numeroSerial, numeroActivo, presentacion, voltaje, procesable, materialRequerido, añoDeCompra, aplicacion, ultimoMantenimiento, proximoMantenimiento, ultimaCalibracion, proximaCalibracion, provedores, on, codigo, nombreProducto, inventarioExistente, observaciones, laboratorio);
-            if (exito) {
-                JOptionPane.showMessageDialog(null, "Equipo modificado exitosamente");
+            String labAsignar=JOptionPane.showInputDialog("Ingrese id del laboratorio:");
+            ArrayList<Laboratorio> labs = lab.listarLaboratorios();
+            Laboratorio laboratorio = lab.listarLaboratorio(labs.get(0).getId());
+            if (laboratorio != null) {
+                boolean exito = equipos.crearProductoEquipo(user, descripcion, marca, modelo, numeroSerial, numeroActivo, presentacion, voltaje, procesable, materialRequerido, añoDeCompra, aplicacion, ultimoMantenimiento, proximoMantenimiento, ultimaCalibracion, proximaCalibracion, provedores, encendido, codigo, nombreProducto, inventarioExistente, observaciones, laboratorio);
+                if (exito) {
+                    JOptionPane.showMessageDialog(null, "Equipo creado exitosamente");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al crear el equipo");
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Error al modificar el equipo");
+                JOptionPane.showMessageDialog(null, "Error al crear el equipo, Laboratorio no encontrado");
             }
+        }else{
+            JOptionPane.showMessageDialog(null, "Equipo no encontrado");
         }
     }//GEN-LAST:event_BotonModificarEquipoActionPerformed
 
@@ -261,18 +269,14 @@ public class PantallaEquipos extends javax.swing.JPanel {
 
     private void BotonListarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarEquipoActionPerformed
         List<Equipo> tool = equipos.listarEquipoPorUsuario(user);
-        if (!tool.isEmpty()) {
-            Listar p1 = new Listar();
-            p1.setSize(1100, 610);
-            p1.setLocation(0, 0);
-            p1.mostrarListaEquipos(tool);
-            BackGroundPantallaUsuarios.removeAll(); // Llamar a removeAll() en la instancia de PantallaUsuarios
-            BackGroundPantallaUsuarios.add(p1, BorderLayout.CENTER);
-            BackGroundPantallaUsuarios.revalidate();
-            BackGroundPantallaUsuarios.repaint();
-        }else{
-            JOptionPane.showMessageDialog(null, info.toString(), "No hay equipos disponibles", JOptionPane.INFORMATION_MESSAGE);
-        }
+        Listar p1 = new Listar();
+        p1.setSize(1100, 610);
+        p1.setLocation(0, 0);
+        p1.mostrarListaEquipos(tool);
+        BackGroundPantallaUsuarios.removeAll(); // Llamar a removeAll() en la instancia de PantallaUsuarios
+        BackGroundPantallaUsuarios.add(p1, BorderLayout.CENTER);
+        BackGroundPantallaUsuarios.revalidate();
+        BackGroundPantallaUsuarios.repaint();
     }//GEN-LAST:event_BotonListarEquipoActionPerformed
 
     private void BotonListarEquipoEspecificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarEquipoEspecificoActionPerformed

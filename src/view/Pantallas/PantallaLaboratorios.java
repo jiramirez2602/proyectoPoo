@@ -22,11 +22,9 @@ public class PantallaLaboratorios extends javax.swing.JPanel {
     private ListaDeUsuarios listaUsuarios;
     private ListaLaboratorios listaLaboratorios;
     
-    public PantallaLaboratorios() {
+    public PantallaLaboratorios(ListaLaboratorios labs) {
+        this.listaLaboratorios=labs;
         initComponents();
-        listaLaboratorios = new ListaLaboratorios();
-        listaUsuarios = new ListaDeUsuarios();
-
     }
     
     /**
@@ -226,7 +224,30 @@ public class PantallaLaboratorios extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonEliminarLaboratorioActionPerformed
 
     private void BotonListarLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarLabActionPerformed
-        
+        String id = JOptionPane.showInputDialog("Ingrese el ID del laboratorio a listar:");
+        Laboratorio laboratorioExistente = listaLaboratorios.listarLaboratorio(id);
+        if (laboratorioExistente != null) {
+            String[] columnNames = {"Campo", "Valor"};
+            List<String[]> data = List.of(
+                new String[]{"Nombre", laboratorioExistente.getNombreLaboratorio()},
+                new String[]{"Facultad", laboratorioExistente.getFacultad()},
+                new String[]{"Escuela", laboratorioExistente.getEscuela()},
+                new String[]{"Departamento", laboratorioExistente.getDepartamento()},
+                new String[]{"Administrador", laboratorioExistente.getAdministrador().getUsername()}
+            );
+            List<Function<String[], Object>> columnFunctions = List.of(
+                row -> row[0],
+                row -> row[1]
+            );
+            Form<String[]> form = new Form<>(data, columnNames, columnFunctions);
+            JFrame frame = new JFrame("Información del Laboratorio");
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.getContentPane().add(form);
+            frame.pack();
+            frame.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Laboratorio no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_BotonListarLabActionPerformed
 
     private void BotonListarLabEspecificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarLabEspecificoActionPerformed
