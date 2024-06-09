@@ -73,6 +73,15 @@ public class ListaDeUsuarios {
         return null;
     }
     
+    public String listarUsuarioPorNombre(String nombreDeUsuario) {
+        for (Usuario i : listarUsuarios()) {
+            if (i.getNombreUser().toLowerCase().equals(nombreDeUsuario.toLowerCase())) {
+                return i.getId();
+            }
+        }
+        return null;
+    }
+    
     public boolean modificarUsuarios(Usuario user,String id,String newUser,String contrasena,String nombreCompleto,ArrayList<String> privilegio,String rol,String status){
         Validador validar = new Validador();
         Usuario usuarioExiste = listarUsuario(id);

@@ -45,6 +45,15 @@ public class ListaLaboratorios {
         JOptionPane.showMessageDialog(null, "Laboratorio no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
         return null;
     }
+    
+    public String listarUsuarioPorNombre(String nombreDeLaboratorio) {
+        for (Laboratorio i : listarLaboratorios()) {
+            if (i.getNombreLaboratorio().toLowerCase().equals(nombreDeLaboratorio.toLowerCase())) {
+                return i.getId();
+            }
+        }
+        return null;
+    }
 
     //TODO: Agregar logica de transacciones
     public boolean modificarLaboratorio(Usuario user, String id, String nombreLaboratorio, String facultad, String escuela, String departamento, Usuario administrador) {
