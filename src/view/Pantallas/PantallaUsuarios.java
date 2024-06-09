@@ -351,7 +351,6 @@ public class PantallaUsuarios extends javax.swing.JPanel {
         Usuario usuario = ListaUsuarios.listarUsuario(id);
         if (usuario != null) {
             StringBuilder info = new StringBuilder();
-            info.append("ID: ").append(usuario.getId()).append("\n");
             info.append("Username: ").append(usuario.getUsername()).append("\n");
             info.append("Nombre Completo: ").append(usuario.getNombreUser()).append("\n");
             info.append("Privilegios: ").append(String.join(", ", usuario.getPrivilegios())).append("\n");

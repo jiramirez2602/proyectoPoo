@@ -243,7 +243,6 @@ public class PantallaLaboratorios extends javax.swing.JPanel {
     if (laboratorioExistente != null) {
         String[] columnNames = {"Campo", "Valor"};
         List<String[]> data = List.of(
-            new String[]{"ID", laboratorioExistente.getId()},
             new String[]{"Nombre", laboratorioExistente.getNombreLaboratorio()},
             new String[]{"Facultad", laboratorioExistente.getFacultad()},
             new String[]{"Escuela", laboratorioExistente.getEscuela()},
