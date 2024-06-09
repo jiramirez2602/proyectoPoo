@@ -79,7 +79,7 @@ public class ListaDeInsumos {
         }
     }
 
-    //Listar un equipo con un ID
+    //Listar un insumo con un ID
     public Insumo listarInsumo(String id) {
         for (Insumo i : getListaInsumos()) {
             if (i.getId().equals(id)) {
@@ -89,7 +89,7 @@ public class ListaDeInsumos {
         return null;
     }
 
-    //Listar un equipo con un Usuario
+    //Listar un insumo con un Usuario
     public ArrayList<Insumo> listarInsumoPorUsuario(Usuario usuario) {
         ArrayList<Insumo> listaInsumoAux = new ArrayList<>();
 
@@ -100,9 +100,19 @@ public class ListaDeInsumos {
         }
         return listaInsumoAux;
     }
+    
+    //Listar un INSUMO con un nombre de Insumo
+    public String listarInsumosPorNombre(Usuario usuario, String nombreDeInsumo) {
+        for (Insumo i : listarInsumoPorUsuario(usuario)) {
+            if (i.getNombreProducto().toLowerCase().equals(nombreDeInsumo.toLowerCase())) {
+                return i.getId();
+            }
+        }
+        return null;
+    }
 
     //TODO: Agregar logica de transacciones
-    //Modifica Equipos
+    //Modifica Insumos
     public boolean modificarInsumo(Usuario user, String id, String descripcion, String marca, String modelo, String presentacion, String clasificacion, String categoria, String ultimaCompra, String precioEstimado, String unidad, String proveedor, String codigo, String nombreProducto, String inventarioExistente, String observaciones, Laboratorio laboratorio) {
         Insumo product = listarInsumo(id);
         if (product != null) {

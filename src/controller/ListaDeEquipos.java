@@ -24,7 +24,6 @@ public class ListaDeEquipos {
     public void setListaEquipos(ArrayList<Equipo> listaEquipos) {
         this.listaEquipos = listaEquipos;
     }
-    
 
     //TODO: Agregar logica de transacciones
     //Crear producto Equipos
@@ -135,6 +134,16 @@ public class ListaDeEquipos {
             }
         }
         return listaEquipoAux;
+    }
+
+    //Listar un equipo con un nombre de Equipo
+    public String listarEquipoPorNombre(Usuario usuario, String nombreDeEquipo) {
+        for (Equipo i : listarEquipoPorUsuario(usuario)) {
+            if (i.getNombreProducto().toLowerCase().equals(nombreDeEquipo.toLowerCase())) {
+                return i.getId();
+            }
+        }
+        return null;
     }
 
     //TODO: Agregar logica de transacciones

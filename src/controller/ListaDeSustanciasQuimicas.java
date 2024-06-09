@@ -1,9 +1,6 @@
 package controller;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import javax.swing.JOptionPane;
 import model.Laboratorio;
 import model.SustanciaQuimica;
@@ -94,6 +91,16 @@ public class ListaDeSustanciasQuimicas {
             }
         }
         return listaSustanciaQuimicaAux;
+    }
+    
+    //Listar una sustancia Quimica con un nombre 
+    public String listarSustanciaQumicaPorNombre(Usuario usuario, String nombreDeSustancia) {
+        for (SustanciaQuimica i : listarSustanciaQuimicaPorUsuario(usuario)) {
+            if (i.getNombreProducto().toLowerCase().equals(nombreDeSustancia.toLowerCase())) {
+                return i.getId();
+            }
+        }
+        return null;
     }
 
     //TODO: Agregar logica de transacciones

@@ -16,7 +16,7 @@ import model.Usuario;
 public class Main {
 
     public static void main(String[] args) {
-        
+
         //Estos pasos previos solo se realiza para lograr ejemplificar, 
         //en la practica los valore no debe obtenerse asi
         ArrayList<String> privilegios = new ArrayList<>();//Esto se maneja en modulo de usuarios
@@ -95,7 +95,6 @@ public class Main {
         System.out.println("Nombre del laboratorio que quedo: " + lista.get(0).getNombreLaboratorio());
 
         //Nota final: pregunta si tienes dudas
-        
         /*
         privilegios.add("Usuarios");
         privilegios.add("Laboratorios");
@@ -150,7 +149,6 @@ public class Main {
         System.out.println("\n");
         System.out.println(bool);
          */
-        
         //MANEJO DE EQUIPOS
         System.out.println("\n");
 
@@ -158,7 +156,7 @@ public class Main {
         ListaDeEquipos listaEquipos = new ListaDeEquipos();
         //Equipo creado por un Keny
         listaEquipos.crearProductoEquipo(usuarioQueLlamaAlMetodo, "descripcion", "marca", "modelo", "numeroSerial", "numeroActivo", "presentacion", "voltaje", "procesable", "materialRequerido", "26/02/2001", "aplicacion", "26/02/2001", "26/02/2001", "26/02/2001", "26/02/2001", "proovedoresDeServicios", Boolean.TRUE, "codigo", "NombreProducto: Equipo 1", "56", "observaciones", labo);
-        listaEquipos.crearProductoEquipo(usuarioQueLlamaAlMetodo, "descripcion", "marca", "modelo", "numeroSerial", "numeroActivo", "presentacion", "voltaje", "procesable", "materialRequerido", "26/02/2001", "aplicacion", "26/02/2001", "26/02/2001", "26/02/2001", "26/02/2001", "proovedoresDeServicios", Boolean.TRUE, "codigo", "NombreProducto: Equipo 2", "56", "observaciones", labo);
+        listaEquipos.crearProductoEquipo(usuarioQueLlamaAlMetodo, "descripcion del equipo 2", "marca", "modelo", "numeroSerial", "numeroActivo", "presentacion", "voltaje", "procesable", "materialRequerido", "26/02/2001", "aplicacion", "26/02/2001", "26/02/2001", "26/02/2001", "26/02/2001", "proovedoresDeServicios", Boolean.TRUE, "codigo", "NombreProducto: Equipo 2", "56", "observaciones", labo);
         listaEquipos.crearProductoEquipo(usuarioQueLlamaAlMetodo, "descripcion", "marca", "modelo", "numeroSerial", "numeroActivo", "presentacion", "voltaje", "procesable", "materialRequerido", "26/02/2001", "aplicacion", "26/02/2001", "26/02/2001", "26/02/2001", "26/02/2001", "proovedoresDeServicios", Boolean.TRUE, "codigo", "NombreProducto: Equipo 3", "56", "observaciones", labo);
 
         //Pintar equipo del laboratorio de Keny
@@ -172,6 +170,19 @@ public class Main {
         String idEquipo = listaEquipos.listarEquipoPorUsuario(usuarioQueLlamaAlMetodo).get(2).getId();
         //En este ejemplo obtengo los datos de un Equipo por su id y pinto su nombre:
         System.out.println(listaEquipos.listarEquipo(idEquipo).getNombreProducto());
+
+        //Ejemplo de listado por nombre de equipo:
+        //Este metodo devuelve el id de un nombre buscado
+        String idAuxEquipo;
+        idAuxEquipo = listaEquipos.listarEquipoPorNombre(usuarioQueLlamaAlMetodo, "NombreProducto: Equipo 2");
+        //Con el id encontrado ya podremos tener al equipo usando el metodo buscar por id:
+        Equipo equipoAux;
+        if (idAuxEquipo != null) {
+            equipoAux = listaEquipos.listarEquipo(idAuxEquipo);
+            //Acá pintamos lo encontrado:
+            System.out.println("\nObjeto encontrado con listaEquipos.listarEquipoPorNombre(usuarioQueLlamaAlMetodo, \"NombreProducto: Equipo 2\")");
+            System.out.println(equipoAux.getNombreProducto() + "\nDescripcion: " + equipoAux.getDescripcion());
+        }
 
         //Actualizo descripcion de Equipo Creado para laboratorio de Keny
         listaEquipos.modificarEquipo(usuarioQueLlamaAlMetodo, idEquipo, "Actualizar descipcion", "marca", "modelo", "numeroSerial", "numeroActivo", "presentacion", "voltaje", "procesable", "materialRequerido", "26/02/2001", "aplicacion", "26/02/2001", "26/02/2001", "26/02/2001", "26/02/2001", "proovedoresDeServicios", Boolean.TRUE, "codigo", "nombreProducto: Equipo 3", "56", "observaciones", labo);
@@ -216,6 +227,18 @@ public class Main {
         //En este ejemplo obtengo los datos de un Insumo
         //por su id y pinto su nombre:
         System.out.println(listaInsumos.listarInsumo(idInsumo).getNombreProducto());
+
+        //Ejemplo de listado por nombre de inusmo:
+        //Este metodo devuelve el id de un nombre buscado PROBAREMOS LOWERCASE
+        String idAuxInsumo = listaInsumos.listarInsumosPorNombre(usuarioQueLlamaAlMetodo, "NOMBREProducto: Insumo 3");
+        //Con el id encontrado ya podremos tener al insumo usando el metodo buscar por id:
+        Insumo insumoAux;
+        if (idAuxInsumo != null) {
+            insumoAux = listaInsumos.listarInsumo(idAuxInsumo);
+            //Acá pintamos lo encontrado:
+            System.out.println("\nObjeto encontrado con listaInsumos.listarInsumosPorNombre(usuarioQueLlamaAlMetodo, \"NOMBREProducto: Insumo 3\")");
+            System.out.println(insumoAux.getNombreProducto() + "\nDescripcion: " + insumoAux.getDescripcion());
+        }
 
         //Actualizo descripcion de Insumo Creado para laboratorio de Keny
         listaInsumos.modificarInsumo(usuarioQueLlamaAlMetodo, idInsumo, "descripcion actualizada", "marca", "modelo", "presentacion", "clasificacion", "categoria", "26/02/2001", "10.0", "unidad", "proveedor", "codigo", "nombreProducto: Insumo 3", "12", "observaciones", labo);
@@ -262,6 +285,18 @@ public class Main {
         //por su id y pinto su nombre:
         System.out.println(listaSustancias.listarSustanciaQuimica(idSustancia).getNombreProducto());
 
+        //Ejemplo de listado por nombre de sustancia quimica:
+        //Este metodo devuelve el id de un nombre buscado PROBAREMOS LOWERCASE
+        String idAuxSustancia = listaSustancias.listarSustanciaQumicaPorNombre(usuarioQueLlamaAlMetodo, "nombreProducto: Sustancia 3");
+        //Con el id encontrado ya podremos tener al sustancia usando el metodo buscar por id:
+        SustanciaQuimica sustanciaAux;
+        if (idAuxSustancia != null) {
+            sustanciaAux = listaSustancias.listarSustanciaQuimica(idAuxSustancia);
+            //Acá pintamos lo encontrado:
+            System.out.println("\nObjeto encontrado con listaSustancias.listarSustanciaQumicaPorNombre(usuarioQueLlamaAlMetodo, \"nombreProducto: Sustancia 3\")");
+            System.out.println(sustanciaAux.getNombreProducto() + "\nFormula: " + sustanciaAux.getFormulaQuimica());
+        }
+        
         //Actualizo descripcion de Sustancia Quimica Creado para laboratorio de Keny
         listaSustancias.modificarSustancia(usuarioQueLlamaAlMetodo, idSustancia, "Actualizar formula Quimica", "concentracion", "presentacion", "nombreComercial", Boolean.TRUE, "numeroDeIdentificacion", "grupoDeRiesgo", "fraseR", "fraseS", "metodoDeControl", "permisos", "unidad", "12", "proveedor", "almacenadoEnvasado", "codigo", "nombreProducto: Sustancia 3", "12", "observaciones", labo);
         System.out.println("Actualizacion: " + listaSustancias.listarSustanciaQuimica(idSustancia).getFormulaQuimica());
@@ -283,7 +318,6 @@ public class Main {
         for (SustanciaQuimica i : listaSustancias.listarSustanciaQuimicaPorUsuario(usuarioQueLlamaAlMetodo)) {
             System.out.println("\nSustancia Quimica restante: " + i.getNombreProducto());
         }
-
     }
 
 }
