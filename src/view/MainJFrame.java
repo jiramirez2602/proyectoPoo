@@ -357,7 +357,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private void BotonLaboratoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonLaboratoriosActionPerformed
         boolean privilegios=user.verificarPrivilegios(user, "Laboratorios");
         if (privilegios == true) {
-            PantallaLaboratorios pl = new PantallaLaboratorios(listaLaboratorios);
+            PantallaLaboratorios pl = new PantallaLaboratorios(listaUsuario,listaLaboratorios);
             pl.setSize(1100, 610);
             pl.setLocation(0, 0);
             ContenidoMain.removeAll();

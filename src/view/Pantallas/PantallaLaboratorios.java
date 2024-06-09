@@ -22,8 +22,9 @@ public class PantallaLaboratorios extends javax.swing.JPanel {
     private ListaDeUsuarios listaUsuarios;
     private ListaLaboratorios listaLaboratorios;
     
-    public PantallaLaboratorios(ListaLaboratorios labs) {
+    public PantallaLaboratorios(ListaDeUsuarios user,ListaLaboratorios labs) {
         this.listaLaboratorios=labs;
+        this.listaUsuarios=user;
         initComponents();
     }
     
