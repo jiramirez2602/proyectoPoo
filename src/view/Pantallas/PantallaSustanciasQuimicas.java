@@ -277,7 +277,7 @@ public class PantallaSustanciasQuimicas extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonListarSustanciasActionPerformed
 
     private void BotonListarSustanciaEspecificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarSustanciaEspecificaActionPerformed
-        String nombre = JOptionPane.showInputDialog("Ingrese el nombre de la sustancia a mostrar:");
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre de la sustancia a modificar:");
         String id=listaSustanciasQuimicas.listarSustanciaQumicaPorNombre(user, nombre);
         SustanciaQuimica sustanciaExistente = listaSustanciasQuimicas.listarSustanciaQuimica(id);
         if (sustanciaExistente != null) {
@@ -287,7 +287,6 @@ public class PantallaSustanciasQuimicas extends javax.swing.JPanel {
                 new String[]{"Tipo", sustanciaExistente.getTipoDeProducto()},
                 new String[]{"Cantidad", String.valueOf(sustanciaExistente.getInventarioExistente())},
                 new String[]{"Unidad", sustanciaExistente.getUnidad()},
-                new String[]{"Laboratorio", sustanciaExistente.getLaboratorio().getNombreLaboratorio()},
                 new String[]{"Fórmula Química", sustanciaExistente.getFormulaQuimica()},
                 new String[]{"Concentración", sustanciaExistente.getConcentracion()},
                 new String[]{"Presentación", sustanciaExistente.getPresentacion()},
@@ -301,7 +300,8 @@ public class PantallaSustanciasQuimicas extends javax.swing.JPanel {
                 new String[]{"Permisos", sustanciaExistente.getPermisos()},
                 new String[]{"Precio Estimado", String.valueOf(sustanciaExistente.getPrecioEstimado())},
                 new String[]{"Proveedor", sustanciaExistente.getProveedor()},
-                new String[]{"Almacenado/Envasado", sustanciaExistente.getAlmacenadoEnvasado()}
+                new String[]{"Almacenado/Envasado", sustanciaExistente.getAlmacenadoEnvasado()},
+                new String[]{"Laboratorio perteneciente:", sustanciaExistente.getLaboratorio().getNombreLaboratorio()}                 
             );
             List<Function<String[], Object>> columnFunctions = List.of(
                 row -> row[0],

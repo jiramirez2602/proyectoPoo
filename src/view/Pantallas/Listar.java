@@ -81,7 +81,7 @@ public class Listar extends javax.swing.JPanel {
      
     public void mostrarListaEquipos(List<Equipo> equipos){
         if(!equipos.isEmpty()){
-            String[] columnNames = {"Nombre del producto","Codigo","Tipo de producto","Inventario","Observaciones","Descripcion","Marca","Modelo","Numero de serial","Numero Activo","Presentacion","Voltaje","Procesable","Material Requerido","Año de compra","Aplicacion","Ultimo mantenimiento","Proximo mantenimiento ","Ultima calibracion","Proxima calibracion","Proveedores de Servicios","Encendido de noche"};
+            String[] columnNames = {"Nombre del producto","Codigo","Tipo de producto","Inventario","Observaciones","Descripcion","Marca","Modelo","Numero de serial","Numero Activo","Presentacion","Voltaje","Procesable","Material Requerido","Año de compra","Aplicacion","Ultimo mantenimiento","Proximo mantenimiento ","Ultima calibracion","Proxima calibracion","Proveedores de Servicios","Encendido de noche(true=si/false=no)","Laboratorio"};
             List<Function<Equipo, Object>>columnFunctions=List.of(
                     Equipo::getNombreProducto,
                     Equipo::getCodigo,
@@ -104,7 +104,8 @@ public class Listar extends javax.swing.JPanel {
                     Equipo::getUltimaCalibracion,
                     Equipo::getProximaCalibracion,
                     Equipo::getProovedoresDeServicios,
-                    Equipo::getEncendidoDenoche
+                    Equipo::getEncendidoDenoche,
+                    equi-> equi.getLaboratorio().getNombreLaboratorio()
                     
             );
             Form<Equipo> form = new Form<>(equipos, columnNames, columnFunctions);
@@ -121,7 +122,7 @@ public class Listar extends javax.swing.JPanel {
     
     public void mostrarListaInsumos(List<Insumo> insumos){
         if(!insumos.isEmpty()){
-            String[] columnNames = {"Nombre del producto","Codigo","Tipo de producto","Inventario","Observaciones","Descripcion","Marca","Modelo","Presentacion","Clasificacion","Categoria","Ultima Compra","Precio estimado","unidad","Proveedor"};
+            String[] columnNames = {"Nombre del producto","Codigo","Tipo de producto","Inventario","Observaciones","Descripcion","Marca","Modelo","Presentacion","Clasificacion","Categoria","Ultima Compra","Precio estimado","unidad","Proveedor","Laboratorio"};
             List<Function<Insumo, Object>>columnFunctions=List.of(
                     Insumo::getNombreProducto,
                     Insumo::getCodigo,
@@ -137,7 +138,8 @@ public class Listar extends javax.swing.JPanel {
                     Insumo::getUltimaCompra,
                     Insumo::getPrecioEstimado,
                     Insumo::getUnidad,
-                    Insumo::getProveedor
+                    Insumo::getProveedor,
+                    insu->insu.getLaboratorio().getNombreLaboratorio()
             );
             Form<Insumo> form = new Form<>(insumos, columnNames, columnFunctions);
             removeAll();
@@ -156,9 +158,9 @@ public class Listar extends javax.swing.JPanel {
             String[] columnNames = {
                 "Nombre del producto", "Codigo", "Tipo de producto", "Inventario", "Observaciones",
                 "Fórmula Química", "Concentración", "Presentación", "Nombre Comercial",
-                "Posee MSD", "Número de Identificación", "Grupo de Riesgo",
+                "Posee MSD(true=si/false=no)", "Número de Identificación", "Grupo de Riesgo",
                 "Frase R", "Frase S", "Método de Control", "Permisos",
-                "Unidad", "Precio Estimado", "Proveedor", "Almacenado Envasado"
+                "Unidad", "Precio Estimado", "Proveedor", "Almacenado Envasado","Laboratorio"
             };
 
             List<Function<SustanciaQuimica, Object>> columnFunctions = List.of(
@@ -181,7 +183,8 @@ public class Listar extends javax.swing.JPanel {
                     SustanciaQuimica::getUnidad,
                     SustanciaQuimica::getPrecioEstimado,
                     SustanciaQuimica::getProveedor,
-                    SustanciaQuimica::getAlmacenadoEnvasado
+                    SustanciaQuimica::getAlmacenadoEnvasado,
+                    sust->sust.getLaboratorio().getNombreLaboratorio()
             );
 
             Form<SustanciaQuimica> form = new Form<>(sustancias, columnNames, columnFunctions);

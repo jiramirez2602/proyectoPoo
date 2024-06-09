@@ -287,6 +287,7 @@ public class PantallaInsumos extends javax.swing.JPanel {
             info.append("Precio Estimado:").append(insumo.getPrecioEstimado()).append("\n");
             info.append("Unidad:").append(insumo.getUnidad()).append("\n");
             info.append("Provedor:").append(insumo.getProveedor()).append("\n");
+            info.append("Laboratorio perteneciente:").append(insumo.getLaboratorio().getNombreLaboratorio()).append("\n");
             
             JOptionPane.showMessageDialog(null, info.toString(), "Información del Insumo", JOptionPane.INFORMATION_MESSAGE);
         }

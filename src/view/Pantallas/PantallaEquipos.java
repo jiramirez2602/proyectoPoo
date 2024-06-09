@@ -297,15 +297,16 @@ public class PantallaEquipos extends javax.swing.JPanel {
             info.append("Presentacion:").append(equipment.getPresentacion()).append("\n");
             info.append("Voltaje:").append(equipment.getVoltaje()).append("\n");
             info.append("Procesable:").append(equipment.getProcesable()).append("\n");
-            info.append("Material Requerido:").append(equipment.getNombreProducto()).append("\n");
+            info.append("Material Requerido:").append(equipment.getMaterialRequerido()).append("\n");
             info.append("Año de compra:").append(equipment.getAñoDeCompra()).append("\n");
             info.append("Aplicacion:").append(equipment.getAplicacion()).append("\n");
-            info.append("Ultimo Mantenimiento:").append(equipment.getNombreProducto()).append("\n");
-            info.append("Proximo Mantenimiento:").append(equipment.getNombreProducto()).append("\n");
-            info.append("Ultima Calibracion:").append(equipment.getNombreProducto()).append("\n");
-            info.append("Proxima Calibracion:").append(equipment.getNombreProducto()).append("\n");
-            info.append("Proveedores de Servicios:").append(equipment.getNombreProducto()).append("\n");
-            info.append("Encendido de noche:").append(equipment.getNombreProducto()).append("\n");
+            info.append("Ultimo Mantenimiento:").append(equipment.getUltimoMantenimiento()).append("\n");
+            info.append("Proximo Mantenimiento:").append(equipment.getProximoMantenimiento()).append("\n");
+            info.append("Ultima Calibracion:").append(equipment.getUltimaCalibracion()).append("\n");
+            info.append("Proxima Calibracion:").append(equipment.getProximaCalibracion()).append("\n");
+            info.append("Proveedores de Servicios:").append(equipment.getProovedoresDeServicios()).append("\n");
+            info.append("Encendido de noche:").append(equipment.getEncendidoDenoche()).append("\n");
+            info.append("Laboratorio perteneciente:").append(equipment.getLaboratorio().getNombreLaboratorio()).append("\n");
             
             JOptionPane.showMessageDialog(null, info.toString(), "Información del Equipo", JOptionPane.INFORMATION_MESSAGE);
         }
