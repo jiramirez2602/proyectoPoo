@@ -12,6 +12,8 @@ import controller.ListaDeUsuarios;
 import controller.ListaLaboratorios;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import model.Usuario;
 import view.Pantallas.PantallaLaboratorios;
 import view.Pantallas.PantallaProductos;
@@ -43,7 +45,9 @@ public class MainJFrame extends javax.swing.JFrame {
         this.listaQuimicas=quimicas;
         initComponents();
         initContenido();
+        setIconImage(getIconImage());
         this.setLocationRelativeTo(null);
+        jLabel4.setText(usuarioActual.getUsername());
     }
     private void initContenido() {
         Contenido pl = new Contenido();
@@ -53,7 +57,12 @@ public class MainJFrame extends javax.swing.JFrame {
         ContenidoMain.add(pl, BorderLayout.CENTER);
         ContenidoMain.revalidate();
         ContenidoMain.repaint();
-}
+    }
+    @Override
+    public Image getIconImage(){
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/file.png"));
+        return retValue;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -69,8 +78,8 @@ public class MainJFrame extends javax.swing.JFrame {
         BotonUsuarios = new javax.swing.JButton();
         BotonLaboratorios = new javax.swing.JButton();
         BotonProductos = new javax.swing.JButton();
-        BotonTransacciones = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         Header = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -150,45 +159,38 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        BotonTransacciones.setBackground(new java.awt.Color(62, 183, 248));
-        BotonTransacciones.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
-        BotonTransacciones.setForeground(new java.awt.Color(255, 255, 255));
-        BotonTransacciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icono Transaccion Main.png"))); // NOI18N
-        BotonTransacciones.setText("Transacciones");
-        BotonTransacciones.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 20, 1, 1, new java.awt.Color(0, 0, 0)));
-        BotonTransacciones.setBorderPainted(false);
-        BotonTransacciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BotonTransacciones.setHideActionText(true);
-        BotonTransacciones.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        BotonTransacciones.setIconTextGap(25);
-        BotonTransacciones.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonTransaccionesActionPerformed(evt);
-            }
-        });
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo_UCAB_3 (1).png"))); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icono Perfil Main.png"))); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Usuario");
 
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
         Menu.setLayout(MenuLayout);
         MenuLayout.setHorizontalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BotonTransacciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BotonProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BotonUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BotonInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(BotonLaboratorios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BotonLaboratorios, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
             .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(58, 58, 58)
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(70, 70, 70))
+                .addContainerGap())
+            .addGroup(MenuLayout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(50, 50, 50)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addGap(42, 42, 42)
                 .addComponent(BotonInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(BotonUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -196,9 +198,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(BotonLaboratorios, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(BotonProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(BotonTransacciones, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(234, 234, 234))
+                .addGap(268, 268, 268))
         );
 
         Header.setBackground(new java.awt.Color(51, 204, 255));
@@ -293,7 +293,7 @@ public class MainJFrame extends javax.swing.JFrame {
         ContenidoMain.setLayout(ContenidoMainLayout);
         ContenidoMainLayout.setHorizontalGroup(
             ContenidoMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 1093, Short.MAX_VALUE)
         );
         ContenidoMainLayout.setVerticalGroup(
             ContenidoMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,13 +305,13 @@ public class MainJFrame extends javax.swing.JFrame {
         BackGroundLayout.setHorizontalGroup(
             BackGroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BackGroundLayout.createSequentialGroup()
-                .addGap(266, 266, 266)
-                .addComponent(Header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(BackGroundLayout.createSequentialGroup()
                 .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ContenidoMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0)
+                .addGroup(BackGroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BackGroundLayout.createSequentialGroup()
+                        .addComponent(ContenidoMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addComponent(Header, javax.swing.GroupLayout.DEFAULT_SIZE, 1099, Short.MAX_VALUE)))
         );
         BackGroundLayout.setVerticalGroup(
             BackGroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,7 +337,13 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonInicioActionPerformed
-        // TODO add your handling code here:
+        Contenido pl = new Contenido();
+        pl.setSize(1100, 610);
+        pl.setLocation(0, 0);
+        ContenidoMain.removeAll();
+        ContenidoMain.add(pl, BorderLayout.CENTER);
+        ContenidoMain.revalidate();
+        ContenidoMain.repaint();
     }//GEN-LAST:event_BotonInicioActionPerformed
     
     private void BotonUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonUsuariosActionPerformed
@@ -378,12 +384,7 @@ public class MainJFrame extends javax.swing.JFrame {
             ContenidoMain.revalidate();
             ContenidoMain.repaint();
         }
-
     }//GEN-LAST:event_BotonProductosActionPerformed
-
-    private void BotonTransaccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonTransaccionesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotonTransaccionesActionPerformed
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         System.exit(0);
@@ -416,7 +417,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton BotonInicio;
     private javax.swing.JButton BotonLaboratorios;
     private javax.swing.JButton BotonProductos;
-    private javax.swing.JButton BotonTransacciones;
     private javax.swing.JButton BotonUsuarios;
     private javax.swing.JPanel ContenidoMain;
     private javax.swing.JPanel Header;
@@ -424,6 +424,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

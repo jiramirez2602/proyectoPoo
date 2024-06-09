@@ -10,6 +10,8 @@ import controller.ListaDeSustanciasQuimicas;
 import controller.ListaDeUsuarios;
 import controller.ListaLaboratorios;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import model.Usuario;
 
@@ -24,7 +26,13 @@ public class Login extends javax.swing.JFrame {
     //user: Harry1 password: 1234
     public Login() {
         initComponents();
+        setIconImage(getIconImage());
         this.setLocationRelativeTo(null);
+    }
+    @Override
+    public Image getIconImage(){
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/file.png"));
+        return retValue;
     }
 
     @SuppressWarnings("unchecked")
@@ -293,7 +301,7 @@ public class Login extends javax.swing.JFrame {
 
     private void labelEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelEntrarMouseClicked
         if ((txtUsuario.getText().equals("Ingrese nombre del usuario"))||(txtUsuario.getText().equals(""))){
-            JOptionPane.showMessageDialog(null,"Esta vacio", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Campo de usuario vacio, Por favor llenelo", "Error", JOptionPane.ERROR_MESSAGE);
         }
         else{
             String username = txtUsuario.getText();
@@ -338,6 +346,7 @@ public class Login extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
