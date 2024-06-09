@@ -46,7 +46,7 @@ public class ListaLaboratorios {
         return null;
     }
     
-    public String listarUsuarioPorNombre(String nombreDeLaboratorio) {
+    public String listarLaboratorioPorNombre(String nombreDeLaboratorio) {
         for (Laboratorio i : listarLaboratorios()) {
             if (i.getNombreLaboratorio().toLowerCase().equals(nombreDeLaboratorio.toLowerCase())) {
                 return i.getId();
