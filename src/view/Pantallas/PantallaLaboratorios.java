@@ -7,6 +7,7 @@ package view.Pantallas;
 import controller.Form;
 import controller.ListaDeUsuarios;
 import controller.ListaLaboratorios;
+import java.awt.BorderLayout;
 import java.util.List;
 import java.util.function.Function;
 import javax.swing.JFrame;
@@ -37,7 +38,7 @@ public class PantallaLaboratorios extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        BackGroundPantallaLab = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         BotonCrearLaboratorio = new javax.swing.JButton();
         BotonModificarUsuario = new javax.swing.JButton();
@@ -46,7 +47,7 @@ public class PantallaLaboratorios extends javax.swing.JPanel {
         BotonListarLabEspecifico = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        BackGroundPantallaLab.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(62, 183, 248));
 
@@ -128,25 +129,25 @@ public class PantallaLaboratorios extends javax.swing.JPanel {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icono Imagen Usuarios(2).png"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout BackGroundPantallaLabLayout = new javax.swing.GroupLayout(BackGroundPantallaLab);
+        BackGroundPantallaLab.setLayout(BackGroundPantallaLabLayout);
+        BackGroundPantallaLabLayout.setHorizontalGroup(
+            BackGroundPantallaLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BackGroundPantallaLabLayout.createSequentialGroup()
                 .addGap(84, 84, 84)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(144, 144, 144)
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(186, 186, 186))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        BackGroundPantallaLabLayout.setVerticalGroup(
+            BackGroundPantallaLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BackGroundPantallaLabLayout.createSequentialGroup()
+                .addGroup(BackGroundPantallaLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BackGroundPantallaLabLayout.createSequentialGroup()
                         .addGap(111, 111, 111)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(BackGroundPantallaLabLayout.createSequentialGroup()
                         .addGap(172, 172, 172)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(69, 69, 69)))
@@ -157,11 +158,11 @@ public class PantallaLaboratorios extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BackGroundPantallaLab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BackGroundPantallaLab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -186,9 +187,9 @@ public class PantallaLaboratorios extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonCrearLaboratorioActionPerformed
 
     private void BotonModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarUsuarioActionPerformed
-         String id = JOptionPane.showInputDialog("Ingrese el ID del laboratorio a modificar:");
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del laboratorio a modificar:");
+        String id=listaLaboratorios.listarLaboratorioPorNombre(nombre);
         Laboratorio laboratorioExistente = listaLaboratorios.listarLaboratorio(id);
-
         if (laboratorioExistente != null) {
             String nuevoNombreLaboratorio = JOptionPane.showInputDialog("Ingrese el nuevo nombre del laboratorio:", laboratorioExistente.getNombreLaboratorio());
             String nuevaFacultad = JOptionPane.showInputDialog("Ingrese la nueva facultad:", laboratorioExistente.getFacultad());
@@ -207,13 +208,12 @@ public class PantallaLaboratorios extends javax.swing.JPanel {
             } else {
                 JOptionPane.showMessageDialog(null, "Administrador no encontrado");
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Laboratorio no encontrado");
         }
     }//GEN-LAST:event_BotonModificarUsuarioActionPerformed
 
     private void BotonEliminarLaboratorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarLaboratorioActionPerformed
-        String id = JOptionPane.showInputDialog("Ingrese el ID del laboratorio a eliminar:");
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del laboratorio a modificar:");
+        String id=listaLaboratorios.listarLaboratorioPorNombre(nombre);
         Laboratorio laboratorioExistente = listaLaboratorios.listarLaboratorio(id);
 
         if (laboratorioExistente != null) {
@@ -225,34 +225,20 @@ public class PantallaLaboratorios extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonEliminarLaboratorioActionPerformed
 
     private void BotonListarLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarLabActionPerformed
-        String id = JOptionPane.showInputDialog("Ingrese el ID del laboratorio a listar:");
-        Laboratorio laboratorioExistente = listaLaboratorios.listarLaboratorio(id);
-        if (laboratorioExistente != null) {
-            String[] columnNames = {"Campo", "Valor"};
-            List<String[]> data = List.of(
-                new String[]{"Nombre", laboratorioExistente.getNombreLaboratorio()},
-                new String[]{"Facultad", laboratorioExistente.getFacultad()},
-                new String[]{"Escuela", laboratorioExistente.getEscuela()},
-                new String[]{"Departamento", laboratorioExistente.getDepartamento()},
-                new String[]{"Administrador", laboratorioExistente.getAdministrador().getUsername()}
-            );
-            List<Function<String[], Object>> columnFunctions = List.of(
-                row -> row[0],
-                row -> row[1]
-            );
-            Form<String[]> form = new Form<>(data, columnNames, columnFunctions);
-            JFrame frame = new JFrame("Información del Laboratorio");
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.getContentPane().add(form);
-            frame.pack();
-            frame.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Laboratorio no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        List<Laboratorio> laboratorios = listaLaboratorios.listarLaboratorios();
+        Listar pl = new Listar();
+        pl.setSize(1100, 610);
+        pl.setLocation(0, 0);
+        pl.mostrarListaLaboratorios(laboratorios);
+        BackGroundPantallaLab.removeAll();
+        BackGroundPantallaLab.add(pl, BorderLayout.CENTER);
+        BackGroundPantallaLab.revalidate();
+        BackGroundPantallaLab.repaint();
     }//GEN-LAST:event_BotonListarLabActionPerformed
 
     private void BotonListarLabEspecificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarLabEspecificoActionPerformed
-        String id = JOptionPane.showInputDialog("Ingrese el ID del laboratorio a listar:");
+    String nombre = JOptionPane.showInputDialog("Ingrese el nombre del laboratorio a mostrar:");
+    String id=listaLaboratorios.listarLaboratorioPorNombre(nombre);
     Laboratorio laboratorioExistente = listaLaboratorios.listarLaboratorio(id);
     if (laboratorioExistente != null) {
         String[] columnNames = {"Campo", "Valor"};
@@ -274,20 +260,18 @@ public class PantallaLaboratorios extends javax.swing.JPanel {
         frame.getContentPane().add(form);
         frame.pack();
         frame.setVisible(true);
-    } else {
-        JOptionPane.showMessageDialog(null, "Laboratorio no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
     }
     }//GEN-LAST:event_BotonListarLabEspecificoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BackGroundPantallaLab;
     private javax.swing.JButton BotonCrearLaboratorio;
     private javax.swing.JButton BotonEliminarLaboratorio;
     private javax.swing.JButton BotonListarLab;
     private javax.swing.JButton BotonListarLabEspecifico;
     private javax.swing.JButton BotonModificarUsuario;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

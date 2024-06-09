@@ -194,9 +194,9 @@ public class PantallaEquipos extends javax.swing.JPanel {
       String nombreProducto = JOptionPane.showInputDialog("Ingrese el nombre del producto:");
       String inventarioExistente = JOptionPane.showInputDialog("Ingrese el inventario existente(0 hasta 999999):");
       String observaciones = JOptionPane.showInputDialog("Ingrese observaciones del producto:");
-      String labAsignar=JOptionPane.showInputDialog("Ingrese id del laboratorio:");
-      ArrayList<Laboratorio> labs=lab.listarLaboratorios();
-      Laboratorio laboratorio=lab.listarLaboratorio(labs.get(0).getId());
+      String labAsignar=JOptionPane.showInputDialog("Ingrese nombre del laboratorio para asignar el equipo:");
+      String id = lab.listarLaboratorioPorNombre(labAsignar);
+      Laboratorio laboratorio=lab.listarLaboratorio(id);
       if (laboratorio != null) {
         boolean exito = equipos.crearProductoEquipo(user, descripcion, marca, modelo, numeroSerial, numeroActivo, presentacion, voltaje, procesable, materialRequerido, añoDeCompra, aplicacion, ultimoMantenimiento, proximoMantenimiento, ultimaCalibracion, proximaCalibracion, provedores, encendido, codigo, nombreProducto, inventarioExistente, observaciones, laboratorio);
         if (exito) {
@@ -211,9 +211,9 @@ public class PantallaEquipos extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonCrearEquipoActionPerformed
 
     private void BotonModificarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarEquipoActionPerformed
-        String id = JOptionPane.showInputDialog("Ingrese el ID del equipo a modificar:");
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del equipo a modificar:");
+        String id=equipos.listarEquipoPorNombre(user, nombre);
         Equipo equipoExistente = equipos.listarEquipo(id);
-        
         if (equipoExistente != null) {
             String descripcion = JOptionPane.showInputDialog("Ingrese la descripcion del equipo:");
             String marca = JOptionPane.showInputDialog("Ingrese la marca del equipo:");
@@ -236,9 +236,9 @@ public class PantallaEquipos extends javax.swing.JPanel {
             String nombreProducto = JOptionPane.showInputDialog("Ingrese el nombre del producto:");
             String inventarioExistente = JOptionPane.showInputDialog("Ingrese el inventario existente(0 hasta 999999):");
             String observaciones = JOptionPane.showInputDialog("Ingrese observaciones del producto:");
-            String labAsignar=JOptionPane.showInputDialog("Ingrese id del laboratorio:");
-            ArrayList<Laboratorio> labs = lab.listarLaboratorios();
-            Laboratorio laboratorio = lab.listarLaboratorio(labs.get(0).getId());
+            String labAsignar=JOptionPane.showInputDialog("Ingrese nombre del laboratorio para asignar el equipo:");
+            String iD = lab.listarLaboratorioPorNombre(labAsignar);
+            Laboratorio laboratorio=lab.listarLaboratorio(iD);
             if (laboratorio != null) {
                 boolean exito = equipos.crearProductoEquipo(user, descripcion, marca, modelo, numeroSerial, numeroActivo, presentacion, voltaje, procesable, materialRequerido, añoDeCompra, aplicacion, ultimoMantenimiento, proximoMantenimiento, ultimaCalibracion, proximaCalibracion, provedores, encendido, codigo, nombreProducto, inventarioExistente, observaciones, laboratorio);
                 if (exito) {
@@ -249,14 +249,13 @@ public class PantallaEquipos extends javax.swing.JPanel {
             } else {
                 JOptionPane.showMessageDialog(null, "Error al crear el equipo, Laboratorio no encontrado");
             }
-        }else{
-            JOptionPane.showMessageDialog(null, "Equipo no encontrado");
         }
     }//GEN-LAST:event_BotonModificarEquipoActionPerformed
 
     private void BotonEliminarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarEquipoActionPerformed
-        String id = JOptionPane.showInputDialog("Ingrese el ID del equipo a eliminar:");
-        Equipo equipoExistente= equipos.listarEquipo(id);
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del equipo a modificar:");
+        String id=equipos.listarEquipoPorNombre(user, nombre);
+        Equipo equipoExistente = equipos.listarEquipo(id);
         if (equipoExistente != null) {
             boolean exito = equipos.eliminarEquipo(user, id);
             if (exito) {
@@ -280,7 +279,8 @@ public class PantallaEquipos extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonListarEquipoActionPerformed
 
     private void BotonListarEquipoEspecificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarEquipoEspecificoActionPerformed
-        String id = JOptionPane.showInputDialog("Ingrese el ID del equipo a mostrar:");
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del equipo a mostrar:");
+        String id=equipos.listarEquipoPorNombre(user, nombre);
         Equipo equipment = equipos.listarEquipo(id);
         if(equipment!=null){
             StringBuilder info=new StringBuilder();
@@ -308,9 +308,6 @@ public class PantallaEquipos extends javax.swing.JPanel {
             info.append("Encendido de noche:").append(equipment.getNombreProducto()).append("\n");
             
             JOptionPane.showMessageDialog(null, info.toString(), "Información del Equipo", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Equipo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BotonListarEquipoEspecificoActionPerformed
     

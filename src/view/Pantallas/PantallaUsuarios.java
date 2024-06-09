@@ -243,9 +243,9 @@ public class PantallaUsuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonCrearUsuarioActionPerformed
 
     private void BotonModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarUsuarioActionPerformed
-        String id = JOptionPane.showInputDialog("Ingrese el ID del usuario a modificar:");
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del usuario a modificar:");
+        String id=ListaUsuarios.listarUsuarioPorNombre(nombre);
         Usuario usuarioExistente = ListaUsuarios.listarUsuario(id);
-
         if (usuarioExistente != null) {
             String username = JOptionPane.showInputDialog("Ingrese el nombre de usuario:");
             String contrasena = JOptionPane.showInputDialog("Ingrese la contraseña:");
@@ -320,9 +320,9 @@ public class PantallaUsuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonModificarUsuarioActionPerformed
 
     private void BotonEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarUsuarioActionPerformed
-        String id = JOptionPane.showInputDialog("Ingrese el ID del usuario a eliminar:");
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del usuario para eliminar:");
+        String id=ListaUsuarios.listarUsuarioPorNombre(nombre);
         Usuario usuarioExistente = ListaUsuarios.listarUsuario(id);
-
         if (usuarioExistente != null) {
             boolean exito = ListaUsuarios.eliminarUsuarios(usuarioExistente, id);
             if (exito) {
@@ -346,9 +346,9 @@ public class PantallaUsuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonListarUsuarioActionPerformed
 
     private void BotonListarUsuarioEspecificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarUsuarioEspecificoActionPerformed
-        String id = JOptionPane.showInputDialog("Ingrese el ID del usuario a mostrar:");
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del usuario para mostrar:");
+        String id=ListaUsuarios.listarUsuarioPorNombre(nombre);
         Usuario usuario = ListaUsuarios.listarUsuario(id);
-
         if (usuario != null) {
             StringBuilder info = new StringBuilder();
             info.append("ID: ").append(usuario.getId()).append("\n");
@@ -359,8 +359,6 @@ public class PantallaUsuarios extends javax.swing.JPanel {
             info.append("Estado: ").append(usuario.isStatus()).append("\n");
 
             JOptionPane.showMessageDialog(null, info.toString(), "Información del Usuario", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(null, "Usuario no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BotonListarUsuarioEspecificoActionPerformed
 

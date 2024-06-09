@@ -186,9 +186,9 @@ public class PantallaInsumos extends javax.swing.JPanel {
       String nombreProducto = JOptionPane.showInputDialog("Ingrese el nombre producto del insumo:");
       String inventarioExistente = JOptionPane.showInputDialog("Ingrese el inventario existente de los insumos(puede ser hasta 0 a 999999):");
       String observaciones = JOptionPane.showInputDialog("Ingrese las observaciones del insumo:");
-      String nombreLab=JOptionPane.showInputDialog("Ingrese nombre de laboratorio para asignar Insumo");
-      ArrayList<Laboratorio> labs=lab.listarLaboratorios();
-      Laboratorio laboratorio=lab.listarLaboratorio(labs.get(0).getId());
+      String labAsignar=JOptionPane.showInputDialog("Ingrese nombre de laboratorio para asignar Insumo:");
+      String iD = lab.listarLaboratorioPorNombre(labAsignar);
+      Laboratorio laboratorio=lab.listarLaboratorio(iD);
       if (laboratorio != null) {
         boolean exito = insumos.crearProductoInsumo(user, descripcion, marca, modelo, presentacion, clasificacion, categoria, ultimaCompra, precioEstimado, unidad, proveedor, codigo, nombreProducto, inventarioExistente, observaciones, laboratorio);
         if (exito) {
@@ -204,7 +204,8 @@ public class PantallaInsumos extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonCrearInsumoActionPerformed
 
     private void BotonModificarInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarInsumoActionPerformed
-        String id = JOptionPane.showInputDialog("Ingrese el ID del insumo a modificar:");
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del insumo a modificar:");
+        String id=insumos.listarInsumosPorNombre(user, nombre);
         Insumo insumoExistente = insumos.listarInsumo(id);
         if (insumoExistente != null) {
             String descripcion = JOptionPane.showInputDialog("Ingrese la descripcion del insumo:");
@@ -221,9 +222,9 @@ public class PantallaInsumos extends javax.swing.JPanel {
             String nombreProducto = JOptionPane.showInputDialog("Ingrese el nombre producto del insumo:");
             String inventarioExistente = JOptionPane.showInputDialog("Ingrese el inventario existente de los insumos(puede ser hasta 0 a 999999):");
             String observaciones = JOptionPane.showInputDialog("Ingrese las observaciones del insumo:");
-            String nombreLab = JOptionPane.showInputDialog("Ingrese nombre de laboratorio para asignar Insumo");
-            ArrayList<Laboratorio> labs = lab.listarLaboratorios();
-            Laboratorio laboratorio = lab.listarLaboratorio(labs.get(0).getId());
+            String labAsignar=JOptionPane.showInputDialog("Ingrese nombre de laboratorio para asignar Insumo:");
+            String iD = lab.listarLaboratorioPorNombre(labAsignar);
+            Laboratorio laboratorio=lab.listarLaboratorio(iD);
             if (laboratorio != null) {
                 boolean exito = insumos.crearProductoInsumo(user, descripcion, marca, modelo, presentacion, clasificacion, categoria, ultimaCompra, precioEstimado, unidad, proveedor, codigo, nombreProducto, inventarioExistente, observaciones, laboratorio);
                 if (exito) {
@@ -236,14 +237,12 @@ public class PantallaInsumos extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Error al crear el insumo, Laboratorio no encontrado");
             }
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Insumo no encontrado");
-        }
     }//GEN-LAST:event_BotonModificarInsumoActionPerformed
 
     private void BotonEliminarInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarInsumoActionPerformed
-        String id = JOptionPane.showInputDialog("Ingrese el ID del insumo a eliminar:");
-        Insumo insumoExistente= insumos.listarInsumo(id);
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del insumo a eliminar:");
+        String id=insumos.listarInsumosPorNombre(user, nombre);
+        Insumo insumoExistente = insumos.listarInsumo(id);
         if(insumoExistente != null){
             boolean exito = insumos.eliminarInsumo(user, id);
             if (exito) {
@@ -268,7 +267,8 @@ public class PantallaInsumos extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonListarInsumoActionPerformed
 
     private void BotonListarInsumoEspecificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarInsumoEspecificoActionPerformed
-        String id = JOptionPane.showInputDialog("Ingrese el ID del equipo a mostrar:");
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del insumo a mostrar");
+        String id=insumos.listarInsumosPorNombre(user, nombre);
         Insumo insumo = insumos.listarInsumo(id);
         if(insumo!=null){
             StringBuilder info=new StringBuilder();
@@ -289,9 +289,6 @@ public class PantallaInsumos extends javax.swing.JPanel {
             info.append("Provedor:").append(insumo.getProveedor()).append("\n");
             
             JOptionPane.showMessageDialog(null, info.toString(), "Información del Insumo", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Insumo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BotonListarInsumoEspecificoActionPerformed
 
