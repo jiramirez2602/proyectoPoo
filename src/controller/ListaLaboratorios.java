@@ -11,6 +11,14 @@ public class ListaLaboratorios {
 
     public ListaLaboratorios() {
         lista = new ArrayList<>();
+        ArrayList<String> privilegios=new ArrayList<>();
+        privilegios.add("Laboratorios");
+        privilegios.add("Usuarios");
+        privilegios.add("Productos");
+        privilegios.add("Transacciones");
+        Usuario administradorLaboratorio = new Usuario("Harry1", "1234", "Harry Castellanos", privilegios, "administrador", true);
+        Laboratorio lab = new Laboratorio("Aula 2", "Ingenieria", "Industrial", "Laboratorios",administradorLaboratorio);
+        lista.add(lab);
     }
 
 //    public void iniciarLista() {
@@ -48,7 +56,7 @@ public class ListaLaboratorios {
     
     public String listarLaboratorioPorNombre(String nombreDeLaboratorio) {
         for (Laboratorio i : listarLaboratorios()) {
-            if (i.getNombreLaboratorio().toLowerCase().equals(nombreDeLaboratorio.toLowerCase())) {
+            if (i.getNombreLaboratorio().equals(nombreDeLaboratorio)) {
                 return i.getId();
             }
         }

@@ -15,6 +15,19 @@ public class ListaDeEquipos {
 
     public ListaDeEquipos() {
         listaEquipos = new ArrayList<>();
+        Date date = new Date(2004,05,06);
+        Date date2= new Date(2024,06,01);
+        Date date3= new Date(2024,06,11);
+        Date date4= new Date(2024,06,13);
+        ArrayList<String> privilegios=new ArrayList<>();
+        privilegios.add("Laboratorios");
+        privilegios.add("Usuarios");
+        privilegios.add("Productos");
+        privilegios.add("Transacciones");
+        Usuario administradorLaboratorio = new Usuario("Harry1", "1234", "Harry Castellanos", privilegios, "administrador", true);
+        Laboratorio lab = new Laboratorio("Aula 2", "Ingenieria", "Industrial", "Laboratorios",administradorLaboratorio);
+        Equipo equipoInicial=new Equipo("ver atomos", "Casio", "modeloS", "213212", "132123","prsentable","80watts","procesar","Hidrogeno",date, "ver en el micro",date2,date3,date2,date4,"Laboratorios Santa Ines",true,"563723","Microscopio",1,"Buen estado",lab);
+        listaEquipos.add(equipoInicial);
     }
 
     public ArrayList<Equipo> getListaEquipos() {

@@ -277,7 +277,7 @@ public class PantallaSustanciasQuimicas extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonListarSustanciasActionPerformed
 
     private void BotonListarSustanciaEspecificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarSustanciaEspecificaActionPerformed
-        String nombre = JOptionPane.showInputDialog("Ingrese el nombre de la sustancia a modificar:");
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre de la sustancia a mostrar:");
         String id=listaSustanciasQuimicas.listarSustanciaQumicaPorNombre(user, nombre);
         SustanciaQuimica sustanciaExistente = listaSustanciasQuimicas.listarSustanciaQuimica(id);
         if (sustanciaExistente != null) {

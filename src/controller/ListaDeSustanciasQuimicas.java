@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import model.Laboratorio;
 import model.SustanciaQuimica;
@@ -12,6 +13,15 @@ public class ListaDeSustanciasQuimicas {
 
     public ListaDeSustanciasQuimicas() {
         listaSustancias = new ArrayList<>();
+        ArrayList<String> privilegios=new ArrayList<>();
+        privilegios.add("Laboratorios");
+        privilegios.add("Usuarios");
+        privilegios.add("Productos");
+        privilegios.add("Transacciones");
+        Usuario administradorLaboratorio = new Usuario("Harry1", "1234", "Harry Castellanos", privilegios, "administrador", true);
+        Laboratorio lab = new Laboratorio("Aula 2", "Ingenieria", "Industrial", "Laboratorios",administradorLaboratorio);
+        SustanciaQuimica sustancia = new SustanciaQuimica("H20", "Liquido", "estable","Hidrogeno",false,"32232","bajo", "fraseR","FraseS","Sellado en botella","Permitido","laboratorios",100, "LaboratoriosAMAI", "Envasado", "53236", "Hidrogeno", 1,"Seguro",lab);
+        listaSustancias.add(sustancia);
     }
 
     public ArrayList<SustanciaQuimica> getListaSustanciasQuimicas() {
