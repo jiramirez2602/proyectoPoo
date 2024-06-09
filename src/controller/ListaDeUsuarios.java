@@ -156,7 +156,7 @@ public class ListaDeUsuarios {
             return usuarioIniciado;
         }
         else if((permitirUser==false && permitirPass==true)||(permitirUser==false && permitirPass==false)||(permitirUser==true && permitirPass==false)){
-            JOptionPane.showMessageDialog(null,"El usuario y la contraseña no coinciden", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"El usuario o la contraseña son incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
         }
         return null;
     }
