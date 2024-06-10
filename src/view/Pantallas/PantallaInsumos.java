@@ -132,7 +132,7 @@ public class PantallaInsumos extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icono Imagen Usuarios(2).png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icono Insumos.png"))); // NOI18N
 
         javax.swing.GroupLayout BackGroundPantallaUsuariosLayout = new javax.swing.GroupLayout(BackGroundPantallaUsuarios);
         BackGroundPantallaUsuarios.setLayout(BackGroundPantallaUsuariosLayout);

@@ -107,7 +107,7 @@ public class PantallaProductos extends javax.swing.JPanel {
                 .addGap(45, 45, 45))
         );
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icono Imagen Usuarios(2).png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icono Productos.png"))); // NOI18N
 
         javax.swing.GroupLayout BackGroundPantallaEquiposLayout = new javax.swing.GroupLayout(BackGroundPantallaEquipos);
         BackGroundPantallaEquipos.setLayout(BackGroundPantallaEquiposLayout);

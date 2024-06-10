@@ -132,7 +132,7 @@ public class PantallaSustanciasQuimicas extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icono Imagen Usuarios(2).png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icono Sustancias Quimicas.png"))); // NOI18N
 
         javax.swing.GroupLayout BackGroundPantallaInsumosLayout = new javax.swing.GroupLayout(BackGroundPantallaInsumos);
         BackGroundPantallaInsumos.setLayout(BackGroundPantallaInsumosLayout);
