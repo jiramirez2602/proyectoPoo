@@ -230,7 +230,7 @@ public class PantallaInsumos extends javax.swing.JPanel {
             String iD = lab.listarLaboratorioPorNombre(labAsignar);
             Laboratorio laboratorio=lab.listarLaboratorio(iD);
             if (laboratorio != null) {
-                boolean exito = insumos.crearProductoInsumo(user, descripcion, marca, modelo, presentacion, clasificacion, categoria, ultimaCompra, precioEstimado, unidad, proveedor, codigo, nombreProducto, inventarioExistente, observaciones, laboratorio);
+                boolean exito = insumos.modificarInsumo(user, id, descripcion, marca, modelo, presentacion, clasificacion, categoria, ultimaCompra, precioEstimado, unidad, proveedor, codigo, nombreProducto, inventarioExistente, observaciones, laboratorio);
                 if (exito) {
                     JOptionPane.showMessageDialog(null, "Insumo creado exitosamente");
                 } else {

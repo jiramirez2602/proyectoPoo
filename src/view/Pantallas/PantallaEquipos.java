@@ -244,7 +244,7 @@ public class PantallaEquipos extends javax.swing.JPanel {
             String iD = lab.listarLaboratorioPorNombre(labAsignar);
             Laboratorio laboratorio=lab.listarLaboratorio(iD);
             if (laboratorio != null) {
-                boolean exito = equipos.crearProductoEquipo(user, descripcion, marca, modelo, numeroSerial, numeroActivo, presentacion, voltaje, procesable, materialRequerido, añoDeCompra, aplicacion, ultimoMantenimiento, proximoMantenimiento, ultimaCalibracion, proximaCalibracion, provedores, encendido, codigo, nombreProducto, inventarioExistente, observaciones, laboratorio);
+                boolean exito = equipos.modificarEquipo(user, id, descripcion, marca, modelo, numeroSerial, numeroActivo, presentacion, voltaje, procesable, materialRequerido, añoDeCompra, aplicacion, ultimoMantenimiento, proximoMantenimiento, ultimaCalibracion, proximaCalibracion, provedores, encendido, codigo, nombreProducto, inventarioExistente, observaciones, laboratorio);
                 if (exito) {
                     JOptionPane.showMessageDialog(null, "Equipo creado exitosamente");
                 } else {
