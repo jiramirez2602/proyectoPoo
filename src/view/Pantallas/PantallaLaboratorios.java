@@ -172,8 +172,8 @@ public class PantallaLaboratorios extends javax.swing.JPanel {
         String escuela = JOptionPane.showInputDialog("Ingrese la escuela:");
         String departamento = JOptionPane.showInputDialog("Ingrese el departamento:");
         String adminUsername = JOptionPane.showInputDialog("Ingrese el nombre de usuario del administrador:");
-        Usuario administrador = listaUsuarios.iniciarSesion(adminUsername, ""); // Busca el usuario con el nombre de usuario
-
+        String id = listaUsuarios.listarUsuarioPorNombre(adminUsername); // Busca el usuario con el nombre de usuario
+        Usuario administrador=listaUsuarios.listarUsuario(id);
         if (administrador != null) {
             boolean exito = listaLaboratorios.crearLaboratorio(administrador, nombreLaboratorio, facultad, escuela, departamento, administrador);
             if (exito) {
@@ -195,9 +195,9 @@ public class PantallaLaboratorios extends javax.swing.JPanel {
             String nuevaFacultad = JOptionPane.showInputDialog("Ingrese la nueva facultad:", laboratorioExistente.getFacultad());
             String nuevaEscuela = JOptionPane.showInputDialog("Ingrese la nueva escuela:", laboratorioExistente.getEscuela());
             String nuevoDepartamento = JOptionPane.showInputDialog("Ingrese el nuevo departamento:", laboratorioExistente.getDepartamento());
-            String adminUsername = JOptionPane.showInputDialog("Ingrese el nombre de usuario del nuevo administrador:", laboratorioExistente.getAdministrador().getUsername());
-            Usuario nuevoAdministrador = listaUsuarios.iniciarSesion(adminUsername, ""); // Busca el usuario con el nombre de usuario
-
+            String adminUsername = JOptionPane.showInputDialog("Ingrese el nombre de usuario del administrador:");
+            String ID = listaUsuarios.listarUsuarioPorNombre(adminUsername); // Busca el usuario con el nombre de usuario
+            Usuario nuevoAdministrador=listaUsuarios.listarUsuario(ID);
             if (nuevoAdministrador != null) {
                 boolean exito = listaLaboratorios.modificarLaboratorio(nuevoAdministrador, id, nuevoNombreLaboratorio, nuevaFacultad, nuevaEscuela, nuevoDepartamento, nuevoAdministrador);
                 if (exito) {

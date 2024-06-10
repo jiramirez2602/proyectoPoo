@@ -58,7 +58,7 @@ public class PantallaInsumos extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(62, 183, 248));
 
         BotonCrearInsumo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        BotonCrearInsumo.setText("Crear Usuario");
+        BotonCrearInsumo.setText("Crear Insumo");
         BotonCrearInsumo.setAlignmentY(0.0F);
         BotonCrearInsumo.setBorder(null);
         BotonCrearInsumo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
