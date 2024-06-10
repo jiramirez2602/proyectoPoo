@@ -75,7 +75,7 @@ public class ListaDeUsuarios {
     
     public String listarUsuarioPorNombre(String nombreDeUsuario) {
         for (Usuario i : listarUsuarios()) {
-            if (i.getNombreUser().equals(nombreDeUsuario)) {
+            if (i.getUsername().equals(nombreDeUsuario)) {
                 return i.getId();
             }
         }
