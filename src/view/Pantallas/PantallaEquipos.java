@@ -73,6 +73,7 @@ public class PantallaEquipos extends javax.swing.JPanel {
 
         BotonModificarEquipo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonModificarEquipo.setText("Modificar Equipo");
+        BotonModificarEquipo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonModificarEquipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonModificarEquipoActionPerformed(evt);
@@ -81,6 +82,7 @@ public class PantallaEquipos extends javax.swing.JPanel {
 
         BotonEliminarEquipo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonEliminarEquipo.setText("Eliminar Equipo");
+        BotonEliminarEquipo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonEliminarEquipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonEliminarEquipoActionPerformed(evt);
@@ -89,6 +91,7 @@ public class PantallaEquipos extends javax.swing.JPanel {
 
         BotonListarEquipo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonListarEquipo.setText("Listar Equipo");
+        BotonListarEquipo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonListarEquipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonListarEquipoActionPerformed(evt);
@@ -97,6 +100,7 @@ public class PantallaEquipos extends javax.swing.JPanel {
 
         BotonListarEquipoEspecifico.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonListarEquipoEspecifico.setText("Listar Equipo Especifico");
+        BotonListarEquipoEspecifico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonListarEquipoEspecifico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonListarEquipoEspecificoActionPerformed(evt);

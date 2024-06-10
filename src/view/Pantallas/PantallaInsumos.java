@@ -72,6 +72,7 @@ public class PantallaInsumos extends javax.swing.JPanel {
 
         BotonModificarInsumo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonModificarInsumo.setText("Modificar Insumo");
+        BotonModificarInsumo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonModificarInsumo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonModificarInsumoActionPerformed(evt);
@@ -80,6 +81,7 @@ public class PantallaInsumos extends javax.swing.JPanel {
 
         BotonEliminarInsumo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonEliminarInsumo.setText("Eliminar Insumo");
+        BotonEliminarInsumo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonEliminarInsumo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonEliminarInsumoActionPerformed(evt);
@@ -88,6 +90,7 @@ public class PantallaInsumos extends javax.swing.JPanel {
 
         BotonListarInsumo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonListarInsumo.setText("Listar Insumo");
+        BotonListarInsumo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonListarInsumo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonListarInsumoActionPerformed(evt);
@@ -96,6 +99,7 @@ public class PantallaInsumos extends javax.swing.JPanel {
 
         BotonListarInsumoEspecifico.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonListarInsumoEspecifico.setText("Listar Insumo Especifico");
+        BotonListarInsumoEspecifico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonListarInsumoEspecifico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonListarInsumoEspecificoActionPerformed(evt);

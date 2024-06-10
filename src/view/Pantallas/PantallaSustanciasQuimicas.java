@@ -72,6 +72,7 @@ public class PantallaSustanciasQuimicas extends javax.swing.JPanel {
 
         BotonModificarSustancia.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonModificarSustancia.setText("Modificar Sustancia");
+        BotonModificarSustancia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonModificarSustancia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonModificarSustanciaActionPerformed(evt);
@@ -80,6 +81,7 @@ public class PantallaSustanciasQuimicas extends javax.swing.JPanel {
 
         BotonEliminarSustancia.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonEliminarSustancia.setText("Eliminar Sustancia");
+        BotonEliminarSustancia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonEliminarSustancia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonEliminarSustanciaActionPerformed(evt);
@@ -88,6 +90,7 @@ public class PantallaSustanciasQuimicas extends javax.swing.JPanel {
 
         BotonListarSustancias.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonListarSustancias.setText("Listar Sustancias");
+        BotonListarSustancias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonListarSustancias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonListarSustanciasActionPerformed(evt);
@@ -96,6 +99,7 @@ public class PantallaSustanciasQuimicas extends javax.swing.JPanel {
 
         BotonListarSustanciaEspecifica.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonListarSustanciaEspecifica.setText("Listar Sustancia  Especifica");
+        BotonListarSustanciaEspecifica.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonListarSustanciaEspecifica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonListarSustanciaEspecificaActionPerformed(evt);

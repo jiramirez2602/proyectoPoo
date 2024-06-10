@@ -138,6 +138,9 @@
                   <Font name="Arial Rounded MT Bold" size="18" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Modificar Equipo"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonModificarEquipoActionPerformed"/>
@@ -149,6 +152,9 @@
                   <Font name="Arial Rounded MT Bold" size="18" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Eliminar Equipo"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonEliminarEquipoActionPerformed"/>
@@ -160,6 +166,9 @@
                   <Font name="Arial Rounded MT Bold" size="18" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Listar Equipo"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonListarEquipoActionPerformed"/>
@@ -171,6 +180,9 @@
                   <Font name="Arial Rounded MT Bold" size="18" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Listar Equipo Especifico"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonListarEquipoEspecificoActionPerformed"/>
