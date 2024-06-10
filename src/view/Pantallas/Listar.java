@@ -55,7 +55,7 @@ public class Listar extends javax.swing.JPanel {
   
     public void mostrarListaLaboratorios(List<Laboratorio> laboratorios) {
         if (!laboratorios.isEmpty()) {
-            String[] columnNames = {"ID", "Nombre", "Facultad", "Escuela", "Departamento", "Administrador"};
+            String[] columnNames = {"Nombre", "Facultad", "Escuela", "Departamento", "Administrador"};
             List<Function<Laboratorio, Object>> columnFunctions = List.of(
                     Laboratorio::getNombreLaboratorio,
                     Laboratorio::getFacultad,
