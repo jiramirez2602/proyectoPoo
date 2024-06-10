@@ -82,39 +82,33 @@ public class ListaDeUsuarios {
         return null;
     }
     
-    public boolean modificarUsuarios(Usuario user,String id,String newUser,String contrasena,String nombreCompleto,ArrayList<String> privilegio,String rol,String status){
+    public boolean modificarUsuarios(Usuario user,String nombre, String id, String newUser, String contrasena, String nombreCompleto, ArrayList<String> privilegio, String rol, String status, Boolean state) {
         Validador validar = new Validador();
-        Usuario usuarioExiste = listarUsuario(id);
-        boolean existeNombre = false;
+        String iD=listarUsuarioPorNombre(nombre);
+        Usuario usuarioExiste = listarUsuario(iD);
         boolean retornar = false;
         if (usuarioExiste != null) {
-            existeNombre = usuarioExistente(newUser);
-            if (existeNombre == true) {
-                JOptionPane.showMessageDialog(null, "Ya existe un usuario con el nombre: " + newUser + ". Intente con otro nombre", "Error", JOptionPane.ERROR_MESSAGE);
+            if (!validar.validarConRegex(newUser, "^.{1,30}$", "Nombre del usuario", "Limite de caracteres sobrepasado, solo se puede ingresar de 5 a 30 caracteres")
+                    || !validar.validarConRegex(contrasena, "^.{1,30}$", "Contraseña del usuario", "Limite de caracteres sobrepasado, solo se puede ingresar de 5 a 30 caracteres")
+                    || !validar.validarConRegex(nombreCompleto, "^[a-zA-Z ]{1,30}$", "Nombre Verdadero del usuario", "El nombre es invalido, solo se aceptan caracteres alfabeticos, con un limite de 5 a 30 caracteres")
+                    || !validar.validarConRegex(rol, "^[a-zA-Z]{1,30}$", "Rol del usuario", "El rol es invalido, solo se aceptan caracteres alfabeticos, con un limite de 5 a 30 caracteres")
+                    || !validar.validarConRegex(status, "^(true|false)$", "Estado del usuario", "El estado es invalido")) {
                 return retornar;
             } else {
-                if (!validar.validarConRegex(newUser,"^.{1,30}$","Nombre del usuario","Limite de caracteres sobrepasado, solo se puede ingresar de 5 a 30 caracteres")
-                    || !validar.validarConRegex(contrasena,"^.{1,30}$", "Contraseña del usuario","Limite de caracteres sobrepasado, solo se puede ingresar de 5 a 30 caracteres")
-                    || !validar.validarConRegex(nombreCompleto,"^[a-zA-Z ]{1,30}$","Nombre Verdadero del usuario","El nombre es invalido, solo se aceptan caracteres alfabeticos, con un limite de 5 a 30 caracteres")
-                    || !validar.validarConRegex(rol,"^[a-zA-Z]{1,30}$","Rol del usuario","El rol es invalido, solo se aceptan caracteres alfabeticos, con un limite de 5 a 30 caracteres")
-                    || !validar.validarConRegex(status,"^(true|false)$","Estado del usuario","El estado es invalido")) {
-                    return retornar;
-                } else {
-                    boolean estado = true;
-                    try {
-                        estado = Boolean.parseBoolean(status);
-                    } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null, "Estado invalido", "Error", JOptionPane.ERROR_MESSAGE);
-                        return false;
-                    }
-                    Usuario userModded = new Usuario(newUser, contrasena, nombreCompleto, privilegio, rol,estado);
-                    for (int cont = 0; cont < listaUsuarios.size(); cont++) {
-                        if (listaUsuarios.get(cont).getId().equals(id)) {
-                            listaUsuarios.set(cont,userModded);
-                        }
-                    }
-                    retornar=true;
+                boolean estado = true;
+                try {
+                    estado = Boolean.parseBoolean(status);
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Estado invalido", "Error", JOptionPane.ERROR_MESSAGE);
+                    return false;
                 }
+                Usuario userModded = new Usuario(newUser, contrasena, nombreCompleto, privilegio, rol, state);
+                for (int cont = 0; cont < listaUsuarios.size(); cont++) {
+                    if (listaUsuarios.get(cont).getId().equals(iD)) {
+                        listaUsuarios.set(cont, userModded);
+                    }
+                }
+                retornar = true;
             }
         } else {
             JOptionPane.showMessageDialog(null, "Usuario no encontrado", "Error", JOptionPane.ERROR_MESSAGE);

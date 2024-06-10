@@ -243,7 +243,7 @@ public class PantallaUsuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonCrearUsuarioActionPerformed
 
     private void BotonModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarUsuarioActionPerformed
-        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del usuario a modificar:");
+         String nombre = JOptionPane.showInputDialog("Ingrese el nombre del usuario a modificar:");
         String id=ListaUsuarios.listarUsuarioPorNombre(nombre);
         Usuario usuarioExistente = ListaUsuarios.listarUsuario(id);
         if (usuarioExistente != null) {
@@ -310,7 +310,7 @@ public class PantallaUsuarios extends javax.swing.JPanel {
 
             Usuario nuevoUsuario = new Usuario(username, contrasena, nombreCompleto, privilegios, rol, estado);
 
-            boolean exito = ListaUsuarios.crearUsuario(nuevoUsuario, username, contrasena, nombreCompleto, privilegios, rol, String.valueOf(estado));
+            boolean exito = ListaUsuarios.modificarUsuarios(nuevoUsuario,nombre,id,username, contrasena, nombreCompleto, privilegios, rol,"true", estado);
             if (exito) {
                 JOptionPane.showMessageDialog(null, "Usuario creado exitosamente");
             } else {
