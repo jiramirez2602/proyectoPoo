@@ -270,12 +270,17 @@ public class PantallaSustanciasQuimicas extends javax.swing.JPanel {
 
     private void BotonListarSustanciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarSustanciasActionPerformed
         List<SustanciaQuimica> sustancias = listaSustanciasQuimicas.getListaSustanciasQuimicas();
-        Listar pl = new Listar();
+        if(!sustancias.isEmpty()){
+            Listar pl = new Listar();
         pl.setSize(1100, 610);
         pl.setLocation(0, 0);
         pl.mostrarListaSustanciasQuimicas(sustancias);
         BackGroundPantallaInsumos.removeAll();
         BackGroundPantallaInsumos.add(pl, BorderLayout.CENTER);
+        } else{ 
+            JOptionPane.showMessageDialog(null, "No hay sustancias disponibles");
+
+        }
         BackGroundPantallaInsumos.revalidate();
         BackGroundPantallaInsumos.repaint();
     }//GEN-LAST:event_BotonListarSustanciasActionPerformed

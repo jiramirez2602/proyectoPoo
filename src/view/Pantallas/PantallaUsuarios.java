@@ -335,12 +335,16 @@ public class PantallaUsuarios extends javax.swing.JPanel {
 
     private void BotonListarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarUsuarioActionPerformed
         List<Usuario> usuarios = ListaUsuarios.listarUsuarios();
-        Listar pl = new Listar();
-        pl.setSize(1100, 610);
-        pl.setLocation(0, 0);
-        pl.mostrarListaUsuarios(usuarios);
-        BackGroundPantallaUsuarios.removeAll();
-        BackGroundPantallaUsuarios.add(pl, BorderLayout.CENTER);
+        if(!usuarios.isEmpty()){
+             Listar pl = new Listar();
+            pl.setSize(1100, 610);
+            pl.setLocation(0, 0);
+            pl.mostrarListaUsuarios(usuarios);
+            BackGroundPantallaUsuarios.removeAll();
+            BackGroundPantallaUsuarios.add(pl, BorderLayout.CENTER);
+        } else{
+             JOptionPane.showMessageDialog(null, "No hay usuarios disponibles");
+        }
         BackGroundPantallaUsuarios.revalidate();
         BackGroundPantallaUsuarios.repaint();
     }//GEN-LAST:event_BotonListarUsuarioActionPerformed

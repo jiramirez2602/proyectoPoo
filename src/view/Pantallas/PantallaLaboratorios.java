@@ -226,12 +226,16 @@ public class PantallaLaboratorios extends javax.swing.JPanel {
 
     private void BotonListarLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarLabActionPerformed
         List<Laboratorio> laboratorios = listaLaboratorios.listarLaboratorios();
-        Listar pl = new Listar();
+        if(!laboratorios.isEmpty()){
+            Listar pl = new Listar();
         pl.setSize(1100, 610);
         pl.setLocation(0, 0);
         pl.mostrarListaLaboratorios(laboratorios);
         BackGroundPantallaLab.removeAll();
         BackGroundPantallaLab.add(pl, BorderLayout.CENTER);
+        } else{
+            JOptionPane.showMessageDialog(null, "No hay laboratorios disponibles");
+        }
         BackGroundPantallaLab.revalidate();
         BackGroundPantallaLab.repaint();
     }//GEN-LAST:event_BotonListarLabActionPerformed

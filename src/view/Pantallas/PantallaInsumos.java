@@ -259,12 +259,16 @@ public class PantallaInsumos extends javax.swing.JPanel {
 
     private void BotonListarInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarInsumoActionPerformed
         List<Insumo> insumo = insumos.listarInsumoPorUsuario(user);
-        Listar p1 = new Listar();
-        p1.setSize(1100, 610);
-        p1.setLocation(0, 0);
-        p1.mostrarListaInsumos(insumo);
-        BackGroundPantallaUsuarios.removeAll(); // Llamar a removeAll() en la instancia de PantallaUsuarios
-        BackGroundPantallaUsuarios.add(p1, BorderLayout.CENTER);
+        if(!insumo.isEmpty()){
+             Listar p1 = new Listar();
+            p1.setSize(1100, 610);
+            p1.setLocation(0, 0);
+            p1.mostrarListaInsumos(insumo);
+            BackGroundPantallaUsuarios.removeAll(); 
+            BackGroundPantallaUsuarios.add(p1, BorderLayout.CENTER);
+        } else{
+              JOptionPane.showMessageDialog(null, "No hay insumos disponibles");
+        }
         BackGroundPantallaUsuarios.revalidate();
         BackGroundPantallaUsuarios.repaint();
        
