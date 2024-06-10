@@ -67,6 +67,7 @@ public class PantallaLaboratorios extends javax.swing.JPanel {
         BotonModificarUsuario.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonModificarUsuario.setText("Modificar Laboratorio");
         BotonModificarUsuario.setToolTipText("");
+        BotonModificarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonModificarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonModificarUsuarioActionPerformed(evt);
@@ -75,6 +76,7 @@ public class PantallaLaboratorios extends javax.swing.JPanel {
 
         BotonEliminarLaboratorio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonEliminarLaboratorio.setText("Eliminar Laboratorio");
+        BotonEliminarLaboratorio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonEliminarLaboratorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonEliminarLaboratorioActionPerformed(evt);
@@ -83,6 +85,7 @@ public class PantallaLaboratorios extends javax.swing.JPanel {
 
         BotonListarLab.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonListarLab.setText("Listar Laboratorio");
+        BotonListarLab.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonListarLab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonListarLabActionPerformed(evt);
@@ -91,6 +94,7 @@ public class PantallaLaboratorios extends javax.swing.JPanel {
 
         BotonListarLabEspecifico.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonListarLabEspecifico.setText("Listar Laboratorio Especifico");
+        BotonListarLabEspecifico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonListarLabEspecifico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonListarLabEspecificoActionPerformed(evt);

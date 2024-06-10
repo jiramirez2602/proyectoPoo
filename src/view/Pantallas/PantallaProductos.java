@@ -69,6 +69,7 @@ public class PantallaProductos extends javax.swing.JPanel {
 
         BotonInsumos.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonInsumos.setText("Insumos");
+        BotonInsumos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonInsumos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonInsumosActionPerformed(evt);
@@ -77,6 +78,7 @@ public class PantallaProductos extends javax.swing.JPanel {
 
         BotonSustanciasQuimicas.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonSustanciasQuimicas.setText("Sustancias Quimicas");
+        BotonSustanciasQuimicas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonSustanciasQuimicas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonSustanciasQuimicasActionPerformed(evt);

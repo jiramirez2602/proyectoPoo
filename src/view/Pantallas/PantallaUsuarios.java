@@ -71,6 +71,7 @@ public class PantallaUsuarios extends javax.swing.JPanel {
 
         BotonModificarUsuario.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonModificarUsuario.setText("Modificar Usuario");
+        BotonModificarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonModificarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonModificarUsuarioActionPerformed(evt);
@@ -79,6 +80,7 @@ public class PantallaUsuarios extends javax.swing.JPanel {
 
         BotonEliminarUsuario.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonEliminarUsuario.setText("Eliminar Usuario");
+        BotonEliminarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonEliminarUsuarioActionPerformed(evt);
@@ -87,6 +89,7 @@ public class PantallaUsuarios extends javax.swing.JPanel {
 
         BotonListarUsuario.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonListarUsuario.setText("Listar Usuario");
+        BotonListarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonListarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonListarUsuarioActionPerformed(evt);
@@ -95,6 +98,7 @@ public class PantallaUsuarios extends javax.swing.JPanel {
 
         BotonListarUsuarioEspecifico.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         BotonListarUsuarioEspecifico.setText("Listar Usuario Especifico");
+        BotonListarUsuarioEspecifico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonListarUsuarioEspecifico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonListarUsuarioEspecificoActionPerformed(evt);
